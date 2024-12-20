@@ -1,6 +1,6 @@
 # Updating Your `develop` Branch with Changes from the Original Repository
 
-- (Original Repo)[https://github.com/mivaecommerce/shadows]
+- [Original Repo](https://github.com/mivaecommerce/shadows)
 
 ## Steps to Update Your Custom Branch
 
