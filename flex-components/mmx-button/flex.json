@@ -1,26 +1,18 @@
 {
-	"code": "mmx-button",
-	"name": "MMX Button",
+	"code": "mmx-pcinet-button",
+	"name": "MMX PCInet Button",
 	"type": "library",
-	"version": "10.11.00",
-	"managed": true,
-	"resourcegroup_code": "mmx-button",
+	"version": "00.01.00",
+	"managed": false,
+	"resourcegroup_code": "mmx-pcinet-button",
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-button.js",
-			"resource_code": "mmx-button",
+			"resource_code": "mmx-pcinet-button",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-pAe4ipCdy19S1npgUoK426+2OeCJzbBo9aaVud4THE4= sha384-1tWQaRKOL5+mMX9tnwcIsueiNPdJq2eXtuxeZSUmi2NNV4LtBTG2VlCjYv2MZ1/B sha512-YOsYHSiyM2cR6YueFRHuhAjy/sEju87Vq1n64E6AK7xjttpYAPJrHSSqeQ//XxNJs9MnFk0uKJH57Bcfch2/KQ=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -28,7 +20,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-button.css",
-			"resource_code": "mmx-button",
+			"resource_code": "mmx-pcinet-button",
 			"attributes": [
 				{
 					"name": "type",
@@ -41,19 +33,11 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-0NAAeryq+h/XbcUEbAMHjG50URlYShxJG4K8ra7iREU= sha384-XwMshKgGUOEye1yguCmyQWD/VoXpgJFYEockVSW3FYtEyX3GY1foYOlr93uXznaB sha512-jAA3DYiSZ1EEb2okqtzLbLnaFxNq5+4tHZWLbRqEOPNzxB/IjHmwQKadsk5C8O69qcNqyXq26+gnwSEL6Bu5iw=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00"
 	}
 }

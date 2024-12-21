@@ -1,8 +1,8 @@
 /**
- * MMX / BUTTON
+ * MMX PCINET / BUTTON
  */
 
-class MMX_Button extends MMX_Element {
+class MMXPCINET_Button extends MMXPCINET_Element {
 
 	static get props() {
 		return {
@@ -29,7 +29,7 @@ class MMX_Button extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-button'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button'];
 	hideOnEmpty = true;
 
 	constructor() {
@@ -41,7 +41,7 @@ class MMX_Button extends MMX_Element {
 		const tag = this.getTag();
 
 		return /*html*/`
-			<${tag} class="mmx-button ${this.getStyleClass()} mmx-button__size--${this.getPropValue('size')} mmx-button__width--${this.getPropValue('width')} mmx-button__shape--${this.getPropValue('shape')} ${this.darkClass()}" ${this.inheritAttrs()} part="button">
+			<${tag} class="mmx-pcinet-button ${this.getStyleClass()} mmx-pcinet-button__size--${this.getPropValue('size')} mmx-pcinet-button__width--${this.getPropValue('width')} mmx-pcinet-button__shape--${this.getPropValue('shape')} ${this.darkClass()}" ${this.inheritAttrs()} part="button">
 				<slot></slot>
 			</${tag}>
 		`;
@@ -65,16 +65,16 @@ class MMX_Button extends MMX_Element {
 		}
 
 		switch (this.getType()) {
-			case 'submit'	: button.addEventListener('click', MMX_Button.eventSubmitClick, false);	break;
-			case 'reset'	: button.addEventListener('click', MMX_Button.eventResetClick, false);	break;
+			case 'submit'	: button.addEventListener('click', MMXPCINET_Button.eventSubmitClick, false);	break;
+			case 'reset'	: button.addEventListener('click', MMXPCINET_Button.eventResetClick, false);	break;
 		}
 	}
 
 	static eventSubmitClick(e) {
-		const form = MMX.closestElement('form', this);
+		const form = MMXPCINET.closestElement('form', this);
 
 		if (form) {
-			form.addEventListener('submit', MMX_Button.eventSubmitClickForm, false);
+			form.addEventListener('submit', MMXPCINET_Button.eventSubmitClickForm, false);
 			if (form.reportValidity()) {
 				form.dispatchEvent(new Event('submit', { cancelable: true }));
 			}
@@ -86,14 +86,14 @@ class MMX_Button extends MMX_Element {
 			this.submit();
 		}
 
-		this.removeEventListener('submit', MMX_Button.eventSubmitClickForm, false);
+		this.removeEventListener('submit', MMXPCINET_Button.eventSubmitClickForm, false);
 	}
 
 	static eventResetClick(e) {
-		const form = MMX.closestElement('form', this);
+		const form = MMXPCINET.closestElement('form', this);
 
 		if (form) {
-			form.addEventListener('reset', MMX_Button.eventResetClickForm, false);
+			form.addEventListener('reset', MMXPCINET_Button.eventResetClickForm, false);
 			form.dispatchEvent(new Event('reset'));
 		}
 	}
@@ -103,26 +103,26 @@ class MMX_Button extends MMX_Element {
 			this.reset();
 		}
 
-		this.removeEventListener('reset', MMX_Button.eventResetClickForm, false);
+		this.removeEventListener('reset', MMXPCINET_Button.eventResetClickForm, false);
 	}
 
 	getStyleClass() {
 		const style = this.getPropValue('style');
-		let result = `mmx-button__${style}`;
+		let result = `mmx-pcinet-button__${style}`;
 
 		if ( style.indexOf('pill') > -1 ) {
-			result += ' mmx-button__pill';
+			result += ' mmx-pcinet-button__pill';
 		} else if ( style.indexOf('link') > -1 ) {
-			result += ' mmx-button__link';
+			result += ' mmx-pcinet-button__link';
 		} else {
-			result += ' mmx-button__button';
+			result += ' mmx-pcinet-button__button';
 		}
 
 		return result;
 	}
 
 	getButton() {
-		return this.shadowRoot.querySelector('.mmx-button');
+		return this.shadowRoot.querySelector('.mmx-pcinet-button');
 	}
 
 	getTag() {
@@ -146,7 +146,7 @@ class MMX_Button extends MMX_Element {
 	}
 
 	darkClass() {
-		return this.isDark() ? 'mmx-theme--dark' : '';
+		return this.isDark() ? 'mmx-pcinet-theme--dark' : '';
 	}
 
 	isDark() {
@@ -166,7 +166,7 @@ class MMX_Button extends MMX_Element {
 
 		if (name === 'disabled') {
 			if (button = this.getButton()) {
-				if (MMX.getBooleanAttribute(this, 'disabled')) {
+				if (MMXPCINET.getBooleanAttribute(this, 'disabled')) {
 					this.classList.add('disabled');
 					button.disabled = true;
 				}
@@ -178,8 +178,8 @@ class MMX_Button extends MMX_Element {
 		}
 	}
 
-	get disabled()			{ return MMX.getBooleanAttribute(this, 'disabled'); }
-	set disabled(disabled)	{ MMX.setBooleanAttribute(this, 'disabled', disabled); }
+	get disabled()			{ return MMXPCINET.getBooleanAttribute(this, 'disabled'); }
+	set disabled(disabled)	{ MMXPCINET.setBooleanAttribute(this, 'disabled', disabled); }
 
 	//
 	// Listeners
@@ -224,6 +224,6 @@ class MMX_Button extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-button')){
-	customElements.define('mmx-button', MMX_Button);
+if (!customElements.get('mmx-pcinet-button')){
+	customElements.define('mmx-pcinet-button', MMXPCINET_Button);
 }
