@@ -1,0 +1,1 @@
+cd ./flex-components/$1 && tar -cjf ../$1.tar.bz2 ./

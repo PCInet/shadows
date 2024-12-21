@@ -1,23 +1,23 @@
 /**
- * MMX / BASE
+ * MMX PCINET / BASE
  */
 
-const MMX = {};
+const MMXPCINET = {};
 
-MMX.variableType = (value) => {
+MMXPCINET.variableType = (value) => {
 	const [input, type] = Object.prototype.toString.call(value).match(/\[object (\w+)\]/);
 	return type.toLowerCase();
 };
 
-MMX.isTruthy = (value) => {
+MMXPCINET.isTruthy = (value) => {
 	return [true, 'true', 'yes', 'y', '1', 1].includes(value);
 };
 
-MMX.isFalsy = (value) => {
+MMXPCINET.isFalsy = (value) => {
 	return [null, undefined, false, 'false', 'no', 'n', '0', 0].includes(value);
 };
 
-MMX.copy = (value) => {
+MMXPCINET.copy = (value) => {
 	if(typeof value === 'object') {
 		try {
 			return JSON.parse(JSON.stringify(value));
@@ -29,12 +29,12 @@ MMX.copy = (value) => {
 	return value;
 };
 
-MMX.assign = (...args) => {
-	return Object.assign(...args.map(MMX.copy));
+MMXPCINET.assign = (...args) => {
+	return Object.assign(...args.map(MMXPCINET.copy));
 };
 
-MMX.coerceNumber = (value, fallback = 0) => {
-	const valueType = MMX.variableType(value);
+MMXPCINET.coerceNumber = (value, fallback = 0) => {
+	const valueType = MMXPCINET.variableType(value);
 
 	if(['null', 'undefined'].includes(valueType)) {
 		return fallback;
@@ -47,8 +47,8 @@ MMX.coerceNumber = (value, fallback = 0) => {
 	return isNaN(value) ? fallback : Number(value);
 };
 
-MMX.normalizeCode = (value) => {
-	const valueType = MMX.variableType(value);
+MMXPCINET.normalizeCode = (value) => {
+	const valueType = MMXPCINET.variableType(value);
 
 	if (['string', 'number', 'boolean'].includes(valueType)) {
 		return String(value).trim();
@@ -57,7 +57,7 @@ MMX.normalizeCode = (value) => {
 	return '';
 };
 
-MMX.valueIsEmpty = (value) => {
+MMXPCINET.valueIsEmpty = (value) => {
 	if (value === null)											return true;
 	else if (typeof value === 'object')							return Object.keys(value).length === 0 && value.constructor === Object;
 	else if (typeof value === 'undefined')						return true;
@@ -67,17 +67,17 @@ MMX.valueIsEmpty = (value) => {
 	return false;
 };
 
-MMX.watchData = (obj, callback) => {
-	return new Proxy(obj, MMX.proxyHandler(callback));
+MMXPCINET.watchData = (obj, callback) => {
+	return new Proxy(obj, MMXPCINET.proxyHandler(callback));
 };
 
-MMX.proxyHandler = (callback) => {
+MMXPCINET.proxyHandler = (callback) => {
 	return {
 		get(obj, prop) {
 			// Deep-watch the object (i.e. recursively bind a watcher to objects & arrays with the same callback)
-			const valueType = MMX.variableType(obj[prop]);
+			const valueType = MMXPCINET.variableType(obj[prop]);
 			if (['object', 'array'].includes(valueType)) {
-				return MMX.watchData(obj[prop], callback);
+				return MMXPCINET.watchData(obj[prop], callback);
 			}
 
 			return obj[prop];
@@ -92,7 +92,7 @@ MMX.proxyHandler = (callback) => {
 	};
 };
 
-MMX.createElement = ({type, content, attributes, data, parent} = {}) => {
+MMXPCINET.createElement = ({type, content, attributes, data, parent} = {}) => {
 	if (typeof type === 'undefined'){
 		return;
 	}
@@ -103,11 +103,11 @@ MMX.createElement = ({type, content, attributes, data, parent} = {}) => {
 	}
 
 	if (typeof attributes === 'object') {
-		MMX.setElementAttributes(element, attributes);
+		MMXPCINET.setElementAttributes(element, attributes);
 	}
 
 	if (typeof data === 'object') {
-		element.data = MMX.watchData(data, () => {
+		element.data = MMXPCINET.watchData(data, () => {
 			element.forceUpdate?.();
 		});
 	}
@@ -127,7 +127,7 @@ MMX.createElement = ({type, content, attributes, data, parent} = {}) => {
 	return element;
 };
 
-MMX.setElementAttributes = (element, attributes) => {
+MMXPCINET.setElementAttributes = (element, attributes) => {
 
 	if (!attributes){
 		return element;
@@ -157,7 +157,7 @@ MMX.setElementAttributes = (element, attributes) => {
 	return element;
 };
 
-MMX.setElementStyles = ({element, styles = {}, suffix = ''} = {}) => {
+MMXPCINET.setElementStyles = ({element, styles = {}, suffix = ''} = {}) => {
 	if (!element) {
 		return;
 	}
@@ -168,15 +168,15 @@ MMX.setElementStyles = ({element, styles = {}, suffix = ''} = {}) => {
 	}
 };
 
-MMX.closestElement = (selector, node) => {
+MMXPCINET.closestElement = (selector, node) => {
 	if (!node || node === document || node === window) {
 		return null;
 	}
 
-	return (node.closest?.(selector) || MMX.closestElement(selector, node?.getRootNode?.()?.host));
+	return (node.closest?.(selector) || MMXPCINET.closestElement(selector, node?.getRootNode?.()?.host));
 };
 
-MMX.querySelector = (selector, root = document) => {
+MMXPCINET.querySelector = (selector, root = document) => {
 	if (selector === ':shadow') {
 		return root?.shadowRoot;
 	}
@@ -188,7 +188,7 @@ MMX.querySelector = (selector, root = document) => {
 	return null;
 };
 
-MMX.querySelectorList = (selectors = [], root = document) => {
+MMXPCINET.querySelectorList = (selectors = [], root = document) => {
 	let lastElement = root;
 
 	if (!Array.isArray(selectors) || selectors.length === 0) {
@@ -196,7 +196,7 @@ MMX.querySelectorList = (selectors = [], root = document) => {
 	}
 
 	for (const selector of selectors) {
-		const element = MMX.querySelector(selector, lastElement);
+		const element = MMXPCINET.querySelector(selector, lastElement);
 
 		if (!element) {
 			lastElement = null;
@@ -209,7 +209,7 @@ MMX.querySelectorList = (selectors = [], root = document) => {
 	return lastElement;
 };
 
-MMX.encodeEntities = (input) => {
+MMXPCINET.encodeEntities = (input) => {
 	return String(input ?? '')
 			.replace(/&reg;/g, '®')
 			.replace(/&trade;/g, '™')
@@ -223,22 +223,22 @@ MMX.encodeEntities = (input) => {
 			.replace(/™/g, '&trade;');
 };
 
-MMX.encodeSrcset = (input) => {
+MMXPCINET.encodeSrcset = (input) => {
 	return String(input).replace(/ /g, '%20');
 };
 
-MMX.isEqual = (a, b) => {
+MMXPCINET.isEqual = (a, b) => {
 	return JSON.stringify(a) === JSON.stringify(b);
 };
 
-MMX.setBooleanAttribute = (node, attribute_name, value, optional_enabled_values) => {
+MMXPCINET.setBooleanAttribute = (node, attribute_name, value, optional_enabled_values) => {
 	if (Array.isArray(optional_enabled_values) &&
 		 optional_enabled_values.indexOf(value) !== -1)	node.setAttribute(attribute_name, value);
-	else if (MMX.isTruthy(value))						node.setAttribute(attribute_name, '');
+	else if (MMXPCINET.isTruthy(value))						node.setAttribute(attribute_name, '');
 	else												node.removeAttribute(attribute_name);
 };
 
-MMX.getBooleanAttribute = (node, attribute_name, optional_enabled_values) => {
+MMXPCINET.getBooleanAttribute = (node, attribute_name, optional_enabled_values) => {
 	var value;
 
 	if (!node.hasAttribute(attribute_name)) {
@@ -250,11 +250,11 @@ MMX.getBooleanAttribute = (node, attribute_name, optional_enabled_values) => {
 		if (Array.isArray(optional_enabled_values) &&
 			 optional_enabled_values.indexOf(value) !== -1)	return true;
 		else if (value === null || value === '')			return true;
-		else												return MMX.isTruthy(value);
+		else												return MMXPCINET.isTruthy(value);
 	}
 };
 
-MMX.elementInViewport = (element) => {
+MMXPCINET.elementInViewport = (element) => {
 	var elementPosition = element.getBoundingClientRect();
 
 	return (
@@ -270,11 +270,11 @@ MMX.elementInViewport = (element) => {
  * @param {Node} element
  * @param {String} template
  */
-MMX.renderTemplate = (element, template) => {
+MMXPCINET.renderTemplate = (element, template) => {
 	element.innerHTML = template;
 };
 
-MMX.debounce = (func, timeout = 100) => {
+MMXPCINET.debounce = (func, timeout = 100) => {
 	let timer;
 	return (...args) => {
 		clearTimeout(timer);
@@ -282,14 +282,14 @@ MMX.debounce = (func, timeout = 100) => {
 	};
 };
 
-class MMX_FetchQueue {
+class MMXPCINET_FetchQueue {
 	#id = 0;
 	#max = 3;
 	#todo = new Map();
 	#doing = new Map();
 
 	constructor({max} = {}) {
-		this.#max = MMX.coerceNumber(max, this.#max);
+		this.#max = MMXPCINET.coerceNumber(max, this.#max);
 		this.#doNext();
 	}
 
@@ -324,26 +324,26 @@ class MMX_FetchQueue {
 	}
 }
 
-MMX.fetchQueue = new MMX_FetchQueue();
+MMXPCINET.fetchQueue = new MMXPCINET_FetchQueue();
 
-MMX.Runtime_JSON_API_Call = ({jsonUrl, storeCode, params = {}} = {}) => {
+MMXPCINET.Runtime_JSON_API_Call = ({jsonUrl, storeCode, params = {}} = {}) => {
 	jsonUrl = jsonUrl ?? window?.json_url;
 	storeCode = storeCode ?? window?.Store_Code;
 
-	if (!jsonUrl?.length || MMX.valueIsEmpty(storeCode)) {
+	if (!jsonUrl?.length || MMXPCINET.valueIsEmpty(storeCode)) {
 		return Promise.reject({
 			success: false,
-			error_code: 'MMX-Runtime_JSON_API_Call-00001',
+			error_code: 'MMXPCINET-Runtime_JSON_API_Call-00001',
 			error_message: 'Runtime_JSON_API_Call halted. Cannot call Miva JSON API. jsonUrl and/or storeCode is not provided'
 		});
 	}
 
-	return MMX.fetchQueue.request(jsonUrl, {
+	return MMXPCINET.fetchQueue.request(jsonUrl, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(MMX.assign({Session_Type: 'runtime', Store_Code: storeCode}, params))
+		body: JSON.stringify(MMXPCINET.assign({Session_Type: 'runtime', Store_Code: storeCode}, params))
 	}).then(async (response) => {
 		const text = await response.text();
 		try {
@@ -351,7 +351,7 @@ MMX.Runtime_JSON_API_Call = ({jsonUrl, storeCode, params = {}} = {}) => {
 		} catch(err) {
 			return Promise.reject({
 				success: false,
-				error_code: 'MMX-Runtime_JSON_API_Call-00002',
+				error_code: 'MMXPCINET-Runtime_JSON_API_Call-00002',
 				error_message: `Did not receive valid JSON from API. Received: "${text}"`
 			});
 		}
@@ -364,19 +364,19 @@ MMX.Runtime_JSON_API_Call = ({jsonUrl, storeCode, params = {}} = {}) => {
 	});
 };
 
-MMX.fetchForm = (form, fetchOptions = {}) => {
-	if (!(form instanceof HTMLFormElement) || MMX.variableType(fetchOptions) !== 'object') {
+MMXPCINET.fetchForm = (form, fetchOptions = {}) => {
+	if (!(form instanceof HTMLFormElement) || MMXPCINET.variableType(fetchOptions) !== 'object') {
 		return Promise.reject(new TypeError());
 	}
 
-	return MMX.fetchQueue.request(form.action, {
+	return MMXPCINET.fetchQueue.request(form.action, {
 		method: 'POST',
 		body: new FormData(form),
 		...fetchOptions
 	});
 };
 
-MMX.longMerchantUrl = (searchParams = {}, {merchantUrl, storeCode = window.Store_Code} = {}) => {
+MMXPCINET.longMerchantUrl = (searchParams = {}, {merchantUrl, storeCode = window.Store_Code} = {}) => {
 	let url;
 
 	if (typeof merchantUrl !== 'string') {
@@ -394,7 +394,7 @@ MMX.longMerchantUrl = (searchParams = {}, {merchantUrl, storeCode = window.Store
 		throw new TypeError(`${error.message} when parsing 'merchantUrl'`);
 	}
 
-	if (MMX.variableType(searchParams) !== 'object') {
+	if (MMXPCINET.variableType(searchParams) !== 'object') {
 		throw new TypeError("'searchParams' must be an 'Object'");
 	}
 
@@ -412,14 +412,14 @@ MMX.longMerchantUrl = (searchParams = {}, {merchantUrl, storeCode = window.Store
 	return url.toString();
 };
 
-MMX.pluralize = (singular, count, plural) => {
+MMXPCINET.pluralize = (singular, count, plural) => {
 	return count === 1 ? `${singular}` : plural ?? `${singular}s`;
 };
 
-class MMX_Element extends HTMLElement {
+class MMXPCINET_Element extends HTMLElement {
 
 	themeResourcePattern;
-	styleResourceCodes = ['mmx-base'];
+	styleResourceCodes = ['mmx-pcinet-base'];
 	hideOnEmpty = false;
 	renderUniquely = false;
 
@@ -435,7 +435,7 @@ class MMX_Element extends HTMLElement {
 		}
 	};
 
-	createElement = MMX.createElement;
+	createElement = MMXPCINET.createElement;
 	data = this.data || {};
 
 	/**
@@ -466,7 +466,7 @@ class MMX_Element extends HTMLElement {
 		this.observer = new MutationObserver((records) => {
 			const validRecords = records.filter(record => {
 				return ![...record.addedNodes, ...record.removedNodes].find(node => {
-					return node?.closest?.('.mmx-skip-mutation') || node?.parentElement?.closest?.('.mmx-skip-mutation');
+					return node?.closest?.('.mmx-pcinet-skip-mutation') || node?.parentElement?.closest?.('.mmx-pcinet-skip-mutation');
 				});
 			});
 
@@ -521,7 +521,7 @@ class MMX_Element extends HTMLElement {
 		});
 	}
 
-	debouncedRender = MMX.debounce(() => {
+	debouncedRender = MMXPCINET.debounce(() => {
 		this.renderOnFrame();
 	}, 50);
 
@@ -538,13 +538,13 @@ class MMX_Element extends HTMLElement {
 		}
 
 		this.beforeRender?.();
-		MMX.renderTemplate(element, template);
+		MMXPCINET.renderTemplate(element, template);
 		this.lastTemplate = template;
 		this.afterRender?.();
 		this.debouncedDispatchContentUpdated();
 	}
 
-	debouncedDispatchContentUpdated = MMX.debounce(() => {
+	debouncedDispatchContentUpdated = MMXPCINET.debounce(() => {
 		this.dispatchContentUpdated();
 	}, 100);
 
@@ -584,7 +584,7 @@ class MMX_Element extends HTMLElement {
 	initData() {
 		const init = this.loadPropertyData('init');
 
-		if (MMX.variableType(init) !== 'object' || MMX.isEqual(this.data, init)) {
+		if (MMXPCINET.variableType(init) !== 'object' || MMXPCINET.isEqual(this.data, init)) {
 			return;
 		}
 
@@ -600,7 +600,7 @@ class MMX_Element extends HTMLElement {
 	}
 
 	getPropValueWithoutDefault(name) {
-		const prop = this.constructor.props[name] || MMX_Element.baseProps[name];
+		const prop = this.constructor.props[name] || MMXPCINET_Element.baseProps[name];
 		const value = name in this.data ? this.data[name] : (this.getAttribute('data-' + name) || '').trim();
 
 		if (typeof prop === 'undefined' || !value?.length) {
@@ -612,7 +612,7 @@ class MMX_Element extends HTMLElement {
 		}
 
 		if (prop?.isBoolean) {
-			return MMX.isTruthy(value);
+			return MMXPCINET.isTruthy(value);
 		}
 
 		if (prop?.isObject && typeof value === 'object') {
@@ -644,7 +644,7 @@ class MMX_Element extends HTMLElement {
 
 	hasPropValue(name) {
 		const propValue = this.getPropValueWithoutDefault(name);
-		const propValueType = MMX.variableType(propValue);
+		const propValueType = MMXPCINET.variableType(propValue);
 		return propValueType !== 'null' && propValueType !== 'undefined';
 	}
 
@@ -667,7 +667,7 @@ class MMX_Element extends HTMLElement {
 			}
 
 			if (attributeValue) {
-				attributes.push(`${attributeName}="${MMX.encodeEntities(attributeValue)}"`);
+				attributes.push(`${attributeName}="${MMXPCINET.encodeEntities(attributeValue)}"`);
 			} else {
 				attributes.push(attributeName);
 			}
@@ -677,7 +677,7 @@ class MMX_Element extends HTMLElement {
 	}
 
 	propExists() {
-		return propKey in this.constructor.props || propKey in MMX_Element.baseProps;
+		return propKey in this.constructor.props || propKey in MMXPCINET_Element.baseProps;
 	}
 
 	loadPropertyData(propKey) {
@@ -720,7 +720,7 @@ class MMX_Element extends HTMLElement {
 	}
 
 	getLoadingAttributes() {
-		const isInViewport = MMX.elementInViewport(this);
+		const isInViewport = MMXPCINET.elementInViewport(this);
 
 		return {
 			loading: this.getLoading(isInViewport),
@@ -729,23 +729,23 @@ class MMX_Element extends HTMLElement {
 	}
 
 	getFetchPriority(isInViewport) {
-		return (isInViewport || MMX.elementInViewport(this)) ? 'high' : 'low';
+		return (isInViewport || MMXPCINET.elementInViewport(this)) ? 'high' : 'low';
 	}
 
 	getLoading(isInViewport) {
-		return (isInViewport || MMX.elementInViewport(this)) ? 'eager' : 'lazy';
+		return (isInViewport || MMXPCINET.elementInViewport(this)) ? 'eager' : 'lazy';
 	}
 
 	/**
 	 * Rendering Helpers
 	 */
 	renderTextProperty(property = {}, {className = '', prefix = '', field = 'normal', defaultStyle = 'paragraph-s', defaultTag = 'div'}) {
-		if (MMX.valueIsEmpty(property?.value)) {
+		if (MMXPCINET.valueIsEmpty(property?.value)) {
 			return '';
 		}
 
-		const text = MMX.createElement({
-			type: 'mmx-text',
+		const text = MMXPCINET.createElement({
+			type: 'mmx-pcinet-text',
 			attributes: {
 				class: className,
 				'data-source': property.source,
@@ -753,25 +753,25 @@ class MMX_Element extends HTMLElement {
 				'data-tag': property?.textsettings?.fields?.[field]?.[`${prefix}tag`]?.value || defaultTag,
 				style: property?.textsettings?.styles?.[field] || ''
 			},
-			content: property.source === 'markdown' ? property.value : MMX.encodeEntities(property.value)
+			content: property.source === 'markdown' ? property.value : MMXPCINET.encodeEntities(property.value)
 		});
 
 		return text.outerHTML;
 	}
 
 	renderButtonProperty(property = {}, {className = '', field = 'normal', prefix = 'button_', defaultStyle = 'primary', defaultSize = 's'}) {
-		if (MMX.valueIsEmpty(property?.value)) {
+		if (MMXPCINET.valueIsEmpty(property?.value)) {
 			return '';
 		}
 
-		const button = MMX.createElement({
-			type: 'mmx-button',
+		const button = MMXPCINET.createElement({
+			type: 'mmx-pcinet-button',
 			attributes: {
 				class: className,
 				'data-style': property?.textsettings?.fields?.[field]?.[`${prefix}style`]?.value || defaultStyle,
 				'data-size': property?.textsettings?.fields?.[field]?.[`${prefix}size`]?.value || defaultSize
 			},
-			content: MMX.encodeEntities(property.value)
+			content: MMXPCINET.encodeEntities(property.value)
 		});
 
 		return button.outerHTML;
@@ -781,7 +781,7 @@ class MMX_Element extends HTMLElement {
 		return Object.keys(group).reduce((styles, key) => {
 			let value = group[key]?.value;
 
-			if (MMX.valueIsEmpty(value) || key === 'style') {
+			if (MMXPCINET.valueIsEmpty(value) || key === 'style') {
 				return styles;
 			}
 
@@ -809,22 +809,22 @@ class MMX_Element extends HTMLElement {
 			return '';
 		}
 
-		const existingLightElement = this.querySelector(`[slot="${MMX.encodeEntities(slotName)}"]`);
+		const existingLightElement = this.querySelector(`[slot="${MMXPCINET.encodeEntities(slotName)}"]`);
 		existingLightElement?.remove();
 
 		const contentFragment = document.createRange().createContextualFragment(content);
-		const lightElement = MMX.createElement({
+		const lightElement = MMXPCINET.createElement({
 			type: 'div',
 			attributes: {
 				slot: slotName,
-				class: 'mmx-skip-mutation',
+				class: 'mmx-pcinet-skip-mutation',
 			}
 		});
 		lightElement.appendChild(contentFragment);
 		this.appendChild(lightElement);
 
 		return /*html*/`
-			<slot name="${MMX.encodeEntities(slotName)}"></slot>
+			<slot name="${MMXPCINET.encodeEntities(slotName)}"></slot>
 		`;
 	}
 
@@ -832,7 +832,7 @@ class MMX_Element extends HTMLElement {
 		const fragmentContent = product?.fragments?.[fragmentCode]?.trim?.();
 		slotName = slotName ?? `fragment__${fragmentCode}--${product?.code}`;
 
-		if (MMX.valueIsEmpty(fragmentContent)) {
+		if (MMXPCINET.valueIsEmpty(fragmentContent)) {
 			return '';
 		}
 
@@ -855,7 +855,7 @@ class MMX_Element extends HTMLElement {
 	 */
 
 	setSpacing(settings = {}) {
-		MMX.setElementStyles({
+		MMXPCINET.setElementStyles({
 			element: this,
 			styles: {
 				marginTop: settings?.top?.value,
@@ -882,7 +882,7 @@ class MMX_Element extends HTMLElement {
 
 	renderStylesheetLinks() {
 		const availableSheets = [...document.querySelectorAll('link[rel="stylesheet"][href]')];
-		[...document.querySelectorAll('template.mmx-resources')].forEach(template => {
+		[...document.querySelectorAll('template.mmx-pcinet-resources')].forEach(template => {
 			const templateLinks = template.content.querySelectorAll('link[rel="stylesheet"][href]');
 			if (templateLinks.length) {
 				availableSheets.push(...templateLinks);
@@ -896,7 +896,7 @@ class MMX_Element extends HTMLElement {
 	}
 
 	shouldIncludeSheet(sheet) {
-		return ((MMX.variableType(this.themeResourcePattern) === 'regexp' && sheet.href && (this.themeResourcePattern).test(sheet.href)) || (sheet.hasAttribute('data-resource-code') && this.styleResourceCodes.indexOf(sheet.getAttribute('data-resource-code')) !== -1));
+		return ((MMXPCINET.variableType(this.themeResourcePattern) === 'regexp' && sheet.href && (this.themeResourcePattern).test(sheet.href)) || (sheet.hasAttribute('data-resource-code') && this.styleResourceCodes.indexOf(sheet.getAttribute('data-resource-code')) !== -1));
 	}
 
 	renderStylesheetLink(sheet) {
@@ -917,7 +917,7 @@ class MMX_Element extends HTMLElement {
 	}
 
 	revealElementFromSelectorList(selectors) {
-		const element = MMX.querySelectorList(selectors, this);
+		const element = MMXPCINET.querySelectorList(selectors, this);
 
 		if (!element) {
 			return;
@@ -927,6 +927,6 @@ class MMX_Element extends HTMLElement {
 	}
 }
 
-window.MMX = MMX;
-window.MMX_FetchQueue = MMX_FetchQueue;
-window.MMX_Element = MMX_Element;
+window.MMXPCINET = MMXPCINET;
+window.MMXPCINET_FetchQueue = MMXPCINET_FetchQueue;
+window.MMXPCINET_Element = MMXPCINET_Element;

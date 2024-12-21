@@ -1,0 +1,10 @@
+{
+  "name": "shadows",
+  "version": "1.0.0",
+  "description": "Custom re-implementation of the Shadows theme for Miva Merchant",
+  "scripts": {
+    "compress": "sh compress.sh"
+  },
+  "author": "PCINET LLC",
+  "license": "ISC"
+}
