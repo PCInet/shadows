@@ -1,7 +1,7 @@
 /**
- * MMX / TEXT
+ * MMX PCINET / TEXT
  */
-class MMX_Text extends MMX_Element {
+class MMXPCINET_Text extends MMXPCINET_Element {
 
 	static get props() {
 		return {
@@ -84,7 +84,7 @@ class MMX_Text extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-text'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-text'];
 	hideOnEmpty = true;
 
 	copyTypes = [
@@ -113,8 +113,8 @@ class MMX_Text extends MMX_Element {
 	render() {
 		const tag = this.getPropValue('tag');
 		return /*html*/`
-			<${tag} class="mmx-text type-${this.getStyleProp()} ${this.getStyleState()}" part="text" ${this.inheritAttrs()}>
-				<span class="mmx-text__inner" part="text__inner">
+			<${tag} class="mmx-pcinet-text type-${this.getStyleProp()} ${this.getStyleState()}" part="text" ${this.inheritAttrs()}>
+				<span class="mmx-pcinet-text__inner" part="text__inner">
 					${this.renderContent()}
 				</span>
 			</${tag}>
@@ -124,8 +124,8 @@ class MMX_Text extends MMX_Element {
 	styles() {
 		return /*css*/`
 			:host {
-				--mmx-text__inner--max-width: ${this.getInnerMaxWidth()};
-				--mmx-text__text-align: ${this.getPropValue('align')};
+				--mmx-pcinet-text__inner--max-width: ${this.getInnerMaxWidth()};
+				--mmx-pcinet-text__text-align: ${this.getPropValue('align')};
 			}
 
 			${this.shadowDomStyles()}
@@ -229,18 +229,18 @@ class MMX_Text extends MMX_Element {
 	}
 
 	getStyleProp() {
-		return this.getStyleWithoutDefault() || MMX_Text.props.style.default;
+		return this.getStyleWithoutDefault() || MMXPCINET_Text.props.style.default;
 	}
 
 	getStyleState() {
 		if (this.getStyleWithoutDefault()) {
-			return 'mmx-text--styled';
+			return 'mmx-pcinet-text--styled';
 		}
 
-		return 'mmx-text--unstyled';
+		return 'mmx-pcinet-text--unstyled';
 	}
 }
 
-if (!customElements.get('mmx-text')){
-	customElements.define('mmx-text', MMX_Text);
+if (!customElements.get('mmx-pcinet-text')){
+	customElements.define('mmx-pcinet-text', MMXPCINET_Text);
 }

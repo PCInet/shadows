@@ -1,24 +1,24 @@
 /* ==========================================================================
-   MMX / TEXT
+   MMX PCINET / TEXT
    ========================================================================== */
 
 
-.mmx-text {
+.mmx-pcinet-text {
 	padding: 0;
-	margin: 0 0 var(--mmx-text-margin-bottom) 0;
-	text-align: var(--mmx-text__text-align, unset);
+	margin: 0 0 var(--mmx-pcinet-text-margin-bottom) 0;
+	text-align: var(--mmx-pcinet-text__text-align, unset);
 }
 
-.mmx-text__inner {
+.mmx-pcinet-text__inner {
 	display: inline-block;
-	max-width: var(--mmx-text__inner--max-width, auto);
+	max-width: var(--mmx-pcinet-text__inner--max-width, auto);
 }
 
-.mmx-text__inner > *:first-child {
+.mmx-pcinet-text__inner > *:first-child {
 	margin-top: 0;
 }
 
-.mmx-text__inner > *:last-child {
+.mmx-pcinet-text__inner > *:last-child {
 	margin-bottom: 0;
 }
 
@@ -48,7 +48,7 @@ blockquote {
 	display: block;
 	font: inherit;
 	padding: 0;
-	margin: 0 0 var(--mmx-text-margin-bottom) 0;
+	margin: 0 0 var(--mmx-pcinet-text-margin-bottom) 0;
 }
 
 blockquote {
@@ -71,112 +71,112 @@ a {
 /* Typography Styles: Mobile First
    =========================================== */
 .type-display-1 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-2-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-2-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-display-2,
 h1 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-2-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-2-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-display-3,
 h2 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-3-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-3-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-title-1,
 h3 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-3-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-3-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-title-2,
 h4 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-3-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-3-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-title-3,
 h5 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-4-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-4-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-title-4,
 h6 {
-	color: var(--mmx-heading-color);
-	font: var(--mmx-title-4-font);
-	text-transform: var(--mmx-heading-case);
+	color: var(--mmx-pcinet-heading-color);
+	font: var(--mmx-pcinet-title-4-font);
+	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-subheading-l {
-	color: var(--mmx-subheading-color);
-	font: var(--mmx-paragraph-l-font);
-	text-transform: var(--mmx-subheading-case);
+	color: var(--mmx-pcinet-subheading-color);
+	font: var(--mmx-pcinet-paragraph-l-font);
+	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-subheading-s {
-	color: var(--mmx-subheading-color);
-	font: var(--mmx-paragraph-l-font);
-	text-transform: var(--mmx-subheading-case);
+	color: var(--mmx-pcinet-subheading-color);
+	font: var(--mmx-pcinet-paragraph-l-font);
+	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-subheading-xs {
-	color: var(--mmx-subheading-color);
-	font: var(--mmx-paragraph-l-font);
-	text-transform: var(--mmx-subheading-case);
+	color: var(--mmx-pcinet-subheading-color);
+	font: var(--mmx-pcinet-paragraph-l-font);
+	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-paragraph-l {
-	color: var(--mmx-paragraph-color);
-	font: var(--mmx-paragraph-s-font);
-	text-transform: var(--mmx-paragraph-case);
+	color: var(--mmx-pcinet-paragraph-color);
+	font: var(--mmx-pcinet-paragraph-s-font);
+	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-paragraph-s {
-	color: var(--mmx-paragraph-color);
-	font: var(--mmx-paragraph-s-font);
-	text-transform: var(--mmx-paragraph-case);
+	color: var(--mmx-pcinet-paragraph-color);
+	font: var(--mmx-pcinet-paragraph-s-font);
+	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-paragraph-xs {
-	color: var(--mmx-paragraph-color);
-	font: var(--mmx-paragraph-xs-font);
-	text-transform: var(--mmx-paragraph-case);
+	color: var(--mmx-pcinet-paragraph-color);
+	font: var(--mmx-pcinet-paragraph-xs-font);
+	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-call-to-action {
-	color: var(--mmx-call-to-action-color);
-	font: var(--mmx-call-to-action-font);
-	text-transform: var(--mmx-call-to-action-case);
+	color: var(--mmx-pcinet-call-to-action-color);
+	font: var(--mmx-pcinet-call-to-action-font);
+	text-transform: var(--mmx-pcinet-call-to-action-case);
 }
 
 .type-product-name {
-	color: var(--mmx-product-name-color);
-	font: var(--mmx-product-name-font);
-	text-transform: var(--mmx-product-name-case);
+	color: var(--mmx-pcinet-product-name-color);
+	font: var(--mmx-pcinet-product-name-font);
+	text-transform: var(--mmx-pcinet-product-name-case);
 }
 
 .type-product-price {
-	color: var(--mmx-product-price-color);
-	font: var(--mmx-product-price-font);
-	text-transform: var(--mmx-product-price-case);
+	color: var(--mmx-pcinet-product-price-color);
+	font: var(--mmx-pcinet-product-price-font);
+	text-transform: var(--mmx-pcinet-product-price-case);
 }
 
 .type-product-additional-price {
-	color: var(--mmx-product-additional-price-color);
-	font: var(--mmx-product-additional-price-font);
+	color: var(--mmx-pcinet-product-additional-price-color);
+	font: var(--mmx-pcinet-product-additional-price-font);
 	text-decoration: line-through;
-	text-transform: var(--mmx-product-additional-price-case);
+	text-transform: var(--mmx-pcinet-product-additional-price-case);
 }
 
 
@@ -184,61 +184,61 @@ h6 {
    =========================================== */
 @media screen and (min-width: 40em) {
 	.type-display-1 {
-		font: var(--mmx-title-1-font);
+		font: var(--mmx-pcinet-title-1-font);
 	}
 
 	.type-display-2,
 	h1 {
-		font: var(--mmx-title-1-font);
+		font: var(--mmx-pcinet-title-1-font);
 	}
 
 	.type-display-3,
 	h2 {
-		font: var(--mmx-title-2-font);
+		font: var(--mmx-pcinet-title-2-font);
 	}
 
 	.type-title-1,
 	h3 {
-		font: var(--mmx-title-3-font);
+		font: var(--mmx-pcinet-title-3-font);
 	}
 
 	.type-title-2,
 	h4 {
-		font: var(--mmx-title-3-font);
+		font: var(--mmx-pcinet-title-3-font);
 	}
 
 	.type-title-3,
 	h5 {
-		font: var(--mmx-title-4-font);
+		font: var(--mmx-pcinet-title-4-font);
 	}
 
 	.type-title-4,
 	h6 {
-		font: var(--mmx-title-4-font);
+		font: var(--mmx-pcinet-title-4-font);
 	}
 
 	.type-subheading-l {
-		font: var(--mmx-subheading-s-font);
+		font: var(--mmx-pcinet-subheading-s-font);
 	}
 
 	.type-subheading-s {
-		font: var(--mmx-paragraph-l-font);
+		font: var(--mmx-pcinet-paragraph-l-font);
 	}
 
 	.type-subheading-xs {
-		font: var(--mmx-paragraph-l-font);
+		font: var(--mmx-pcinet-paragraph-l-font);
 	}
 
 	.type-paragraph-l {
-		font: var(--mmx-paragraph-s-font);
+		font: var(--mmx-pcinet-paragraph-s-font);
 	}
 
 	.type-paragraph-s {
-		font: var(--mmx-paragraph-s-font);
+		font: var(--mmx-pcinet-paragraph-s-font);
 	}
 
 	.type-paragraph-xs {
-		font: var(--mmx-paragraph-xs-font);
+		font: var(--mmx-pcinet-paragraph-xs-font);
 	}
 }
 
@@ -246,61 +246,61 @@ h6 {
    =========================================== */
 @media screen and (min-width: 60em) {
 	.type-display-1 {
-		font: var(--mmx-display-1-font);
+		font: var(--mmx-pcinet-display-1-font);
 	}
 
 	.type-display-2,
 	h1 {
-		font: var(--mmx-display-2-font);
+		font: var(--mmx-pcinet-display-2-font);
 	}
 
 	.type-display-3,
 	h2 {
-		font: var(--mmx-display-3-font);
+		font: var(--mmx-pcinet-display-3-font);
 	}
 
 	.type-title-1,
 	h3 {
-		font: var(--mmx-title-1-font);
+		font: var(--mmx-pcinet-title-1-font);
 	}
 
 	.type-title-2,
 	h4 {
-		font: var(--mmx-title-2-font);
+		font: var(--mmx-pcinet-title-2-font);
 	}
 
 	.type-title-3,
 	h5 {
-		font: var(--mmx-title-3-font);
+		font: var(--mmx-pcinet-title-3-font);
 	}
 
 	.type-title-4,
 	h6 {
-		font: var(--mmx-title-4-font);
+		font: var(--mmx-pcinet-title-4-font);
 	}
 
 	.type-subheading-l {
-		font: var(--mmx-subheading-l-font);
+		font: var(--mmx-pcinet-subheading-l-font);
 	}
 
 	.type-subheading-s {
-		font: var(--mmx-subheading-s-font);
+		font: var(--mmx-pcinet-subheading-s-font);
 	}
 
 	.type-subheading-xs {
-		font: var(--mmx-subheading-xs-font);
+		font: var(--mmx-pcinet-subheading-xs-font);
 	}
 
 	.type-paragraph-l {
-		font: var(--mmx-paragraph-l-font);
+		font: var(--mmx-pcinet-paragraph-l-font);
 	}
 
 	.type-paragraph-s {
-		font: var(--mmx-paragraph-s-font);
+		font: var(--mmx-pcinet-paragraph-s-font);
 	}
 
 	.type-paragraph-xs {
-		font: var(--mmx-paragraph-xs-font);
+		font: var(--mmx-pcinet-paragraph-xs-font);
 	}
 }
 
@@ -310,11 +310,11 @@ h6 {
 	color: inherit;
 	font: inherit;
 	text-transform: inherit;
-	margin: var(--mmx-markdown-spacing) 0;
+	margin: var(--mmx-pcinet-markdown-spacing) 0;
 }
 
 .mmx-text--styled :where(p, ul, ol, blockquote) {
-	margin: calc(3 * var(--mmx-markdown-spacing)) 0;
+	margin: calc(3 * var(--mmx-pcinet-markdown-spacing)) 0;
 }
 
 .mmx-text--styled :where(li > ul, li > ol) {
