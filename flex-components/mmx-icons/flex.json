@@ -1,31 +1,23 @@
 {
-	"code": "mmx-icons",
-	"name": "MMX Icons",
+	"code": "mmx-pcinet-icons",
+	"name": "MMX PCInet Icons",
 	"type": "library",
-	"version": "10.11.00",
-	"managed": true,
-	"resourcegroup_code": "mmx-icons",
+	"version": "00.01.00",
+	"managed": false,
+	"resourcegroup_code": "mmx-pcinet-icons",
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-icons.js",
-			"resource_code": "mmx-icons",
+			"resource_code": "mmx-pcinet-icons",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-fgScgu3ld6Rnk/SUaRbjVbq4+9AkrBQKRF+2Akgk8rk= sha384-Py/6xqu0sn5jtt3A83Iueb4kHQzC7D/WK7Po5S0iljs+ghuAdG9tiyv8aJEKHDX7 sha512-yS+vVfQdygEr/3RLwv4D6eZdetVGQoYgUqomCAA1VUvSCOZ0SnejpcZHjOox/h/+7MVuYLTX9rrUd4pLyIZmTQ=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00"
 	}
 }

@@ -1,8 +1,8 @@
 /**
- * MMX / ICON
+ * MMX PCINET / ICON
  */
 
-class MMX_Icon extends MMX_Element {
+class MMXPCINET_Icon extends MMXPCINET_Element {
 
 	static get props() {
 		const iconsNames = Object.keys(this.icons);
@@ -107,7 +107,7 @@ class MMX_Icon extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-icons'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-icons'];
 
 	constructor() {
 		super();
@@ -119,7 +119,7 @@ class MMX_Icon extends MMX_Element {
 		const size = this.getPropValue('size');
 
 		return /*html*/`
-			<svg class="mmx-icon" part="icon" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 1024 1024">
+			<svg class="mmx-pcinet-icon" part="icon" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 1024 1024">
 				${this.getIconSvg(name)}
 			</svg>
 		`;
@@ -161,6 +161,6 @@ class MMX_Icon extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-icon')){
-	customElements.define('mmx-icon', MMX_Icon);
+if (!customElements.get('mmx-pcinet-icon')){
+	customElements.define('mmx-pcinet-icon', MMXPCINET_Icon);
 }
