@@ -1,10 +1,10 @@
 {
-	"code": "mmx-hero",
-	"name": "Hero",
+	"code": "mmx-pcinet-hero",
+	"name": "PCInet Hero",
 	"type": "component",
-	"version": "10.11.00",
-	"managed": true,
-	"resourcegroup_code": "mmx-hero",
+	"version": "00.01.00",
+	"managed": false,
+	"resourcegroup_code": "mmx-pcinet-hero",
 	"category": "image",
 	"preview_component_selector": "[data-page-code=\"%page_code%\"][data-flex-component=\"%component_code%\"][data-flex-item=\"%element_code%\"]",
 	"sample_data_types": "",
@@ -1159,19 +1159,11 @@
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-hero.js",
-			"resource_code": "mmx-hero",
+			"resource_code": "mmx-pcinet-hero",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-FmkaeNwAGjlWKpneeAAmjivPw9iigiuw4kd4P5wIOA4= sha384-61W+bV7R77tkHqbY1LKAKb7ixfT25DhXhoUkf/r0wRXuBIa86/XzY+rstAMGOQsD sha512-xSuWE/Q37zksZz3i/VUJjuaVmTT9yuiWlmh8+1wQdxZ0v6c5Mw938AjgKmCvrsT8Jk23Y1gQom7P4kllXfkDsw=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -1179,7 +1171,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-hero.css",
-			"resource_code": "mmx-hero",
+			"resource_code": "mmx-pcinet-hero",
 			"attributes": [
 				{
 					"name": "type",
@@ -1192,21 +1184,13 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-Tvg+Oe/QZiCXLfQoh8Qe1gEDa6EZdNuuIB6WpoEqDbk= sha384-TfkchTQNAgBBEreWgy/6USfwSNAnnRn0psYLtgu0Yr1h1wrc4tGomlbC/XvukSCO sha512-oSI0fXzc19p9GkkHDQrcXHAJTtBveEcLHYllJ2IJXcl9njyycG/B4YkJiT8RXOocSLGX7CDlWnT5eM2snXTrhg=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00",
-		"mmx-button": "=10.11.00",
-		"mmx-text": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00",
+		"mmx-pcinet-button": "=00.01.00",
+		"mmx-pcinet-text": "=00.01.00"
 	}
 }

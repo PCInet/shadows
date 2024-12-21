@@ -1,7 +1,7 @@
 /**
- * MMX / HERO
+ * MMX PCINET / HERO
  */
-class MMX_Hero extends MMX_Element {
+class MMXPCINET_Hero extends MMXPCINET_Element {
 
 	static get props() {
 		return {
@@ -278,7 +278,7 @@ class MMX_Hero extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-text', 'mmx-button', 'mmx-hero'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-text', 'mmx-pcinet-button', 'mmx-pcinet-hero'];
 	renderUniquely = true;
 
 	constructor() {
@@ -294,26 +294,26 @@ class MMX_Hero extends MMX_Element {
 				${this.renderHref()}
 				${this.renderTarget()}
 				class="
-					mmx-hero
-					mmx-hero--size-method--${this.getSizeMethod()}
-					mmx-hero--size--${this.getPropValue('size')}
-					mmx-hero--content-${this.contentLocationCategory()}
-					mmx-hero--layout-${this.getPropValue('content-layout')}
-					mmx-hero--padding-${this.getPropValue('padding')}
+					mmx-pcinet-hero
+					mmx-pcinet-hero--size-method--${this.getSizeMethod()}
+					mmx-pcinet-hero--size--${this.getPropValue('size')}
+					mmx-pcinet-hero--content-${this.contentLocationCategory()}
+					mmx-pcinet-hero--layout-${this.getPropValue('content-layout')}
+					mmx-pcinet-hero--padding-${this.getPropValue('padding')}
 					${this.getContentBgClasses()}
 					${this.getThemeClass()}
 				"
 			>
-				<div part="image-container" class="mmx-hero__image-container">
+				<div part="image-container" class="mmx-pcinet-hero__image-container">
 					${this.renderImage()}
 					<slot name="image"></slot>
 				</div>
-				<div part="content-bg" class="mmx-hero__content-bg mmx-hero__content-bg--${this.getPropValue('content-location')}">
-					<div part="content-wrapper" class="mmx-hero__content-wrapper">
-						<div part="content" class="mmx-hero__content" style="display: ${contentStyle};">
-							<div part="rendered-content" class="mmx-hero__rendered-content">${this.renderContent()}</div>
+				<div part="content-bg" class="mmx-pcinet-hero__content-bg mmx-pcinet-hero__content-bg--${this.getPropValue('content-location')}">
+					<div part="content-wrapper" class="mmx-pcinet-hero__content-wrapper">
+						<div part="content" class="mmx-pcinet-hero__content" style="display: ${contentStyle};">
+							<div part="rendered-content" class="mmx-pcinet-hero__rendered-content">${this.renderContent()}</div>
 							<slot name="content"></slot>
-							<div class="mmx-hero__individual-content">${this.renderIndividualSlots()}</div>
+							<div class="mmx-pcinet-hero__individual-content">${this.renderIndividualSlots()}</div>
 						</div>
 					</div>
 				</div>
@@ -329,17 +329,17 @@ class MMX_Hero extends MMX_Element {
 	styles() {
 		return /*css*/`
 			:host {
-				--mmx-hero__max-width: ${this.getMaxWidth()};
-				--mmx-hero__aspect-ratio: ${this.getAspectRatio()};
-				--mmx-hero__content-bg-color--desktop: ${this.getPropValue('content-bg-color--desktop')};
-				--mmx-hero__content-bg-color--mobile: ${this.getPropValue('content-bg-color--mobile')};
-				--mmx-hero__content-height: ${this.getPropValue('content-height')};
-				--mmx-hero__content-width: ${this.getContentWidth()};
-				--mmx-hero__grid-template-columns: ${this.getGridTemplateColumns()};
-				--mmx-hero__max-height: ${this.getMaxHeight()};
-				--mmx-hero__object-fit: ${this.getPropValue('fit')};
-				--mmx-hero__overlay-bg: ${this.getOverlayBg()};
-				--mmx-hero__text-align: ${this.getPropValue('align')};
+				--mmx-pcinet-hero__max-width: ${this.getMaxWidth()};
+				--mmx-pcinet-hero__aspect-ratio: ${this.getAspectRatio()};
+				--mmx-pcinet-hero__content-bg-color--desktop: ${this.getPropValue('content-bg-color--desktop')};
+				--mmx-pcinet-hero__content-bg-color--mobile: ${this.getPropValue('content-bg-color--mobile')};
+				--mmx-pcinet-hero__content-height: ${this.getPropValue('content-height')};
+				--mmx-pcinet-hero__content-width: ${this.getContentWidth()};
+				--mmx-pcinet-hero__grid-template-columns: ${this.getGridTemplateColumns()};
+				--mmx-pcinet-hero__max-height: ${this.getMaxHeight()};
+				--mmx-pcinet-hero__object-fit: ${this.getPropValue('fit')};
+				--mmx-pcinet-hero__overlay-bg: ${this.getOverlayBg()};
+				--mmx-pcinet-hero__text-align: ${this.getPropValue('align')};
 			}
 
 			${this.renderIframeObjectFitStyles()}
@@ -348,12 +348,12 @@ class MMX_Hero extends MMX_Element {
 
 	renderHref() {
 		const href = this.getPropValue('href');
-		return href ? `href="${MMX.encodeEntities(href)}"` : '';
+		return href ? `href="${MMXPCINET.encodeEntities(href)}"` : '';
 	}
 
 	renderTarget() {
 		const target = this.getPropValue('target');
-		return target ? `target="${MMX.encodeEntities(target)}"` : '';
+		return target ? `target="${MMXPCINET.encodeEntities(target)}"` : '';
 	}
 
 	slottedImage() {
@@ -378,11 +378,11 @@ class MMX_Hero extends MMX_Element {
 	}
 
 	renderedContent() {
-		return this.shadowRoot.querySelector('.mmx-hero__rendered-content');
+		return this.shadowRoot.querySelector('.mmx-pcinet-hero__rendered-content');
 	}
 
 	showHideContent() {
-		const content = this.shadowRoot.querySelector('.mmx-hero__content');
+		const content = this.shadowRoot.querySelector('.mmx-pcinet-hero__content');
 
 		// Show Hide Content Based on Data Settings
 		if ([0, false, 'false'].includes(this.data?.content?.settings?.enabled)) {
@@ -456,10 +456,10 @@ class MMX_Hero extends MMX_Element {
 
 	getThemeClass() {
 		const contentTheme = this.getPropValue('content-theme');
-		let themeClass = `mmx-hero--content-theme-${contentTheme}`;
+		let themeClass = `mmx-pcinet-hero--content-theme-${contentTheme}`;
 
 		if (['dark', 'dark--l'].includes(contentTheme)) {
-			themeClass += ' mmx-theme--' + contentTheme;
+			themeClass += ' mmx-pcinet-theme--' + contentTheme;
 		}
 
 		return themeClass;
@@ -578,14 +578,14 @@ class MMX_Hero extends MMX_Element {
 	getIframeObjectFitStylesSizeIsPreset(width, height) {
 		return /*css*/`
 			@media (min-aspect-ratio: ${width} / ${height}) {
-				.mmx-hero {
-					--mmx-hero__iframe-height: calc(100vw * (${height} / ${width}));
+				.mmx-pcinet-hero {
+					--mmx-pcinet-hero__iframe-height: calc(100vw * (${height} / ${width}));
 				}
 			}
 
 			@media (max-aspect-ratio: ${width} / ${height}) {
-				.mmx-hero {
-					--mmx-hero__iframe-width: calc(100vw / (${height} / ${width}));
+				.mmx-pcinet-hero {
+					--mmx-pcinet-hero__iframe-width: calc(100vw / (${height} / ${width}));
 				}
 			}
 		`;
@@ -593,9 +593,9 @@ class MMX_Hero extends MMX_Element {
 
 	getIframeObjectFitStylesSizeIsDimensions(width, height) {
 		return /*css*/`
-			.mmx-hero {
-				--mmx-hero__iframe-width: ${width};
-				--mmx-hero__iframe-height: ${height};
+			.mmx-pcinet-hero {
+				--mmx-pcinet-hero__iframe-width: ${width};
+				--mmx-pcinet-hero__iframe-height: ${height};
 			}
 		`;
 	}
@@ -634,8 +634,8 @@ class MMX_Hero extends MMX_Element {
 		const hasContentBgColorOnMobile = this.getPropValue('content-bg-color--mobile') !== 'none';
 
 		let classes = [];
-		classes.push(hasContentBgColorOnDesktop ? 'mmx-hero--desktop-has-bg' : 'mmx-hero--desktop-no-bg');
-		classes.push(hasContentBgColorOnMobile ? 'mmx-hero--mobile-has-bg' : 'mmx-hero--mobile-no-bg');
+		classes.push(hasContentBgColorOnDesktop ? 'mmx-pcinet-hero--desktop-has-bg' : 'mmx-pcinet-hero--desktop-no-bg');
+		classes.push(hasContentBgColorOnMobile ? 'mmx-pcinet-hero--mobile-has-bg' : 'mmx-pcinet-hero--mobile-no-bg');
 
 		return classes.join(' ');
 	}
@@ -659,8 +659,8 @@ class MMX_Hero extends MMX_Element {
 
 		return /*html*/`
 			<picture part="picture">
-				${this.data?.image?.img?.responsive_images?.mobile ? /*html*/`<source class="source__mobile" media="(max-width: 39.999em)" srcset="${MMX.encodeEntities(MMX.encodeSrcset(this.data.image.img.responsive_images.mobile))}">` : ''}
-				${this.data?.image?.img?.responsive_images?.tablet ? /*html*/`<source class="source__tablet" media="(max-width: 59.999em)" srcset="${MMX.encodeEntities(MMX.encodeSrcset(this.data.image.img.responsive_images.tablet))}">` : ''}
+				${this.data?.image?.img?.responsive_images?.mobile ? /*html*/`<source class="source__mobile" media="(max-width: 39.999em)" srcset="${MMXPCINET.encodeEntities(MMXPCINET.encodeSrcset(this.data.image.img.responsive_images.mobile))}">` : ''}
+				${this.data?.image?.img?.responsive_images?.tablet ? /*html*/`<source class="source__tablet" media="(max-width: 59.999em)" srcset="${MMXPCINET.encodeEntities(MMXPCINET.encodeSrcset(this.data.image.img.responsive_images.tablet))}">` : ''}
 				<img src="${this.data.image.img.image}" alt="${this.data?.image?.img?.alt || ''}" ${this.getLoadingAttributeString()}>
 			</picture>
 		`;
@@ -731,7 +731,7 @@ class MMX_Hero extends MMX_Element {
 		if (!subheading) {
 			return '';
 		}
-		return /*html*/`<mmx-text part="subheading" data-style="${this.getPropValue('subheading-style')}">${subheading}</mmx-text>`;
+		return /*html*/`<mmx-pcinet-text part="subheading" data-style="${this.getPropValue('subheading-style')}">${subheading}</mmx-pcinet-text>`;
 	}
 
 	renderHeading() {
@@ -739,7 +739,7 @@ class MMX_Hero extends MMX_Element {
 		if (!heading) {
 			return '';
 		}
-		return /*html*/`<mmx-text part="heading" data-style="${this.getPropValue('heading-style')}" data-tag="${this.getPropValue('heading-tag')}" data-chars-per-line="none">${heading}</mmx-text>`;
+		return /*html*/`<mmx-pcinet-text part="heading" data-style="${this.getPropValue('heading-style')}" data-tag="${this.getPropValue('heading-tag')}" data-chars-per-line="none">${heading}</mmx-pcinet-text>`;
 	}
 
 	renderBody() {
@@ -747,7 +747,7 @@ class MMX_Hero extends MMX_Element {
 		if (!body) {
 			return '';
 		}
-		return /*html*/`<mmx-text part="body" data-style="${this.getPropValue('body-style')}" data-chars-per-line="55">${body}</mmx-text>`;
+		return /*html*/`<mmx-pcinet-text part="body" data-style="${this.getPropValue('body-style')}" data-chars-per-line="55">${body}</mmx-pcinet-text>`;
 	}
 
 	renderButton() {
@@ -755,7 +755,7 @@ class MMX_Hero extends MMX_Element {
 		if (!button) {
 			return '';
 		}
-		return /*html*/`<mmx-button part="button" exportparts="button: button__inner" data-style="${this.getPropValue('button-style')}" data-size="${this.getPropValue('button-size')}">${button}</mmx-button>`;
+		return /*html*/`<mmx-pcinet-button part="button" exportparts="button: button__inner" data-style="${this.getPropValue('button-style')}" data-size="${this.getPropValue('button-size')}">${button}</mmx-pcinet-button>`;
 	}
 
 	bindEvents() {
@@ -790,7 +790,7 @@ class MMX_Hero extends MMX_Element {
 
 	onDataChange() {
 		this.setSpacing(this.data?.advanced?.spacing);
-		MMX.setElementAttributes(this, {
+		MMXPCINET.setElementAttributes(this, {
 			'data-href': this.data?.link?.url,
 			'data-target': this.data?.link?.new_tab ? '_blank' : undefined,
 			'data-size': this.data?.image?.size?.value,
@@ -816,6 +816,6 @@ class MMX_Hero extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-hero')) {
-	customElements.define('mmx-hero', MMX_Hero);
+if (!customElements.get('mmx-pcinet-hero')) {
+	customElements.define('mmx-pcinet-hero', MMXPCINET_Hero);
 }
