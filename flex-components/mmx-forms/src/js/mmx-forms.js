@@ -1,18 +1,18 @@
-class MMX_FormValidator {
+class MMXPCINET_FormValidator {
 	// Properties
 	#forms;
-	#formSelector = '[data-mmx-form-validator]';
-	#fieldSelector = '.mmx-form-field';
-	#invalidClass = 'mmx-form-field--error';
-	#validClass = 'mmx-form-field--success';
-	#fieldDescriptionClass = 'mmx-form-field-description';
-	#fieldErrorMessageClass = 'mmx-form-field-error-message';
+	#formSelector = '[data-mmx-pcinet-form-validator]';
+	#fieldSelector = '.mmx-pcinet-form-field';
+	#invalidClass = 'mmx-pcinet-form-field--error';
+	#validClass = 'mmx-pcinet-form-field--success';
+	#fieldDescriptionClass = 'mmx-pcinet-form-field-description';
+	#fieldErrorMessageClass = 'mmx-pcinet-form-field-error-message';
 	#validityStates = ['valueMissing', 'badInput', 'typeMismatch', 'tooShort', 'tooLong', 'rangeUnderflow', 'rangeOverflow', 'stepMismatch', 'patternMismatch', 'customError', 'valid'];
 
 	// Instance Methods
 	static autoInit() {
 		document.addEventListener('DOMContentLoaded', () => {
-			new MMX_FormValidator();
+			new MMXPCINET_FormValidator();
 		});
 	}
 
@@ -182,7 +182,7 @@ class MMX_FormValidator {
 	}
 
 	#createFieldErrorMessage(message) {
-		return MMX.createElement({
+		return MMXPCINET.createElement({
 			type: 'div',
 			attributes: {
 				class: this.#fieldErrorMessageClass
@@ -200,7 +200,7 @@ class MMX_FormValidator {
 			return element.validity?.[state];
 		});
 
-		return /*html*/`<mmx-icon data-name="error"></mmx-icon> ${element.dataset[currentState] ?? element.validationMessage}`;
+		return /*html*/`<mmx-pcinet-icon data-name="error"></mmx-pcinet-icon> ${element.dataset[currentState] ?? element.validationMessage}`;
 	}
 
 	#findElementField(element) {
@@ -208,15 +208,15 @@ class MMX_FormValidator {
 	}
 }
 
-MMX_FormValidator.autoInit();
+MMXPCINET_FormValidator.autoInit();
 
-class MMX_FormInputAutoHeight {
+class MMXPCINET_FormInputAutoHeight {
 	#inputs;
-	#selector = '[data-mmx-form-input-auto-height]';
+	#selector = '[data-mmx-pcinet-form-input-auto-height]';
 
 	static autoInit() {
 		document.addEventListener('DOMContentLoaded', () => {
-			new MMX_FormInputAutoHeight();
+			new MMXPCINET_FormInputAutoHeight();
 		});
 	}
 
@@ -250,7 +250,7 @@ class MMX_FormInputAutoHeight {
 		this.#updateInput(e.target);
 	}
 
-	#debouncedOnResize = MMX.debounce(() => {
+	#debouncedOnResize = MMXPCINET.debounce(() => {
 		this.#updateInputs();
 	}, 100);
 
@@ -268,9 +268,9 @@ class MMX_FormInputAutoHeight {
 	}
 }
 
-MMX_FormInputAutoHeight.autoInit();
+MMXPCINET_FormInputAutoHeight.autoInit();
 
-class MMX_FormInputRange extends MMX_Element {
+class MMXPCINET_FormInputRange extends MMXPCINET_Element {
 	#internals;
 	static formAssociated = true;
 
@@ -327,7 +327,7 @@ class MMX_FormInputRange extends MMX_Element {
 		this.#bindComponentEvents();
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-forms'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-forms'];
 	renderUniquely = true;
 
 	render() {
@@ -339,57 +339,57 @@ class MMX_FormInputRange extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-form-input-range"
+				class="mmx-pcinet-form-input-range"
 				part="wrapper"
 			>
-				<div part="slider" class="mmx-form-input-range__slider">
-					<div part="track" class="mmx-form-input-range__track">
-						<div part="slider-background" class="mmx-form-input-range__slider-background"></div>
-						<div part="slider-selection" class="mmx-form-input-range__slider-selection"></div>
-						<button id="slider-low" part="slider-button slider-low" type="button" class="mmx-form-input-range__slider-button mmx-form-input-range__slider-low"></button>
-						<button id="slider-high" part="slider-button slider-high" type="button" class="mmx-form-input-range__slider-button mmx-form-input-range__slider-high"></button>
+				<div part="slider" class="mmx-pcinet-form-input-range__slider">
+					<div part="track" class="mmx-pcinet-form-input-range__track">
+						<div part="slider-background" class="mmx-pcinet-form-input-range__slider-background"></div>
+						<div part="slider-selection" class="mmx-pcinet-form-input-range__slider-selection"></div>
+						<button id="slider-low" part="slider-button slider-low" type="button" class="mmx-pcinet-form-input-range__slider-button mmx-pcinet-form-input-range__slider-low"></button>
+						<button id="slider-high" part="slider-button slider-high" type="button" class="mmx-pcinet-form-input-range__slider-button mmx-pcinet-form-input-range__slider-high"></button>
 					</div>
 				</div>
-				<div part="controls" class="mmx-form-input-range__controls">
+				<div part="controls" class="mmx-pcinet-form-input-range__controls">
 					<input
 						type="number"
 						id="input-low"
 						part="input input-low"
-						class="mmx-form-input-range__input mmx-form-input-range__input-low mmx-form-input"
-						step="${MMX.encodeEntities(step)}"
-						min="${MMX.encodeEntities(min)}"
-						max="${MMX.encodeEntities(max)}"
-						value="${MMX.encodeEntities(low)}"
+						class="mmx-pcinet-form-input-range__input mmx-pcinet-form-input-range__input-low mmx-pcinet-form-input"
+						step="${MMXPCINET.encodeEntities(step)}"
+						min="${MMXPCINET.encodeEntities(min)}"
+						max="${MMXPCINET.encodeEntities(max)}"
+						value="${MMXPCINET.encodeEntities(low)}"
 					/>
 					<label
 						for="input-low"
 						part="input-label input-label-low"
-						class="mmx-form-input-range__input-label mmx-form-input-range__input-label-low"
+						class="mmx-pcinet-form-input-range__input-label mmx-pcinet-form-input-range__input-label-low"
 					>
-						${MMX.encodeEntities(this.#formatValue(low))}
+						${MMXPCINET.encodeEntities(this.#formatValue(low))}
 					</label>
 					<div
 						part="input input-label"
-						class="mmx-form-input-range__label"
+						class="mmx-pcinet-form-input-range__label"
 					>
-						${MMX.encodeEntities(this.getPropValue('label'))}
+						${MMXPCINET.encodeEntities(this.getPropValue('label'))}
 					</div>
 					<input
 						type="number"
 						id="input-high"
 						part="input input-high"
-						class="mmx-form-input-range__input mmx-form-input-range__input-high mmx-form-input"
-						step="${MMX.encodeEntities(step)}"
-						min="${MMX.encodeEntities(min)}"
-						max="${MMX.encodeEntities(max)}"
-						value="${MMX.encodeEntities(high)}"
+						class="mmx-pcinet-form-input-range__input mmx-pcinet-form-input-range__input-high mmx-pcinet-form-input"
+						step="${MMXPCINET.encodeEntities(step)}"
+						min="${MMXPCINET.encodeEntities(min)}"
+						max="${MMXPCINET.encodeEntities(max)}"
+						value="${MMXPCINET.encodeEntities(high)}"
 					/>
 					<label
 						for="input-high"
 						part="input-label input-label-high"
-						class="mmx-form-input-range__input-label mmx-form-input-range__input-label-high"
+						class="mmx-pcinet-form-input-range__input-label mmx-pcinet-form-input-range__input-label-high"
 					>
-						${MMX.encodeEntities(this.#formatValue(high))}
+						${MMXPCINET.encodeEntities(this.#formatValue(high))}
 					</label>
 				</div>
 			</div>
@@ -651,6 +651,6 @@ class MMX_FormInputRange extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-form-input-range')) {
-	customElements.define('mmx-form-input-range', MMX_FormInputRange);
+if (!customElements.get('mmx-pcinet-form-input-range')) {
+	customElements.define('mmx-pcinet-form-input-range', MMXPCINET_FormInputRange);
 }

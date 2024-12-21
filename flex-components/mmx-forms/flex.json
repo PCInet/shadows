@@ -1,26 +1,18 @@
 {
-	"code": "mmx-forms",
-	"name": "MMX Forms",
+	"code": "mmx-pcinet-forms",
+	"name": "MMX PCInet Forms",
 	"type": "library",
-	"version": "10.11.00",
-	"managed": true,
-	"resourcegroup_code": "mmx-forms",
+	"version": "00.01.00",
+	"managed": false,
+	"resourcegroup_code": "mmx-pcinet-forms",
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-forms.js",
-			"resource_code": "mmx-forms",
+			"resource_code": "mmx-pcinet-forms",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-bh1FnIW1niJQ7EFLs2aX4ipsBOA2slVsDWHGh8bjBGE= sha384-f1sY9LhxAkC7Z+HEWryxjPzgrZlTE7T4IOGnIuiTWF9wBDjOfm0Xdaz+Wi/qDMFt sha512-ZcsT1YEavgb6OZ2Nv242WWyUlUV9L6YQ3SwgmHY2V3soinD+x5f3vHbNy7o3yIdHNvnHI8BFA9bPpC0O/lLv2A=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -28,7 +20,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-forms.css",
-			"resource_code": "mmx-forms",
+			"resource_code": "mmx-pcinet-forms",
 			"attributes": [
 				{
 					"name": "type",
@@ -41,19 +33,11 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-4XiZtfFPaI771bVnKfCxfdTP63hbAQ0FEl2Xe9g3gac= sha384-mFD81N6wb7PBeanb3ncd83iZj5yq5KsRbf4iBIv9M/EodUwFw0hNZrqDgKZIKTb4 sha512-5Ptuc+XExNYStRf140niv/6/9lcXu82Enjmww16iorWMpdCVLChE6ptkAVbOR+QK3bZ2TIrfDWuWNHDm/1PN1w=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00"
 	}
 }
