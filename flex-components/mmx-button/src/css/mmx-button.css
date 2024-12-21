@@ -8,7 +8,7 @@
 	cursor: pointer;
 	display: inline-block;
 	text-align: center;
-	font-family: var(--mmx-font-family-1);
+	font-family: var(--mmx-pcinet-font-family-1);
 }
 
 .mmx-pcinet-button:disabled {
@@ -31,7 +31,7 @@
 .mmx-pcinet-button__link {
 	background: none;
 	border: 0;
-	color: var(--mmx-color-primary-bg);
+	color: var(--mmx-pcinet-color-primary-bg);
 	display: inline-block;
 	font-size: 13px;
 	text-decoration-thickness: 1px;
@@ -46,7 +46,7 @@
 
 	.mmx-pcinet-button__link:focus,
 	:host(.focus) .mmx-pcinet-button__link {
-		outline: 2px solid var(--mmx-color-focus);
+		outline: 2px solid var(--mmx-pcinet-color-focus);
 	}
 
 
@@ -55,31 +55,31 @@
 .mmx-pcinet-button__primary,
 .mmx-pcinet-button__secondary:hover,
 :host(.hover) .mmx-pcinet-button__secondary {
-	background: var(--mmx-color-primary-bg);
-	border-color: var(--mmx-color-primary-bg);
-	color: var(--mmx-color-primary-text);
+	background: var(--mmx-pcinet-color-primary-bg);
+	border-color: var(--mmx-pcinet-color-primary-bg);
+	color: var(--mmx-pcinet-color-primary-text);
 }
 
 	.mmx-pcinet-button__primary:hover,
 	:host(.hover) .mmx-pcinet-button__primary,
 	.mmx-pcinet-button__secondary {
 		background: transparent;
-		border-color: var(--mmx-color-primary-bg);
-		color: var(--mmx-color-primary-bg);
+		border-color: var(--mmx-pcinet-color-primary-bg);
+		color: var(--mmx-pcinet-color-primary-bg);
 	}
 
 	.mmx-pcinet-button__primary:disabled,
 	:host(.disabled) .mmx-pcinet-button__primary {
 		background: #CCCCCC;
 		border-color: #CCCCCC;
-		color: var(--mmx-color-primary-disabled-text);
+		color: var(--mmx-pcinet-color-primary-disabled-text);
 	}
 
 	.mmx-pcinet-button__secondary:disabled,
 	:host(.disabled) .mmx-pcinet-button__secondary {
 		background: transparent;
-		border-color: var(--mmx-color-secondary-disabled-border);
-		color: var(--mmx-color-secondary-disabled-text);
+		border-color: var(--mmx-pcinet-color-secondary-disabled-border);
+		color: var(--mmx-pcinet-color-secondary-disabled-text);
 	}
 
 	.mmx-pcinet-button__primary:focus,
@@ -92,7 +92,7 @@
 	:host(.focus) .mmx-pcinet-button__dark-secondary,
 	.mmx-pcinet-button__pill:focus,
 	:host(.focus) .mmx-pcinet-button__pill {
-		outline: 2px solid var(--mmx-color-focus);
+		outline: 2px solid var(--mmx-pcinet-color-focus);
 	}
 
 
@@ -101,40 +101,40 @@
 .mmx-pcinet-button__dark-primary,
 .mmx-pcinet-button__dark-secondary:hover,
 :host(.hover) .mmx-pcinet-button__dark-secondary {
-	background: var(--mmx-color-primary-bg);
-	border-color: var(--mmx-color-primary-bg);
-	color: var(--mmx-color-primary-text);
+	background: var(--mmx-pcinet-color-primary-bg);
+	border-color: var(--mmx-pcinet-color-primary-bg);
+	color: var(--mmx-pcinet-color-primary-text);
 }
 
 	.mmx-pcinet-button__dark-primary:hover,
 	:host(.hover) .mmx-pcinet-button__dark-primary,
 	.mmx-pcinet-button__dark-secondary {
 		background: transparent;
-		border-color: var(--mmx-color-primary-bg);
-		color: var(--mmx-color-primary-bg);
+		border-color: var(--mmx-pcinet-color-primary-bg);
+		color: var(--mmx-pcinet-color-primary-bg);
 	}
 
 	.mmx-pcinet-button__dark-primary:disabled,
 	:host(.disabled) .mmx-pcinet-button__dark-primary {
 		background: #CCCCCC;
 		border-color: #CCCCCC;
-		color: var(--mmx-color-primary-bg);
+		color: var(--mmx-pcinet-color-primary-bg);
 	}
 
 	.mmx-pcinet-button__dark-secondary:disabled,
 	:host(.disabled) .mmx-pcinet-button__dark-secondary {
 		background: transparent;
-		border-color: var(--mmx-color-secondary-disabled-border);
-		color: var(--mmx-color-secondary-disabled-text);
+		border-color: var(--mmx-pcinet-color-secondary-disabled-border);
+		color: var(--mmx-pcinet-color-secondary-disabled-text);
 	}
 
 /* Style: Pill
    =========================================== */
 .mmx-pcinet-button__pill {
-	background: var(--mmx-color-pill-bg);
+	background: var(--mmx-pcinet-color-pill-bg);
 	border: none;
 	border-radius: 1em;
-	color: var(--mmx-color-pill-text);
+	color: var(--mmx-pcinet-color-pill-text);
 	padding: 0.25em 1em;
 	text-decoration: none;
 	vertical-align: middle;
@@ -144,7 +144,7 @@
 
 .mmx-pcinet-button__pill:hover,
 :host(.hover) .mmx-pcinet-button__pill {
-	background: color-mix(in srgb, var(--mmx-color-pill-bg), var(--mmx-color-white) 30%);
+	background: color-mix(in srgb, var(--mmx-pcinet-color-pill-bg), var(--mmx-pcinet-color-white) 30%);
 	box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.15);
 }
 
@@ -186,7 +186,7 @@
 }
 
 .mmx-pcinet-button__secondary-link {
-	color: var(--mmx-color-secondary-link);
+	color: var(--mmx-pcinet-color-secondary-link);
 }
 
 /* Sizes
@@ -240,5 +240,5 @@
 }
 	.mmx-pcinet-button__link.mmx-pcinet-button__shape--round:hover,
 	:host(.hover) .mmx-pcinet-button__link.mmx-pcinet-button__shape--round{
-		background: color-mix(in srgb, var(--mmx-color-primary-bg) 5%, var(--mmx-color-primary-text));
+		background: color-mix(in srgb, var(--mmx-pcinet-color-primary-bg) 5%, var(--mmx-pcinet-color-primary-text));
 	}
