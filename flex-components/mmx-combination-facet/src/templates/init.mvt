@@ -1,33 +1,33 @@
-<mvt:comment>mmx-base</mvt:comment>
-<mvt:item name="head" param="css:mmx-base" />
-<mvt:item name="head" param="js:mmx-base" />
+<mvt:comment>mmx-pcinet-base</mvt:comment>
+<mvt:item name="head" param="css:mmx-pcinet-base" />
+<mvt:item name="head" param="js:mmx-pcinet-base" />
 
 <mvt:comment>mmx-customizations</mvt:comment>
 <mvt:item name="head" param="css:mmx-customizations" />
 
-<template class="mmx-resources">
-	<mvt:comment>mmx libraries</mvt:comment>
-	<mvt:item name="head" param="css:mmx-text" />
-	<mvt:item name="head" param="css:mmx-button" />
+<template class="mmx-pcinet-resources">
+	<mvt:comment>mmx pcinet libraries</mvt:comment>
+	<mvt:item name="head" param="css:mmx-pcinet-text" />
+	<mvt:item name="head" param="css:mmx-pcinet-button" />
 
-	<mvt:comment>mmx-hero</mvt:comment>
-	<mvt:item name="head" param="css:mmx-hero" />
+	<mvt:comment>mmx-pcinet-hero</mvt:comment>
+	<mvt:item name="head" param="css:mmx-pcinet-hero" />
 
-	<mvt:comment>mmx-combination-facet</mvt:comment>
-	<mvt:item name="head" param="css:mmx-combination-facet" />
+	<mvt:comment>mmx-pcinet-combination-facet</mvt:comment>
+	<mvt:item name="head" param="css:mmx-pcinet-combination-facet" />
 </template>
 
-<mvt:comment>mmx libraries</mvt:comment>
-<mvt:item name="head" param="js:mmx-text" />
-<mvt:item name="head" param="js:mmx-button" />
-<mvt:item name="head" param="js:mmx-icons" />
+<mvt:comment>mmx pcinet libraries</mvt:comment>
+<mvt:item name="head" param="js:mmx-pcinet-text" />
+<mvt:item name="head" param="js:mmx-pcinet-button" />
+<mvt:item name="head" param="js:mmx-pcinet-icons" />
 
-<mvt:comment>mmx-hero</mvt:comment>
-<mvt:item name="head" param="js:mmx-hero" />
+<mvt:comment>mmx-pcinet-hero</mvt:comment>
+<mvt:item name="head" param="js:mmx-pcinet-hero" />
 
-<mvt:comment>mmx-forms</mvt:comment>
-<mvt:item name="head" param="css:mmx-forms" />
+<mvt:comment>mmx-pcinet-forms</mvt:comment>
+<mvt:item name="head" param="css:mmx-pcinet-forms" />
 
-<mvt:comment>mmx-combination-facet</mvt:comment>
+<mvt:comment>mmx-pcinet-combination-facet</mvt:comment>
 <mvt:do file="g.Module_Feature_TUI_MGR" name="l.null" value="TemplateManager_Render_JSON_Variables( l.settings )" />
-<mvt:item name="head" param="js:mmx-combination-facet" />
+<mvt:item name="head" param="js:mmx-pcinet-combination-facet" />

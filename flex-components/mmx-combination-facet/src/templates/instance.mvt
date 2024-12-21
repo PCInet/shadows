@@ -33,8 +33,8 @@
 	</mvt:foreach>
 
 	<mvt:comment>Optionally, Append Applied Facets to URL</mvt:comment>
-	<mvt:do file="g.Module_Feature_FCT_UT" name="l.null" value="FacetList_Load_All_Cached( l.settings:mmx_combination_facet:facets )" />
-	<mvt:foreach iterator="facet" array="mmx_combination_facet:facets">
+	<mvt:do file="g.Module_Feature_FCT_UT" name="l.null" value="FacetList_Load_All_Cached( l.settings:mmx_pcinet_combination_facet:facets )" />
+	<mvt:foreach iterator="facet" array="mmx_pcinet_combination_facet:facets">
 		<mvt:assign name="l.facet_value" value="miva_variable_value( 'g.' $ l.settings:facet:code )" />
 		<mvt:if expr="NOT ISNULL l.facet_value">
 			<mvt:do file="g.Module_Feature_URI_UT" name="l.settings:instance:controls:submit_destination:url" value="URL_Append_Parameter( l.settings:instance:controls:submit_destination:url, l.settings:facet:code, l.facet_value )" />
@@ -51,13 +51,13 @@
 </mvt:if>
 
 <mvt:comment>Render Component</mvt:comment>
-<mmx-hero
+<mmx-pcinet-hero
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
 	data-flex-item="&mvte:instance_item:item_code;"
 	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	data-content-location="center"
 	data-content-layout="text-area"
 	data-size="content"
@@ -84,7 +84,7 @@
 	</mvt:if>
 
 	<mvt:comment>Render Combination Facet</mvt:comment>
-	<mmx-combination-facet
+	<mmx-pcinet-combination-facet
 		slot="content"
 		data-init="script"
 	>
@@ -99,36 +99,36 @@
 				<mvt:if expr="ISNULL l.settings:instance:content:subheading:textsettings:fields:normal:subheading_style:value OR l.settings:instance:content:subheading:textsettings:fields:normal:subheading_style:value EQ 'default'">
 					<mvt:assign name="l.settings:instance:content:subheading:textsettings:fields:normal:subheading_style:value" value="'subheading-s'" />
 				</mvt:if>
-				<mmx-text
+				<mmx-pcinet-text
 					slot="title"
-					class="mmx-combination-facet__subheading"
+					class="mmx-pcinet-combination-facet__subheading"
 					data-style="&mvte:instance:content:subheading:textsettings:fields:normal:subheading_style:value;"
 					style="&mvte:instance:content:subheading:textsettings:styles:normal;"
 				>
 					&mvte:instance:content:subheading:value;
-				</mmx-text>
+				</mmx-pcinet-text>
 			</mvt:if>
 			<mvt:if expr="NOT ISNULL l.settings:instance:content:heading:value">
 				<mvt:if expr="ISNULL l.settings:instance:content:heading:textsettings:fields:normal:heading_style:value OR l.settings:instance:content:heading:textsettings:fields:normal:heading_style:value EQ 'default'">
 					<mvt:assign name="l.settings:instance:content:heading:textsettings:fields:normal:heading_style:value" value="'display-3'" />
 				</mvt:if>
-				<mmx-text
+				<mmx-pcinet-text
 					slot="title"
-					class="mmx-combination-facet__heading"
+					class="mmx-pcinet-combination-facet__heading"
 					data-style="&mvte:instance:content:heading:textsettings:fields:normal:heading_style:value;"
 					data-tag="&mvte:instance:content:heading:textsettings:fields:normal:heading_tag:value;"
 					style="&mvte:instance:content:heading:textsettings:styles:normal;"
 				>
 					&mvte:instance:content:heading:value;
-				</mmx-text>
+				</mmx-pcinet-text>
 			</mvt:if>
 			<mvt:if expr="NOT ISNULL l.settings:instance:content:body:value">
 				<mvt:if expr="l.settings:instance:content:body:textsettings:fields:normal:body_style:value EQ 'default'">
 					<mvt:assign name="l.settings:instance:content:body:textsettings:fields:normal:body_style:value" value="''" />
 				</mvt:if>
-				<mmx-text
+				<mmx-pcinet-text
 					slot="title"
-					class="mmx-combination-facet__body"
+					class="mmx-pcinet-combination-facet__body"
 					data-style="&mvte:instance:content:body:textsettings:fields:normal:body_style:value;"
 					data-source="&mvte:instance:content:body:source;"
 					style="&mvte:instance:content:body:textsettings:styles:normal;"
@@ -138,8 +138,8 @@
 					<mvt:else>
 						&mvte:instance:content:body:value;
 					</mvt:if>
-				</mmx-text>
+				</mmx-pcinet-text>
 			</mvt:if>
 		</mvt:if>
-	</mmx-combination-facet>
-</mmx-hero>
+	</mmx-pcinet-combination-facet>
+</mmx-pcinet-hero>

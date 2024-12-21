@@ -1,4 +1,4 @@
-class MMX_CombinationFacet extends MMX_Element {
+class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 	static get props() {
 		return {
 			'auto-submit': {
@@ -134,7 +134,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-button', 'mmx-text', 'mmx-icons', 'mmx-forms', 'mmx-combination-facet'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button', 'mmx-pcinet-text', 'mmx-pcinet-icons', 'mmx-pcinet-forms', 'mmx-pcinet-combination-facet'];
 	renderUniquely = true;
 
 	#facet;
@@ -158,22 +158,22 @@ class MMX_CombinationFacet extends MMX_Element {
 			<div
 				part="wrapper"
 				class="
-					mmx-combination-facet
-					mmx-combination-facet--size-${MMX.encodeEntities(this.getPropValue('input-size'))}
+					mmx-pcinet-combination-facet
+					mmx-pcinet-combination-facet--size-${MMXPCINET.encodeEntities(this.getPropValue('input-size'))}
 					${this.#renderThemeClass()}
 				">
-				<div part="title" class="mmx-combination-facet__title">
+				<div part="title" class="mmx-pcinet-combination-facet__title">
 					<slot name="title"></slot>
 				</div>
 				<form
 					part="form"
 					class="
-						mmx-combination-facet__form
+						mmx-pcinet-combination-facet__form
 						${this.#renderFormApplicationClass()}
 						${this.#renderFormLoadingClass()}
 					"
 					method="post"
-					action="${MMX.encodeEntities(this.#destinationUrl())}"
+					action="${MMXPCINET.encodeEntities(this.#destinationUrl())}"
 					${this.#renderDestinationTarget()}
 				>
 					${this.#renderControls()}
@@ -187,13 +187,13 @@ class MMX_CombinationFacet extends MMX_Element {
 		const applicationMenuBackgroundColor = this.getPropValue('application-select-menu-background-color');
 
 		return /*css*/`
-			.mmx-combination-facet {
-				--mmx-combination-facet--controls-background-color: ${controlsBackgroundColor};
-				--mmx-combination-facet--controls-border-radius: ${this.getPropValue('controls-border-radius')}px;
-				--mmx-combination-facet--controls-padding: ${controlsBackgroundColor === 'none' ? '0' : 'var(--mmx-combination-facet--size)'};
-				--mmx-combination-facet--text-align: ${this.getPropValue('text-align')};
-				--mmx-combination-facet--application-width: ${this.getPropValue('application-width')};
-				--mmx-combination-facet--application-select-menu-background-color: ${applicationMenuBackgroundColor.length ? applicationMenuBackgroundColor : 'var(--mmx-color-black)'};
+			.mmx-pcinet-combination-facet {
+				--mmx-pcinet-combination-facet--controls-background-color: ${controlsBackgroundColor};
+				--mmx-pcinet-combination-facet--controls-border-radius: ${this.getPropValue('controls-border-radius')}px;
+				--mmx-pcinet-combination-facet--controls-padding: ${controlsBackgroundColor === 'none' ? '0' : 'var(--mmx-pcinet-combination-facet--size)'};
+				--mmx-pcinet-combination-facet--text-align: ${this.getPropValue('text-align')};
+				--mmx-pcinet-combination-facet--application-width: ${this.getPropValue('application-width')};
+				--mmx-pcinet-combination-facet--application-select-menu-background-color: ${applicationMenuBackgroundColor.length ? applicationMenuBackgroundColor : 'var(--mmx-pcinet-color-black)'};
 			}
 		`;
 	}
@@ -272,7 +272,7 @@ class MMX_CombinationFacet extends MMX_Element {
 	}
 
 	onDataChange() {
-		MMX.setElementAttributes(this, {
+		MMXPCINET.setElementAttributes(this, {
 			'data-auto-submit': this.data?.advanced?.auto_submit?.value,
 			'data-content-theme': this.data?.advanced?.content_theme?.value,
 			'data-controls-background-color': this.data?.controls?.background_color?.value,
@@ -317,10 +317,10 @@ class MMX_CombinationFacet extends MMX_Element {
 
 	#renderThemeClass() {
 		const contentTheme = this.getPropValue('content-theme');
-		let themeClass = `mmx-combination-facet__content-theme-${contentTheme}`;
+		let themeClass = `mmx-pcinet-combination-facet__content-theme-${contentTheme}`;
 
 		if (['dark', 'dark--l'].includes(contentTheme)) {
-			themeClass += ' mmx-theme--' + contentTheme;
+			themeClass += ' mmx-pcinet-theme--' + contentTheme;
 		}
 
 		return themeClass;
@@ -331,7 +331,7 @@ class MMX_CombinationFacet extends MMX_Element {
 			return '';
 		}
 
-		return 'mmx-combination-facet__form-application';
+		return 'mmx-pcinet-combination-facet__form-application';
 	}
 
 	#renderFormLoadingClass() {
@@ -339,7 +339,7 @@ class MMX_CombinationFacet extends MMX_Element {
 			return '';
 		}
 
-		return 'mmx-combination-facet__form-loading';
+		return 'mmx-pcinet-combination-facet__form-loading';
 	}
 
 	#renderControls() {
@@ -355,7 +355,7 @@ class MMX_CombinationFacet extends MMX_Element {
 			case 'not-found':
 				return this.#renderMessage({
 					code: facetStatus,
-					message: `Combination facet "${MMX.encodeEntities(this.getPropValue('facet-code'))}" does not exist.`
+					message: `Combination facet "${MMXPCINET.encodeEntities(this.getPropValue('facet-code'))}" does not exist.`
 				});
 			case 'missing-fields':
 				return this.#renderMessage({
@@ -376,8 +376,8 @@ class MMX_CombinationFacet extends MMX_Element {
 	#renderMessage({code = '', message = ''} = {}) {
 		return /*html*/`
 			<div
-				part="message ${MMX.encodeEntities(code)}"
-				class="mmx-combination-facet__message"
+				part="message ${MMXPCINET.encodeEntities(code)}"
+				class="mmx-pcinet-combination-facet__message"
 			>
 				${message}
 			</div>`;
@@ -386,7 +386,7 @@ class MMX_CombinationFacet extends MMX_Element {
 	#renderLoadingForm() {
 		return /*html*/`
 			${this.#renderLabelText()}
-			<div part="loading" class="mmx-combination-facet__loading"></div>
+			<div part="loading" class="mmx-pcinet-combination-facet__loading"></div>
 			${this.#renderSubmitButton()}
 		`;
 	}
@@ -414,16 +414,16 @@ class MMX_CombinationFacet extends MMX_Element {
 	}
 
 	#renderDropdowns(include_auto_submit) {
-		const auto_submit = include_auto_submit ? `data-auto-submit="${MMX.encodeEntities(this.getPropValue('auto-submit'))}"` : '';
+		const auto_submit = include_auto_submit ? `data-auto-submit="${MMXPCINET.encodeEntities(this.getPropValue('auto-submit'))}"` : '';
 
 		return /*html*/`
-			<mmx-combination-facet-fields
-				part="mmx-combination-facet-fields"
+			<mmx-pcinet-combination-facet-fields
+				part="mmx-pcinet-combination-facet-fields"
 				exportparts="dropdown, dropdown-select"
-				class="mmx-combination-facet__fields"
+				class="mmx-pcinet-combination-facet__fields"
 				${auto_submit}
-				data-count-optional="${MMX.encodeEntities(this.getPropValue('count-optional'))}"
-			></mmx-combination-facet-fields>
+				data-count-optional="${MMXPCINET.encodeEntities(this.getPropValue('count-optional'))}"
+			></mmx-pcinet-combination-facet-fields>
 		`;
 	}
 
@@ -440,7 +440,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		return /*html*/`
 			<div
 				part="application-select"
-				class="mmx-combination-facet__application-select"
+				class="mmx-pcinet-combination-facet__application-select"
 			>
 				${this.#renderApplicationSelectTitle()}
 				${this.#renderApplicationSelectArrow()}
@@ -450,7 +450,7 @@ class MMX_CombinationFacet extends MMX_Element {
 
 	#renderApplicationSelectTitle() {
 		return /*html*/`
-			<div class="mmx-combination-facet__application-select-title">
+			<div class="mmx-pcinet-combination-facet__application-select-title">
 				${this.#renderApplicationSelectLabel()}
 				${this.#renderApplicationSelectText()}
 			</div>
@@ -461,7 +461,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		return /*html*/`
 			${this.renderTextProperty(this?.data?.application?.label_applied, {
 				prefix: 'label_',
-				className: 'mmx-combination-facet__dialog-application-select-label',
+				className: 'mmx-pcinet-combination-facet__dialog-application-select-label',
 				defaultStyle: 'subheading-s'
 			})}
 		`;
@@ -476,16 +476,16 @@ class MMX_CombinationFacet extends MMX_Element {
 		return /*html*/`
 			<span
 				part="application-select-text"
-				class="mmx-combination-facet__application-select-text"
+				class="mmx-pcinet-combination-facet__application-select-text"
 			>
-				${MMX.encodeEntities(text)}
+				${MMXPCINET.encodeEntities(text)}
 			</span>
 		`;
 	}
 
 	#renderApplicationSelectArrow() {
 		return /*html*/`
-			<span class="mmx-combination-facet__application-select-toggle"><mmx-icon data-size="8px">chevron-down</mmx-icon></span>
+			<span class="mmx-pcinet-combination-facet__application-select-toggle"><mmx-pcinet-icon data-size="8px">chevron-down</mmx-pcinet-icon></span>
 		`;
 	}
 
@@ -493,7 +493,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		return /*html*/`
 			<div
 				part="application-select-menu"
-				class="mmx-combination-facet__application-select-menu"
+				class="mmx-pcinet-combination-facet__application-select-menu"
 				popover
 			>
 				${this.#renderApplicationSelectMenuTitle()}
@@ -508,10 +508,10 @@ class MMX_CombinationFacet extends MMX_Element {
 		return /*html*/`
 			<a
 				part="application-select-menu-title"
-				class="mmx-combination-facet__application-select-menu-title"
+				class="mmx-pcinet-combination-facet__application-select-menu-title"
 			>
-				<span class="mmx-combination-facet__application-select-menu-title-text">${MMX.encodeEntities(this.getPropValue('application-select-menu-title-text'))}</span>
-				<span class="mmx-combination-facet__application-select-menu-title-toggle"><mmx-icon data-size="8px">chevron-up</mmx-icon></span>
+				<span class="mmx-pcinet-combination-facet__application-select-menu-title-text">${MMXPCINET.encodeEntities(this.getPropValue('application-select-menu-title-text'))}</span>
+				<span class="mmx-pcinet-combination-facet__application-select-menu-title-toggle"><mmx-pcinet-icon data-size="8px">chevron-up</mmx-pcinet-icon></span>
 			</a>
 		`;
 	}
@@ -525,32 +525,32 @@ class MMX_CombinationFacet extends MMX_Element {
 
 			options += /*html*/`
 				<div
-					data-application-id="${MMX.encodeEntities(application.id)}"
+					data-application-id="${MMXPCINET.encodeEntities(application.id)}"
 					part="application-select-menu-option ${checked ? 'application-select-menu-option-selected' : ''}"
-					class="mmx-combination-facet__application-select-menu-option ${checked ? 'selected' : ''}"
+					class="mmx-pcinet-combination-facet__application-select-menu-option ${checked ? 'selected' : ''}"
 				>
-					<label class="mmx-form-radio mmx-combination-facet__application-select-menu-option-radio">
- 						<input type="radio" class="mmx-form-radio-input mmx-combination-facet__application-select-menu-option-input" value="${MMX.encodeEntities(application.id)}" name="CombinationFacetCustomerApplication" ${checked} />
- 						<span class="mmx-form-radio-caption mmx-combination-facet__application-select-menu-option-name">${MMX.encodeEntities(name)}</span>
+					<label class="mmx-pcinet-form-radio mmx-pcinet-combination-facet__application-select-menu-option-radio">
+ 						<input type="radio" class="mmx-pcinet-form-radio-input mmx-pcinet-combination-facet__application-select-menu-option-input" value="${MMXPCINET.encodeEntities(application.id)}" name="CombinationFacetCustomerApplication" ${checked} />
+ 						<span class="mmx-pcinet-form-radio-caption mmx-pcinet-combination-facet__application-select-menu-option-name">${MMXPCINET.encodeEntities(name)}</span>
  					</label>
- 					<mmx-button
+ 					<mmx-pcinet-button
  						part="application-select-menu-option-edit"
- 						class="mmx-combination-facet__application-select-menu-option-edit-button"
+ 						class="mmx-pcinet-combination-facet__application-select-menu-option-edit-button"
  						exportparts="button: submit__inner"
  						data-style="secondary-link"
  						data-size="m"
  					>
  						Edit
- 					</mmx-button>
- 					<mmx-button
+ 					</mmx-pcinet-button>
+ 					<mmx-pcinet-button
  						part="application-select-menu-option-delete"
- 						class="mmx-combination-facet__application-select-menu-option-delete-button"
+ 						class="mmx-pcinet-combination-facet__application-select-menu-option-delete-button"
  						exportparts="button: submit__inner"
  						data-style="secondary-link"
  						data-size="s"
  					>
- 						<mmx-icon data-size="16px">remove</mmx-icon></span>
- 					</mmx-button>
+ 						<mmx-pcinet-icon data-size="16px">remove</mmx-pcinet-icon></span>
+ 					</mmx-pcinet-button>
 				</div>
 			`;
 
@@ -560,21 +560,21 @@ class MMX_CombinationFacet extends MMX_Element {
 
 	#renderApplicationSelectMenuDivider() {
 		return /*html*/`
-			<div class="mmx-combination-facet__application-select-menu-divider"></div>
+			<div class="mmx-pcinet-combination-facet__application-select-menu-divider"></div>
 		`;
 	}
 
 	#renderApplicationSelectMenuAddLink() {
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				part="application-select-menu-add-link"
-				class="mmx-combination-facet__application-select-menu-add-link"
+				class="mmx-pcinet-combination-facet__application-select-menu-add-link"
 				exportparts="button: submit__inner"
 				data-style="secondary-link"
 				data-size="m"
 			>
-				<mmx-icon class="mmx-combination-facet__application-select-menu-add-link-icon" data-size="16px">add-circle</mmx-icon><span class="mmx-combination-facet__application-select-menu-add-link-text">${MMX.encodeEntities(this.getPropValue('application-add-text'))}</span>
-			</mmx-button>
+				<mmx-pcinet-icon class="mmx-pcinet-combination-facet__application-select-menu-add-link-icon" data-size="16px">add-circle</mmx-pcinet-icon><span class="mmx-pcinet-combination-facet__application-select-menu-add-link-text">${MMXPCINET.encodeEntities(this.getPropValue('application-add-text'))}</span>
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -582,39 +582,39 @@ class MMX_CombinationFacet extends MMX_Element {
 		const disabled = this.#applicationIsAdding ? 'disabled' : '';
 
 		return /*html*/`
-			<dialog class="mmx-combination-facet__application-add-dialog" part="application-add-dialog">
-				<mmx-text
+			<dialog class="mmx-pcinet-combination-facet__application-add-dialog" part="application-add-dialog">
+				<mmx-pcinet-text
 					part="application-dialog-add-heading"
-					class="mmx-combination-facet__application-add-dialog-heading"
+					class="mmx-pcinet-combination-facet__application-add-dialog-heading"
 					data-style="title-3"
 				>
-					${MMX.encodeEntities(this.getPropValue('application-dialog-add-heading'))}
-				</mmx-text>
+					${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-add-heading'))}
+				</mmx-pcinet-text>
 
 				<button
 					type="button"
-					class="mmx-combination-facet__application-add-dialog-close"
+					class="mmx-pcinet-combination-facet__application-add-dialog-close"
 					part="application-add-dialog-close"
 					title="Close"
 				>
-					<mmx-icon data-size="28px" class="mmx-combination-facet__application-add-dialog-close-icon" part="application-add-dialog-close-icon">exit-circle</mmx-icon>
+					<mmx-pcinet-icon data-size="28px" class="mmx-pcinet-combination-facet__application-add-dialog-close-icon" part="application-add-dialog-close-icon">exit-circle</mmx-pcinet-icon>
 				</button>
 
-				<input type="text" placeholder="Name (Optional)" class="mmx-combination-facet__application-add-dialog-name-input mmx-form-input mmx-form--size-l" value="" />
+				<input type="text" placeholder="Name (Optional)" class="mmx-pcinet-combination-facet__application-add-dialog-name-input mmx-pcinet-form-input mmx-pcinet-form--size-l" value="" />
 
 				${this.#renderDropdowns(false)}
 
-				<mmx-button
+				<mmx-pcinet-button
 					part="application-dialog-add-button"
 					exportparts="button: button__inner"
-					class="mmx-combination-facet__application-add-dialog-save"
+					class="mmx-pcinet-combination-facet__application-add-dialog-save"
 					data-width="full"
-					data-style="${MMX.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
-					data-size="${MMX.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
+					data-style="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
+					data-size="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
 					${disabled}
 				>
-					${this.#applicationIsAdding ? 'Saving' : MMX.encodeEntities(this.getPropValue('application-dialog-add-button'))}
-				</mmx-button>
+					${this.#applicationIsAdding ? 'Saving' : MMXPCINET.encodeEntities(this.getPropValue('application-dialog-add-button'))}
+				</mmx-pcinet-button>
 			</dialog>
 		`;
 	}
@@ -623,39 +623,39 @@ class MMX_CombinationFacet extends MMX_Element {
 		const disabled = this.#applicationIsAdding ? 'disabled' : '';
 
 		return /*html*/`
-			<dialog class="mmx-combination-facet__application-edit-dialog" part="application-edit-dialog">
-				<mmx-text
+			<dialog class="mmx-pcinet-combination-facet__application-edit-dialog" part="application-edit-dialog">
+				<mmx-pcinet-text
 					part="application-dialog-edit-heading"
-					class="mmx-combination-facet__application-edit-dialog-heading"
+					class="mmx-pcinet-combination-facet__application-edit-dialog-heading"
 					data-style="title-3"
 				>
-					${MMX.encodeEntities(this.getPropValue('application-dialog-edit-heading'))}
-				</mmx-text>
+					${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-edit-heading'))}
+				</mmx-pcinet-text>
 
 				<button
 					type="button"
-					class="mmx-combination-facet__application-edit-dialog-close"
+					class="mmx-pcinet-combination-facet__application-edit-dialog-close"
 					part="application-edit-dialog-close"
 					title="Close"
 				>
-					<mmx-icon data-size="28px" class="mmx-combination-facet__application-edit-dialog-close-icon" part="application-edit-dialog-close-icon">exit-circle</mmx-icon>
+					<mmx-pcinet-icon data-size="28px" class="mmx-pcinet-combination-facet__application-edit-dialog-close-icon" part="application-edit-dialog-close-icon">exit-circle</mmx-pcinet-icon>
 				</button>
 
-				<input type="text" placeholder="Name (Optional)" class="mmx-combination-facet__application-edit-dialog-name-input mmx-form-input mmx-form--size-l" value="" />
+				<input type="text" placeholder="Name (Optional)" class="mmx-pcinet-combination-facet__application-edit-dialog-name-input mmx-pcinet-form-input mmx-pcinet-form--size-l" value="" />
 
 				${this.#renderDropdowns(false)}
 
-				<mmx-button
+				<mmx-pcinet-button
 					part="application-dialog-edit-button"
 					exportparts="button: button__inner"
-					class="mmx-combination-facet__application-edit-dialog-save"
+					class="mmx-pcinet-combination-facet__application-edit-dialog-save"
 					data-width="full"
-					data-style="${MMX.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
-					data-size="${MMX.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
+					data-style="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
+					data-size="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
 					${disabled}
 				>
-					${this.#applicationIsUpdating ? 'Saving' : MMX.encodeEntities(this.getPropValue('application-dialog-edit-button'))}
-				</mmx-button>
+					${this.#applicationIsUpdating ? 'Saving' : MMXPCINET.encodeEntities(this.getPropValue('application-dialog-edit-button'))}
+				</mmx-pcinet-button>
 			</dialog>
 		`;
 	}
@@ -669,14 +669,14 @@ class MMX_CombinationFacet extends MMX_Element {
 		}
 
 		return /*html*/`
-			<mmx-text
+			<mmx-pcinet-text
 				part="label label-${labelType}"
-				class="mmx-combination-facet__label"
-				data-style="${MMX.encodeEntities(this.getPropValue(`label-${labelType}-style`))}"
-				style="${MMX.encodeEntities(this.getPropValue(`label-${labelType}-styles`))}"
+				class="mmx-pcinet-combination-facet__label"
+				data-style="${MMXPCINET.encodeEntities(this.getPropValue(`label-${labelType}-style`))}"
+				style="${MMXPCINET.encodeEntities(this.getPropValue(`label-${labelType}-styles`))}"
 			>
-				${MMX.encodeEntities(labelText)}
-			</mmx-text>
+				${MMXPCINET.encodeEntities(labelText)}
+			</mmx-pcinet-text>
 		`;
 	}
 
@@ -685,119 +685,119 @@ class MMX_CombinationFacet extends MMX_Element {
 		const buttonText = !this.#hasApplications() && this.#hasAppliedValues() ? this.getPropValue('reset-text') : this.getPropValue('submit-text');
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				part="submit ${this.#hasAppliedValues() ? 'submit-reset' : 'submit-apply'}"
-				class="mmx-combination-facet__submit"
+				class="mmx-pcinet-combination-facet__submit"
 				exportparts="button: submit__inner"
 				data-type="submit"
-				data-style="${MMX.encodeEntities(this.getPropValue('submit-style'))}"
+				data-style="${MMXPCINET.encodeEntities(this.getPropValue('submit-style'))}"
 				data-width="full"
 				${disabled}
 			>
-				${MMX.encodeEntities(buttonText)}
-			</mmx-button>
+				${MMXPCINET.encodeEntities(buttonText)}
+			</mmx-pcinet-button>
 		`;
 	}
 
 	#renderDestinationTarget() {
 		const target = this.getPropValue('destination-target');
-		return target ? `target="${MMX.encodeEntities(target)}"` : '';
+		return target ? `target="${MMXPCINET.encodeEntities(target)}"` : '';
 	}
 
 	// Selectors
 
 	#form() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__form');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__form');
 	}
 
 	#facetDropdownController() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__form > mmx-combination-facet-fields');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__form > mmx-pcinet-combination-facet-fields');
 	}
 
 	#applicationSelect() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select');
 	}
 
 	#applicationSelectText() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select-text');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select-text');
 	}
 
 	#applicationSelectMenu() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select-menu');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select-menu');
 	}
 
 	#applicationSelectMenuTitle() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select-menu-title');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select-menu-title');
 	}
 
 	#applicationMenuOptions() {
-		return this.shadowRoot.querySelectorAll('.mmx-combination-facet__application-select-menu-option');
+		return this.shadowRoot.querySelectorAll('.mmx-pcinet-combination-facet__application-select-menu-option');
 	}
 
 	#applicationSelectedMenuOption() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select-menu-option.selected');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select-menu-option.selected');
 	}
 
 	#applicationMenuOptionInput(option) {
-		return option.querySelector('.mmx-combination-facet__application-select-menu-option-input');
+		return option.querySelector('.mmx-pcinet-combination-facet__application-select-menu-option-input');
 	}
 
 	#applicationMenuOptionEditButtons() {
-		return this.shadowRoot.querySelectorAll('.mmx-combination-facet__application-select-menu-option-edit-button');
+		return this.shadowRoot.querySelectorAll('.mmx-pcinet-combination-facet__application-select-menu-option-edit-button');
 	}
 
 	#applicationMenuOptionDeleteButtons() {
-		return this.shadowRoot.querySelectorAll('.mmx-combination-facet__application-select-menu-option-delete-button');
+		return this.shadowRoot.querySelectorAll('.mmx-pcinet-combination-facet__application-select-menu-option-delete-button');
 	}
 
 	#applicationMenuAddLink() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-select-menu-add-link');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-select-menu-add-link');
 	}
 
 	#applicationAddDialog() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-add-dialog');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-add-dialog');
 	}
 
 	#applicationAddDialogNameField() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-add-dialog-name-input');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-add-dialog-name-input');
 	}
 
 	#applicationAddDialogFacetDropdownController() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-add-dialog mmx-combination-facet-fields');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-add-dialog mmx-pcinet-combination-facet-fields');
 	}
 
 	#applicationAddDialogSaveButton() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-add-dialog-save');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-add-dialog-save');
 	}
 
 	#applicationAddDialogCancelButton() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-add-dialog-close');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-add-dialog-close');
 	}
 
 	#applicationEditDialog() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-edit-dialog');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-edit-dialog');
 	}
 
 	#applicationEditDialogFacetDropdownController() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-edit-dialog mmx-combination-facet-fields');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-edit-dialog mmx-pcinet-combination-facet-fields');
 	}
 
 	#applicationEditDialogNameField() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-edit-dialog-name-input');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-edit-dialog-name-input');
 	}
 
 	#applicationEditDialogSaveButton() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-edit-dialog-save');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-edit-dialog-save');
 	}
 
 	#applicationEditDialogCancelButton() {
-		return this.shadowRoot.querySelector('.mmx-combination-facet__application-edit-dialog-close');
+		return this.shadowRoot.querySelector('.mmx-pcinet-combination-facet__application-edit-dialog-close');
 	}
 
 	// Facet
 
 	#facetStatus() {
-		const facetVariableType = MMX.variableType(this.#facet);
+		const facetVariableType = MMXPCINET.variableType(this.#facet);
 
 		if (!this.#hasFacetCode()) {
 			return 'missing-code';
@@ -835,7 +835,7 @@ class MMX_CombinationFacet extends MMX_Element {
 
 		this.#setFacet(undefined, []);
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -876,11 +876,11 @@ class MMX_CombinationFacet extends MMX_Element {
 	// Fields
 
 	#fieldCount() {
-		return MMX.coerceNumber(this.#facet?.fields?.length, 0);
+		return MMXPCINET.coerceNumber(this.#facet?.fields?.length, 0);
 	}
 
 	#setFacet(facet, appliedValues) {
-		const facetVariableType = MMX.variableType(facet);
+		const facetVariableType = MMXPCINET.variableType(facet);
 
 		if (facetVariableType === 'undefined')		this.#facet = undefined;
 		else if (facetVariableType !== 'object' )	this.#facet = null;
@@ -996,7 +996,7 @@ class MMX_CombinationFacet extends MMX_Element {
 	#getBaseDestinationUrl() {
 		const destinationUrl = this.getPropValue('destination-url');
 
-		if (MMX.valueIsEmpty(destinationUrl)) {
+		if (MMXPCINET.valueIsEmpty(destinationUrl)) {
 			return new URL(window.location.href);
 		}
 
@@ -1070,7 +1070,7 @@ class MMX_CombinationFacet extends MMX_Element {
 			return;
 		}
 
-		if (MMX.valueIsEmpty(delete_confirmation_text))	this.#deleteApplication(application.id);
+		if (MMXPCINET.valueIsEmpty(delete_confirmation_text))	this.#deleteApplication(application.id);
 		else if (confirm(delete_confirmation_text))		this.#deleteApplication(application.id);
 	}
 
@@ -1264,7 +1264,7 @@ class MMX_CombinationFacet extends MMX_Element {
 
 	// Set Cookie
 	#setCookie(data) {
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1286,7 +1286,7 @@ class MMX_CombinationFacet extends MMX_Element {
 
 	// Clear Cookie
 	#clearCookie() {
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1307,7 +1307,7 @@ class MMX_CombinationFacet extends MMX_Element {
 	// Application Management
 
 	#setApplicationCookie(id) {
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1327,7 +1327,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		this.#applicationIsAdding = true;
 		this.#disableApplicationAddDialogButton();
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1352,7 +1352,7 @@ class MMX_CombinationFacet extends MMX_Element {
 		this.#applicationIsUpdating = true;
 		this.#disableApplicationEditDialogButton();
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1376,7 +1376,7 @@ class MMX_CombinationFacet extends MMX_Element {
 	}
 
 	#deleteApplication(applicationId) {
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1417,11 +1417,11 @@ class MMX_CombinationFacet extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-combination-facet')) {
-	customElements.define('mmx-combination-facet', MMX_CombinationFacet);
+if (!customElements.get('mmx-pcinet-combination-facet')) {
+	customElements.define('mmx-pcinet-combination-facet', MMXPCINET_CombinationFacet);
 }
 
-class MMX_CombinationFacetFields extends MMX_Element {
+class MMXPCINET_CombinationFacetFields extends MMXPCINET_Element {
 	static get props() {
 		return {
 			'auto-submit': {
@@ -1480,12 +1480,12 @@ class MMX_CombinationFacetFields extends MMX_Element {
 		return /*html*/`
 			<div
 				part="dropdown"
-				class="mmx-combination-facet__dropdown"
+				class="mmx-pcinet-combination-facet__dropdown"
 			>
 				<select
 					part="dropdown-select"
-					class="mmx-combination-facet__dropdown-select"
-					data-field-code="${MMX.encodeEntities(field.code)}"
+					class="mmx-pcinet-combination-facet__dropdown-select"
+					data-field-code="${MMXPCINET.encodeEntities(field.code)}"
 					${required}
 					${disabled}
 				>
@@ -1497,11 +1497,11 @@ class MMX_CombinationFacetFields extends MMX_Element {
 
 	#renderDropdownOptions(field) {
 		const firstOption = field.appliedValue ?? field.name;
-		let options = /*html*/`<option value="">${MMX.encodeEntities(firstOption)}</option>`;
+		let options = /*html*/`<option value="">${MMXPCINET.encodeEntities(firstOption)}</option>`;
 
 		return field.values.reduce((options, value) => {
 			const selected = field.selection === value ? 'selected' : '';
-			options += /*html*/`<option ${selected}>${MMX.encodeEntities(value)}</option>`;
+			options += /*html*/`<option ${selected}>${MMXPCINET.encodeEntities(value)}</option>`;
 			return options;
 		}, options);
 	}
@@ -1509,7 +1509,7 @@ class MMX_CombinationFacetFields extends MMX_Element {
 	// Fields
 
 	#fieldCount() {
-		return MMX.coerceNumber(this.#facet?.fields?.length, 0);
+		return MMXPCINET.coerceNumber(this.#facet?.fields?.length, 0);
 	}
 
 	#getFieldByIndex(index = 0) {
@@ -1517,12 +1517,12 @@ class MMX_CombinationFacetFields extends MMX_Element {
 	}
 
 	#loadFieldValues(fieldIndex) {
-		fieldIndex = MMX.coerceNumber(fieldIndex, -1);
+		fieldIndex = MMXPCINET.coerceNumber(fieldIndex, -1);
 		this.#loadFieldValuesLowLevel(fieldIndex, this.#getDependentCombinationFacetValues(fieldIndex), true);
 	}
 
 	#loadFieldValuesLowLevel(fieldIndex, values, set_focus) {
-		fieldIndex = MMX.coerceNumber(fieldIndex, -1);
+		fieldIndex = MMXPCINET.coerceNumber(fieldIndex, -1);
 		const hasNextField = fieldIndex < this.#fieldCount() - 1;
 
 		if (!hasNextField) {
@@ -1533,7 +1533,7 @@ class MMX_CombinationFacetFields extends MMX_Element {
 			return;
 		}
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				Function: 'Module',
 				Module_Code: 'combofacets',
@@ -1569,11 +1569,11 @@ class MMX_CombinationFacetFields extends MMX_Element {
 	// Dropdowns
 
 	#dropdowns() {
-		return this.querySelectorAll('.mmx-combination-facet__dropdown-select');
+		return this.querySelectorAll('.mmx-pcinet-combination-facet__dropdown-select');
 	}
 
 	#optionalDropdownCount() {
-		return MMX.coerceNumber(this.getPropValue('count-optional'), this.constructor.props['count-optional'].default);
+		return MMXPCINET.coerceNumber(this.getPropValue('count-optional'), this.constructor.props['count-optional'].default);
 	}
 
 	#allDropdownsHaveValues() {
@@ -1670,7 +1670,7 @@ class MMX_CombinationFacetFields extends MMX_Element {
 
 				field.selection = appliedValue;
 
-				if (MMX.valueIsEmpty(appliedValue))	field.appliedValue = `Any ${field.name}`;
+				if (MMXPCINET.valueIsEmpty(appliedValue))	field.appliedValue = `Any ${field.name}`;
 				else								field.appliedValue = undefined;
 
 				this.#loadFieldValuesLowLevel(index - 1, this.#appliedValues.slice(0, index), false);
@@ -1683,6 +1683,6 @@ class MMX_CombinationFacetFields extends MMX_Element {
 	onFacetSelectionComplete() { ; }
 }
 
-if (!customElements.get('mmx-combination-facet-fields')) {
-	customElements.define('mmx-combination-facet-fields', MMX_CombinationFacetFields);
+if (!customElements.get('mmx-pcinet-combination-facet-fields')) {
+	customElements.define('mmx-pcinet-combination-facet-fields', MMXPCINET_CombinationFacetFields);
 }
