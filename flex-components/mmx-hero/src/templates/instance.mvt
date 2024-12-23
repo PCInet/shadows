@@ -49,7 +49,11 @@
 		<mmx-pcinet-text
 			slot="subheading"
 			data-style="&mvte:instance:content:subheading:textsettings:fields:normal:subheading_style:value;"
-			style="&mvte:instance:content:subheading:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:subheading:textsettings:styles:normal;
+				&mvte:instance:content:subheading:textsettings:styles:tablet;
+				&mvte:instance:content:subheading:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:content:subheading:value;
 		</mmx-pcinet-text>
@@ -59,7 +63,11 @@
 			slot="heading"
 			data-style="&mvte:instance:content:heading:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:content:heading:textsettings:fields:normal:heading_tag:value;"
-			style="&mvte:instance:content:heading:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:heading:textsettings:styles:normal;
+				&mvte:instance:content:heading:textsettings:styles:tablet;
+				&mvte:instance:content:heading:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:content:heading:value;
 		</mmx-pcinet-text>
@@ -69,7 +77,11 @@
 			slot="body"
 			data-style="&mvte:instance:content:body:textsettings:fields:normal:body_style:value;"
 			data-source="&mvte:instance:content:body:source;"
-			style="&mvte:instance:content:body:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:body:textsettings:styles:normal;
+				&mvte:instance:content:body:textsettings:styles:tablet;
+				&mvte:instance:content:body:textsettings:styles:mobile;
+			"
 		>
 			<mvt:if expr="l.settings:instance:content:body:source EQ 'markdown'">
 				&mvt:instance:content:body:value;

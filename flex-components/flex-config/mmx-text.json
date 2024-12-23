@@ -235,19 +235,8 @@
       "type": "color"
     },
     {
-      "code": "background_color",
-      "placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-      "prompt": "Background Color",
-      "pseudoclasses": [
-        "normal"
-      ],
-      "style": "--mmx-pcinet-text--background-color",
-      "type": "color"
-    },
-    {
       "code": "line_height",
       "label": "px",
-      "min": 1,
       "prompt": "Line Height",
       "pseudoclasses": [
         "normal"
@@ -261,7 +250,6 @@
     {
       "code": "letter_spacing",
       "label": "px",
-      "min": 1,
       "prompt": "Letter Spacing",
       "pseudoclasses": [
         "normal"
@@ -271,45 +259,6 @@
       "style_suffix": "px",
       "text_type": "number",
       "type": "text"
-    },
-    {
-      "code": "border_radius",
-      "label": "px",
-      "min": 1,
-      "prompt": "Border Radius",
-      "pseudoclasses": [
-        "normal"
-      ],
-      "size": "one-third",
-      "style": "--mmx-pcinet-text--border-radius",
-      "style_suffix": "px",
-      "text_type": "number",
-      "type": "text"
-    },
-    {
-      "code": "border_width",
-      "label": "px",
-      "min": 1,
-      "prompt": "Border Width",
-      "pseudoclasses": [
-        "normal"
-      ],
-      "size": "one-third",
-      "style": "--mmx-pcinet-text--border-width",
-      "style_suffix": "px",
-      "text_type": "number",
-      "type": "text"
-    },
-    {
-      "code": "border_color",
-      "placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-      "prompt": "Border Color",
-      "pseudoclasses": [
-        "normal"
-      ],
-      "size": "one-third",
-      "style": "--mmx-pcinet-text--border-color",
-      "type": "color"
     },
     {
       "code": "padding",
