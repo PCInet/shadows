@@ -7,6 +7,11 @@
 	padding: 0;
 	margin: 0 0 var(--mmx-pcinet-text-margin-bottom) 0;
 	text-align: var(--mmx-pcinet-text__text-align, unset);
+	border-width: var(--mmx-pcinet-text--border-width, 0);
+	border-style: solid;
+	border-color: var(--mmx-pcinet-text--border-color, currentColor);
+	border-radius: var(--mmx-pcinet-text--border-radius, 0);
+	background-color: var(--mmx-pcinet-text--background-color, transparent);
 }
 
 .mmx-pcinet-text__inner {
@@ -23,7 +28,7 @@
 }
 
 /* Typography Styles: Base
-   =========================================== */
+		=========================================== */
 .type-display-1,
 .type-display-2,
 .type-display-3,
@@ -47,8 +52,8 @@ h6,
 blockquote {
 	display: block;
 	font: inherit;
-	padding: 0;
-	margin: 0 0 var(--mmx-pcinet-text-margin-bottom) 0;
+	padding: var(--mmx-pcinet-text--padding, 0);
+	margin: var(--mmx-pcinet-text--margin, 0 0 var(--mmx-pcinet-text-margin-bottom) 0);
 }
 
 blockquote {
@@ -69,10 +74,11 @@ a {
 
 
 /* Typography Styles: Mobile First
-   =========================================== */
+		=========================================== */
 .type-display-1 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-2-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-2-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -80,6 +86,7 @@ a {
 h1 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-2-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-2-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -87,6 +94,7 @@ h1 {
 h2 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-3-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-3-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -94,6 +102,7 @@ h2 {
 h3 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-3-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-3-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -101,6 +110,7 @@ h3 {
 h4 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-3-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-3-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -108,6 +118,7 @@ h4 {
 h5 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-4-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-4-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
@@ -115,192 +126,229 @@ h5 {
 h6 {
 	color: var(--mmx-pcinet-heading-color);
 	font: var(--mmx-pcinet-title-4-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-title-4-size));
 	text-transform: var(--mmx-pcinet-heading-case);
 }
 
 .type-subheading-l {
 	color: var(--mmx-pcinet-subheading-color);
 	font: var(--mmx-pcinet-paragraph-l-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-l-size));
 	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-subheading-s {
 	color: var(--mmx-pcinet-subheading-color);
 	font: var(--mmx-pcinet-paragraph-l-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-l-size));
 	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-subheading-xs {
 	color: var(--mmx-pcinet-subheading-color);
 	font: var(--mmx-pcinet-paragraph-l-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-l-size));
 	text-transform: var(--mmx-pcinet-subheading-case);
 }
 
 .type-paragraph-l {
 	color: var(--mmx-pcinet-paragraph-color);
 	font: var(--mmx-pcinet-paragraph-s-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-s-size));
 	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-paragraph-s {
 	color: var(--mmx-pcinet-paragraph-color);
 	font: var(--mmx-pcinet-paragraph-s-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-s-size));
 	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-paragraph-xs {
 	color: var(--mmx-pcinet-paragraph-color);
 	font: var(--mmx-pcinet-paragraph-xs-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-paragraph-xs-size));
 	text-transform: var(--mmx-pcinet-paragraph-case);
 }
 
 .type-call-to-action {
 	color: var(--mmx-pcinet-call-to-action-color);
 	font: var(--mmx-pcinet-call-to-action-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-call-to-action-size));
 	text-transform: var(--mmx-pcinet-call-to-action-case);
 }
 
 .type-product-name {
 	color: var(--mmx-pcinet-product-name-color);
 	font: var(--mmx-pcinet-product-name-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-product-name-size));
 	text-transform: var(--mmx-pcinet-product-name-case);
 }
 
 .type-product-price {
 	color: var(--mmx-pcinet-product-price-color);
 	font: var(--mmx-pcinet-product-price-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-product-price-size));
 	text-transform: var(--mmx-pcinet-product-price-case);
 }
 
 .type-product-additional-price {
 	color: var(--mmx-pcinet-product-additional-price-color);
 	font: var(--mmx-pcinet-product-additional-price-font);
+	font-size: var(--mmx-pcinet-text--font-size-mobile, var(--mmx-pcinet-product-additional-price-size));
 	text-decoration: line-through;
 	text-transform: var(--mmx-pcinet-product-additional-price-case);
 }
 
 
 /* Typography Styles: Small Breakpoint [40em = 640px]
-   =========================================== */
+		=========================================== */
 @media screen and (min-width: 40em) {
 	.type-display-1 {
-		font: var(--mmx-pcinet-title-1-font);
+			font: var(--mmx-pcinet-title-1-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-1-size));
 	}
 
 	.type-display-2,
 	h1 {
 		font: var(--mmx-pcinet-title-1-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-1-size));
 	}
 
 	.type-display-3,
 	h2 {
 		font: var(--mmx-pcinet-title-2-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-2-size));
 	}
 
 	.type-title-1,
 	h3 {
 		font: var(--mmx-pcinet-title-3-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-3-size));
 	}
 
 	.type-title-2,
 	h4 {
 		font: var(--mmx-pcinet-title-3-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-3-size));
 	}
 
 	.type-title-3,
 	h5 {
 		font: var(--mmx-pcinet-title-4-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-4-size));
 	}
 
 	.type-title-4,
 	h6 {
 		font: var(--mmx-pcinet-title-4-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-title-4-size));
 	}
 
 	.type-subheading-l {
 		font: var(--mmx-pcinet-subheading-s-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-subheading-s-size));
 	}
 
 	.type-subheading-s {
 		font: var(--mmx-pcinet-paragraph-l-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-subheading-s-size));
 	}
 
 	.type-subheading-xs {
 		font: var(--mmx-pcinet-paragraph-l-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-subheading-s-size));
 	}
 
 	.type-paragraph-l {
 		font: var(--mmx-pcinet-paragraph-s-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-paragraph-s-size));
 	}
 
 	.type-paragraph-s {
 		font: var(--mmx-pcinet-paragraph-s-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-paragraph-s-size));
 	}
 
 	.type-paragraph-xs {
 		font: var(--mmx-pcinet-paragraph-xs-font);
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-paragraph-xs-size));
 	}
 }
 
 /* Typography Styles: Large Breakpoint [60em = 960px]
-   =========================================== */
+		=========================================== */
 @media screen and (min-width: 60em) {
 	.type-display-1 {
 		font: var(--mmx-pcinet-display-1-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-display-1-size));
 	}
 
 	.type-display-2,
 	h1 {
 		font: var(--mmx-pcinet-display-2-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-display-2-size));
 	}
 
 	.type-display-3,
 	h2 {
 		font: var(--mmx-pcinet-display-3-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-display-3-size));
 	}
 
 	.type-title-1,
 	h3 {
 		font: var(--mmx-pcinet-title-1-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-title-1-size));
 	}
 
 	.type-title-2,
 	h4 {
 		font: var(--mmx-pcinet-title-2-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-title-2-size));
 	}
 
 	.type-title-3,
 	h5 {
 		font: var(--mmx-pcinet-title-3-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-title-3-size));
 	}
 
 	.type-title-4,
 	h6 {
 		font: var(--mmx-pcinet-title-4-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-title-4-size));
 	}
 
 	.type-subheading-l {
 		font: var(--mmx-pcinet-subheading-l-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-subheading-l-size));
 	}
 
 	.type-subheading-s {
 		font: var(--mmx-pcinet-subheading-s-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-subheading-s-size));
 	}
 
 	.type-subheading-xs {
 		font: var(--mmx-pcinet-subheading-xs-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-subheading-xs-size));
 	}
 
 	.type-paragraph-l {
 		font: var(--mmx-pcinet-paragraph-l-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-paragraph-l-size));
 	}
 
 	.type-paragraph-s {
 		font: var(--mmx-pcinet-paragraph-s-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-paragraph-s-size));
 	}
 
 	.type-paragraph-xs {
 		font: var(--mmx-pcinet-paragraph-xs-font);
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-paragraph-xs-size));
 	}
 }
 
