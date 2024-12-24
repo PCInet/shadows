@@ -1,3 +1,4 @@
+node_modules/
 .mmt/
 flex/
 .DS_Store
@@ -6,3 +7,8 @@ cssresource-*
 scriptresource-*
 mmt/**/flex-*
 layout_*
+flex-json-api.mv
+.env.local
+module-override.js
+module-override.sh
+
