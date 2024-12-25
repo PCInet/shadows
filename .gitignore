@@ -11,4 +11,5 @@ flex-json-api.mv
 .env.local
 module-override.js
 module-override.sh
+build/
 

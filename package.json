@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "Custom re-implementation of the Shadows theme for Miva Merchant",
   "scripts": {
-    "compress": "sh ./scripts/compress.sh",
-    "override-module": "sh ./scripts/module-override.sh",
-    "flex-add": "sh ./scripts/flex-add.sh",
-    "flex-update": "sh ./scripts/flex-update.sh"
+    "flex-compress": "sh ./scripts/shell/flex-compress.sh",
+    "override-module": "sh ./scripts/shell/module-override.sh",
+    "flex-add": "sh ./scripts/shell/flex-add.sh",
+    "flex-update": "sh ./scripts/shell/flex-update.sh"
   },
   "author": "PCINET LLC",
   "license": "ISC",
