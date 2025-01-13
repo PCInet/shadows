@@ -1,10 +1,10 @@
 {
-	"code": "mmx-product-list",
-	"name": "Product List",
+	"code": "mmx-pcinet-product-list",
+	"name": "PCInet Product List",
 	"type": "component",
-	"version": "10.11.00",
+	"version": "00.01.00",
 	"managed": true,
-	"resourcegroup_code": "mmx-product-list",
+	"resourcegroup_code": "mmx-pcinet-product-list",
 	"category": "product-list",
 	"preview_component_selector": "[data-page-code=\"%page_code%\"][data-flex-component=\"%component_code%\"][data-flex-item=\"%element_code%\"]",
 	"sample_data_types": [
@@ -124,6 +124,14 @@
 										"text": "Default"
 									},
 									{
+										"text": "Poppins",
+										"value": "\"Poppins\", sans-serif"
+									},
+									{
+										"text": "Inter",
+										"value": "\"Inter\", sans-serif"
+									},
+									{
 										"text": "Helvetica",
 										"value": "Helvetica, sans-serif"
 									},
@@ -196,7 +204,35 @@
 									"normal"
 								],
 								"size": "one-third",
-								"style": "font-size",
+								"style": "--mmx-pcinet-text--font-size-desktop",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_tablet",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"tablet"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-tablet",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_mobile",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"mobile"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-mobile",
 								"style_suffix": "px",
 								"text_type": "number",
 								"type": "text"
@@ -257,6 +293,55 @@
 								],
 								"style": "color",
 								"type": "color"
+							},
+							{
+								"code": "line_height",
+								"label": "px",
+								"prompt": "Line Height",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "line-height",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "letter_spacing",
+								"label": "px",
+								"prompt": "Letter Spacing",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"step": 0.001,
+								"style": "letter-spacing",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "padding",
+								"placeholder": "top right bottom left",
+								"prompt": "Padding",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--padding",
+								"type": "text"
+							},
+							{
+								"code": "margin",
+								"placeholder": "top right bottom left",
+								"prompt": "Margin",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--margin",
+								"type": "text"
 							},
 							{
 								"code": "heading_tag",
@@ -534,6 +619,14 @@
 												"text": "Default"
 											},
 											{
+												"text": "Poppins",
+												"value": "\"Poppins\", sans-serif"
+											},
+											{
+												"text": "Inter",
+												"value": "\"Inter\", sans-serif"
+											},
+											{
 												"text": "Helvetica",
 												"value": "Helvetica, sans-serif"
 											},
@@ -606,7 +699,35 @@
 											"normal"
 										],
 										"size": "one-third",
-										"style": "font-size",
+										"style": "--mmx-pcinet-text--font-size-desktop",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+									},
+									{
+										"code": "font_size_tablet",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+											"tablet"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-tablet",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+									},
+									{
+										"code": "font_size_mobile",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+											"mobile"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-mobile",
 										"style_suffix": "px",
 										"text_type": "number",
 										"type": "text"
@@ -667,6 +788,54 @@
 										],
 										"style": "color",
 										"type": "color"
+									},
+									{
+										"code": "line_height",
+										"label": "px",
+										"prompt": "Line Height",
+										"pseudoclasses": [
+											"normal"
+										],
+										"size": "half",
+										"style": "line-height",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+									},
+									{
+										"code": "letter_spacing",
+										"label": "px",
+										"prompt": "Letter Spacing",
+										"pseudoclasses": [
+											"normal"
+										],
+										"size": "half",
+										"style": "letter-spacing",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+									},
+									{
+										"code": "padding",
+										"placeholder": "top right bottom left",
+										"prompt": "Padding",
+										"pseudoclasses": [
+											"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--padding",
+										"type": "text"
+									},
+									{
+										"code": "margin",
+										"placeholder": "top right bottom left",
+										"prompt": "Margin",
+										"pseudoclasses": [
+											"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--margin",
+										"type": "text"
 									}
 								]
 							},
@@ -769,6 +938,14 @@
 											"text": "Default"
 										},
 										{
+											"text": "Poppins",
+											"value": "\"Poppins\", sans-serif"
+										},
+										{
+											"text": "Inter",
+											"value": "\"Inter\", sans-serif"
+										},
+										{
 											"text": "Helvetica",
 											"value": "Helvetica, sans-serif"
 										},
@@ -825,25 +1002,30 @@
 											"value": "\"Lucida Console\", Monaco, monospace"
 										}
 									],
-									"preview_property_selector": ":shadow .mmx-product-list__facet-title",
 									"prompt": "Font Family",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-family",
 									"type": "select"
 								},
 								{
 									"code": "font_size",
 									"label": "px",
 									"min": 1,
-									"preview_property_selector": ":shadow .mmx-product-list__facet-title",
-									"prompt": "Font Size",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-size",
-									"style_suffix": "px",
+									"prompt": "Desktop Font Size",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "font_size_tablet",
+									"label": "px",
+									"min": 1,
+									"prompt": "Tablet Font Size",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "font_size_mobile",
+									"label": "px",
+									"min": 1,
+									"prompt": "Mobile Font Size",
 									"text_type": "number",
 									"type": "text"
 								},
@@ -886,24 +1068,41 @@
 											"value": 900
 										}
 									],
-									"preview_property_selector": ":shadow .mmx-product-list__facet-title",
 									"prompt": "Font Weight",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-weight",
 									"type": "select"
 								},
 								{
 									"code": "font_color",
 									"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-									"preview_property_selector": ":shadow .mmx-product-list__facet-title",
 									"prompt": "Font Color",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "color",
 									"type": "color"
+								},
+								{
+									"code": "line_height",
+									"label": "px",
+									"prompt": "Line Height",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "letter_spacing",
+									"label": "px",
+									"prompt": "Letter Spacing",
+									"size": "half",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "padding",
+									"placeholder": "top right bottom left",
+									"prompt": "Padding",
+									"type": "text"
+								},
+								{
+									"code": "margin",
+									"placeholder": "top right bottom left",
+									"prompt": "Margin",
+									"type": "text"
 								}
 							],
 							"type": "group"
@@ -1579,6 +1778,392 @@
 													"normal"
 												],
 												"type": "select"
+											},
+											{
+												"code": "font_family",
+												"options": [
+													{
+														"text": "Default"
+													},
+													{
+														"text": "Poppins",
+														"value": "\"Poppins\", sans-serif"
+													},
+													{
+														"text": "Inter",
+														"value": "\"Inter\", sans-serif"
+													},
+													{
+														"text": "Helvetica",
+														"value": "Helvetica, sans-serif"
+													},
+													{
+														"text": "Georgia",
+														"value": "Georgia, serif"
+													},
+													{
+														"text": "Palatino Linotype",
+														"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+													},
+													{
+														"text": "Times New Roman",
+														"value": "\"Times New Roman\", Times, serif"
+													},
+													{
+														"text": "Arial",
+														"value": "Arial, Helvetica, sans-serif"
+													},
+													{
+														"text": "Arial Black",
+														"value": "\"Arial Black\", Gadget, sans-serif"
+													},
+													{
+														"text": "Comic Sans MS",
+														"value": "\"Comic Sans MS\", cursive, sans-serif"
+													},
+													{
+														"text": "Impact",
+														"value": "Impact, Charcoal, sans-serif"
+													},
+													{
+														"text": "Lucida Sans Unicode",
+														"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+													},
+													{
+														"text": "Tahoma",
+														"value": "Tahoma, Geneva, sans-serif"
+													},
+													{
+														"text": "Trebuchet MS",
+														"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+													},
+													{
+														"text": "Verdana",
+														"value": "Verdana, Geneva, sans-serif"
+													},
+													{
+														"text": "Courier New",
+														"value": "\"Courier New\", Courier, monospace"
+													},
+													{
+														"text": "Lucida Console",
+														"value": "\"Lucida Console\", Monaco, monospace"
+													}
+												],
+												"prompt": "Font Family",
+												"pseudoclasses": [
+													"normal"
+												],
+												"style": "--mmx-pcinet-button--font-family",
+												"type": "select"
+											},
+											{
+												"code": "font_size",
+												"label": "px",
+												"min": 1,
+												"prompt": "Font Size",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--font-size-desktop",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "font_size_tablet",
+												"label": "px",
+												"min": 1,
+												"prompt": "Font Size",
+												"pseudoclasses": [
+													"tablet"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--font-size-tablet",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "font_size_mobile",
+												"label": "px",
+												"min": 1,
+												"prompt": "Font Size",
+												"pseudoclasses": [
+													"mobile"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--font-size-mobile",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "font_weight",
+												"options": [
+													{
+														"text": "Default"
+													},
+													{
+														"text": "Ultra-Thin",
+														"value": 100
+													},
+													{
+														"text": "Light",
+														"value": 200
+													},
+													{
+														"text": "Book",
+														"value": 300
+													},
+													{
+														"text": "Normal",
+														"value": 400
+													},
+													{
+														"text": "Medium",
+														"value": 500
+													},
+													{
+														"text": "Semi-Bold",
+														"value": 600
+													},
+													{
+														"text": "Bold",
+														"value": 700
+													},
+													{
+														"text": "Black",
+														"value": 900
+													}
+												],
+												"prompt": "Font Weight",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "two-thirds",
+												"style": "--mmx-pcinet-button--font-weight",
+												"type": "select"
+											},
+											{
+												"code": "line_height",
+												"label": "px",
+												"prompt": "Line Height",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--line-height",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "letter_spacing",
+												"label": "px",
+												"prompt": "Letter Spacing",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--letter-spacing",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "font_color",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Font Color",
+												"pseudoclasses": [
+													"normal"
+												],
+												"style": "--mmx-pcinet-button--font-color",
+												"size": "half",
+												"type": "color"
+											},
+											{
+												"code": "background_color",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Background Color",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--background-color",
+												"type": "color"
+											},
+											{
+												"code": "border_width",
+												"label": "px",
+												"min": 0,
+												"prompt": "Border Width",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--border-width",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "border_color",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Border Color",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--border-color",
+												"type": "color"
+											},
+											{
+												"code": "font_color_hover",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Font Color",
+												"pseudoclasses": [
+													"hover"
+												],
+												"style": "--mmx-pcinet-button--font-color-hover",
+												"size": "half",
+												"type": "color"
+											},
+											{
+												"code": "background_color_hover",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Background Color",
+												"pseudoclasses": [
+													"hover"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--background-color-hover",
+												"type": "color"
+											},
+											{
+												"code": "border_width_hover",
+												"label": "px",
+												"min": 0,
+												"prompt": "Border Width",
+												"pseudoclasses": [
+													"hover"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--border-width-hover",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "border_color_hover",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Border Color",
+												"pseudoclasses": [
+													"hover"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--border-color-hover",
+												"type": "color"
+											},
+											{
+												"code": "font_color_disabled",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Font Color",
+												"pseudoclasses": [
+													"disabled"
+												],
+												"style": "--mmx-pcinet-button--font-color-disabled",
+												"size": "half",
+												"type": "color"
+											},
+											{
+												"code": "background_color_disabled",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Background Color",
+												"pseudoclasses": [
+													"disabled"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--background-color-disabled",
+												"type": "color"
+											},
+											{
+												"code": "border_width_disabled",
+												"label": "px",
+												"min": 0,
+												"prompt": "Border Width",
+												"pseudoclasses": [
+													"disabled"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--border-width-disabled",
+												"style_suffix": "px",
+												"text_type": "number",
+												"type": "text"
+											},
+											{
+												"code": "border_color_disabled",
+												"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+												"prompt": "Border Color",
+												"pseudoclasses": [
+													"disabled"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--border-color-disabled",
+												"type": "color"
+											},
+											{
+												"code": "border_radius",
+												"prompt": "Border Radius",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "one-third",
+												"style": "--mmx-pcinet-button--border-radius",
+												"type": "text"
+											},
+											{
+												"code": "margin",
+												"placeholder": "top right bottom left",
+												"prompt": "Margin",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--margin",
+												"type": "text"
+											},
+											{
+												"code": "padding",
+												"placeholder": "top right bottom left",
+												"prompt": "Padding",
+												"pseudoclasses": [
+													"normal"
+												],
+												"size": "half",
+												"style": "--mmx-pcinet-button--padding-desktop",
+												"type": "text"
+											},
+											{
+												"code": "padding_tablet",
+												"placeholder": "top right bottom left",
+												"prompt": "Padding",
+												"pseudoclasses": [
+													"tablet"
+												],
+												"style": "--mmx-pcinet-button--padding-tablet",
+												"type": "text"
+											},
+											{
+												"code": "padding_mobile",
+												"placeholder": "top right bottom left",
+												"prompt": "Padding",
+												"pseudoclasses": [
+													"mobile"
+												],
+												"style": "--mmx-pcinet-button--padding-mobile",
+												"type": "text"
 											}
 										]
 									},
@@ -1694,6 +2279,14 @@
 											"text": "Default"
 										},
 										{
+											"text": "Poppins",
+											"value": "\"Poppins\", sans-serif"
+										},
+										{
+											"text": "Inter",
+											"value": "\"Inter\", sans-serif"
+										},
+										{
 											"text": "Helvetica",
 											"value": "Helvetica, sans-serif"
 										},
@@ -1750,24 +2343,36 @@
 											"value": "\"Lucida Console\", Monaco, monospace"
 										}
 									],
-									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
 									"prompt": "Font Family",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-family",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
 									"type": "select"
 								},
 								{
 									"code": "font_size",
 									"label": "px",
 									"min": 1,
+									"prompt": "Desktop Font Size",
 									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
-									"prompt": "Font Size",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-size",
+									"style_suffix": "px",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "font_size_tablet",
+									"label": "px",
+									"min": 1,
+									"prompt": "Tablet Font Size",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"style_suffix": "px",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "font_size_mobile",
+									"label": "px",
+									"min": 1,
+									"prompt": "Mobile Font Size",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
 									"style_suffix": "px",
 									"text_type": "number",
 									"type": "text"
@@ -1811,24 +2416,10 @@
 											"value": 900
 										}
 									],
-									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
 									"prompt": "Font Weight",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "font-weight",
-									"type": "select"
-								},
-								{
-									"code": "font_color",
-									"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
 									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
-									"prompt": "Font Color",
-									"pseudoclasses": [
-										"normal"
-									],
-									"style": "color",
-									"type": "color"
+									"size": "two-thirds",
+									"type": "select"
 								},
 								{
 									"code": "font_style",
@@ -1879,6 +2470,46 @@
 									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
 									"prompt": "Text Transform",
 									"type": "select"
+								},
+								{
+									"code": "font_color",
+									"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"prompt": "Font Color",
+									"type": "color"
+								},
+								{
+									"code": "line_height",
+									"label": "px",
+									"prompt": "Line Height",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"style_suffix": "px",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "letter_spacing",
+									"label": "px",
+									"prompt": "Letter Spacing",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"step": 0.001,
+									"style_suffix": "px",
+									"text_type": "number",
+									"type": "text"
+								},
+								{
+									"code": "padding",
+									"placeholder": "top right bottom left",
+									"prompt": "Padding",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"type": "text"
+								},
+								{
+									"code": "margin",
+									"placeholder": "top right bottom left",
+									"prompt": "Margin",
+									"preview_property_selector": "mmx-product-card :shadow :nth-child(%index% of [part~=\"detail\"])",
+									"type": "text"
 								}
 							],
 							"type": "group",
@@ -2270,19 +2901,11 @@
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-product-list.js",
-			"resource_code": "mmx-product-list",
+			"resource_code": "mmx-pcinet-product-list",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-1ClogO4l6fMbjMr4kkJE/fWsQojSXlQKnIMFNUlOSPM= sha384-mNKACN2OkscesHP4GJqGPe0x39muBn93dEPrT8kNziEenXkjz/g7ifL0CJ969Kcw sha512-4szL85/nzh1zdVcGDc87DRvYADuYjROP2HXhb6fEcUtr8BbpkXMzhSkgOnJvWYfgKPpDv5NhzPlAhO6K9SbEYw=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -2290,7 +2913,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-product-list.css",
-			"resource_code": "mmx-product-list",
+			"resource_code": "mmx-pcinet-product-list",
 			"attributes": [
 				{
 					"name": "type",
@@ -2303,26 +2926,18 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-SKYFz9W6la74/BrsLWq108Xw+bHGzJXlneMA7ZlziIE= sha384-pdvJ8y7Vs5QA/u2tqwOquuPssA1VchhOXvHI0C0oKxpDp8xjwiID4DFBV9oYgs4u sha512-DaYfHW3OIks6VDNHJRnXFHBMLnxzJM3z0jiip9xN21Z2RxCsfi/ed1qpjTpWAA6Y0mSPqERCWH+cHty+/vZYmQ=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-accordion": "=10.11.00",
-		"mmx-base": "=10.11.00",
-		"mmx-button": "=10.11.00",
-		"mmx-card": "=10.11.00",
-		"mmx-forms": "=10.11.00",
-		"mmx-icons": "=10.11.00",
-		"mmx-messages": "=10.11.00",
-		"mmx-text": "=10.11.00"
+		"mmx-pcinet-accordion": "=00.01.00",
+		"mmx-pcinet-base": "=00.01.00",
+		"mmx-pcinet-button": "=00.01.00",
+		"mmx-pcinet-card": "=00.01.00",
+		"mmx-pcinet-forms": "=00.01.00",
+		"mmx-pcinet-icons": "=00.01.00",
+		"mmx-pcinet-messages": "=00.01.00",
+		"mmx-pcinet-text": "=00.01.00"
 	}
 }

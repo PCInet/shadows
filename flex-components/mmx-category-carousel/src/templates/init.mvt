@@ -1,18 +1,21 @@
+<mvt:do file="g.Module_Library_DB" name="l.void" value="Module_Load_Code_Cached( 'cmp-cssui-cattree', l.__module_cmp_cssui_cattree )" />
+<mvt:comment> --- module imports --- </mvt:comment>
+
 <mvt:do file="g.Module_Feature_TUI_MGR" name="l.null" value="TemplateManager_Render_JSON_Variables( l.settings )" />
 
-<mvt:item name="head" param="css:mmx-base" />
+<mvt:item name="head" param="css:mmx-pcinet-base" />
 <mvt:item name="head" param="css:mmx-customizations" />
 
-<template class="mmx-resources">
-	<mvt:item name="head" param="css:mmx-text" />
-	<mvt:item name="head" param="css:mmx-button" />
-	<mvt:item name="head" param="css:mmx-hero" />
-	<mvt:item name="head" param="css:mmx-hero-slider" />
+<template class="mmx-pcinet-resources">
+	<mvt:item name="head" param="css:mmx-pcinet-text" />
+	<mvt:item name="head" param="css:mmx-pcinet-button" />
+	<mvt:item name="head" param="css:mmx-pcinet-hero" />
+	<mvt:item name="head" param="css:mmx-pcinet-hero-slider" />
 </template>
 
-<mvt:item name="head" param="js:mmx-base" />
-<mvt:item name="head" param="js:mmx-text" />
-<mvt:item name="head" param="js:mmx-button" />
-<mvt:item name="head" param="js:mmx-hero" />
-<mvt:item name="head" param="js:mmx-hero-slider" />
-<mvt:item name="head" param="js:mmx-category-carousel" />
+<mvt:item name="head" param="js:mmx-pcinet-base" />
+<mvt:item name="head" param="js:mmx-pcinet-text" />
+<mvt:item name="head" param="js:mmx-pcinet-button" />
+<mvt:item name="head" param="js:mmx-pcinet-hero" />
+<mvt:item name="head" param="js:mmx-pcinet-hero-slider" />
+<mvt:item name="head" param="js:mmx-pcinet-category-carousel" />

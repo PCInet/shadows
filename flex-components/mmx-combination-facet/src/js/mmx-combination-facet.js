@@ -134,7 +134,7 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button', 'mmx-pcinet-text', 'mmx-pcinet-icons', 'mmx-pcinet-forms', 'mmx-pcinet-combination-facet'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button', 'mmx-pcinet-text', 'mmx-pcinet-icons', 'mmx-pcinet-forms', 'mmx-pcinet-combination-facet', 'slim-select'];
 	renderUniquely = true;
 
 	#facet;
@@ -547,6 +547,10 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
  						class="mmx-pcinet-combination-facet__application-select-menu-option-delete-button"
  						exportparts="button: submit__inner"
  						data-style="secondary-link"
+						style="
+						  margin-top: auto;
+						  margin-bottom: auto;
+						"
  						data-size="s"
  					>
  						<mmx-pcinet-icon data-size="16px">remove</mmx-pcinet-icon></span>
@@ -572,6 +576,11 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 				exportparts="button: submit__inner"
 				data-style="secondary-link"
 				data-size="m"
+				data-styles="
+				  --mmx-pcinet-button--padding-mobile: 0;
+				  --mmx-pcinet-button--padding-tablet: 0;
+				  --mmx-pcinet-button--padding-desktop: 0;
+				"
 			>
 				<mmx-pcinet-icon class="mmx-pcinet-combination-facet__application-select-menu-add-link-icon" data-size="16px">add-circle</mmx-pcinet-icon><span class="mmx-pcinet-combination-facet__application-select-menu-add-link-text">${MMXPCINET.encodeEntities(this.getPropValue('application-add-text'))}</span>
 			</mmx-pcinet-button>
@@ -608,6 +617,22 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 					part="application-dialog-add-button"
 					exportparts="button: button__inner"
 					class="mmx-pcinet-combination-facet__application-add-dialog-save"
+					data-styles="
+						--mmx-pcinet-button--font-family: Poppins, sans-serif;
+						--mmx-pcinet-button--font-weight: 500;
+						--mmx-pcinet-button--font-size-mobile: 16px;
+						--mmx-pcinet-button--font-size-tablet: 16px;
+						--mmx-pcinet-button--font-size-desktop: 16px;
+						--mmx-pcinet-button--font-color: black;
+						--mmx-pcinet-button--background-color: #E9ECED;
+						--mmx-pcinet-button--border-radius: 12px;
+						--mmx-pcinet-button--border-color: transparent;
+						--mmx-pcinet-button--border-color-hover: #E9ECED;
+						--mmx-pcinet-button--line-height: 24px;
+						--mmx-pcinet-button--padding-mobile: 12px 16px;
+						--mmx-pcinet-button--padding-tablet: 12px 16px;
+						--mmx-pcinet-button--padding-desktop: 12px 16px;
+					"
 					data-width="full"
 					data-style="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
 					data-size="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
@@ -649,6 +674,22 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 					part="application-dialog-edit-button"
 					exportparts="button: button__inner"
 					class="mmx-pcinet-combination-facet__application-edit-dialog-save"
+					data-styles="
+						--mmx-pcinet-button--font-family: Poppins, sans-serif;
+						--mmx-pcinet-button--font-weight: 500;
+						--mmx-pcinet-button--font-size-mobile: 16px;
+						--mmx-pcinet-button--font-size-tablet: 16px;
+						--mmx-pcinet-button--font-size-desktop: 16px;
+						--mmx-pcinet-button--font-color: black;
+						--mmx-pcinet-button--background-color: #E9ECED;
+						--mmx-pcinet-button--border-radius: 12px;
+						--mmx-pcinet-button--border-color: transparent;
+						--mmx-pcinet-button--border-color-hover: #E9ECED;
+						--mmx-pcinet-button--line-height: 24px;
+						--mmx-pcinet-button--padding-mobile: 12px 16px;
+						--mmx-pcinet-button--padding-tablet: 12px 16px;
+						--mmx-pcinet-button--padding-desktop: 12px 16px;
+					"
 					data-width="full"
 					data-style="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-style'))}"
 					data-size="${MMXPCINET.encodeEntities(this.getPropValue('application-dialog-button-size'))}"
@@ -691,6 +732,22 @@ class MMXPCINET_CombinationFacet extends MMXPCINET_Element {
 				exportparts="button: submit__inner"
 				data-type="submit"
 				data-style="${MMXPCINET.encodeEntities(this.getPropValue('submit-style'))}"
+				data-styles="
+					--mmx-pcinet-button--font-family: Poppins, sans-serif;
+					--mmx-pcinet-button--font-weight: 500;
+					--mmx-pcinet-button--font-size-mobile: 16px;
+					--mmx-pcinet-button--font-size-tablet: 16px;
+					--mmx-pcinet-button--font-size-desktop: 16px;
+					--mmx-pcinet-button--font-color: black;
+					--mmx-pcinet-button--background-color: #E9ECED;
+					--mmx-pcinet-button--border-radius: 12px;
+					--mmx-pcinet-button--border-color: transparent;
+					--mmx-pcinet-button--border-color-hover: #E9ECED;
+					--mmx-pcinet-button--line-height: 24px;
+					--mmx-pcinet-button--padding-mobile: 12px 16px;
+					--mmx-pcinet-button--padding-tablet: 12px 16px;
+					--mmx-pcinet-button--padding-desktop: 12px 16px;
+				"
 				data-width="full"
 				${disabled}
 			>
@@ -1459,6 +1516,8 @@ class MMXPCINET_CombinationFacetFields extends MMXPCINET_Element {
 
 	#bindEvents() {
 		this.#dropdowns()?.forEach((dropdown, index) => {
+			this.#dropdownSlimSelect(dropdown);
+
 			dropdown.addEventListener('change', () => {
 				this.#onDropdownChange({dropdown, index});
 			});
@@ -1497,7 +1556,7 @@ class MMXPCINET_CombinationFacetFields extends MMXPCINET_Element {
 
 	#renderDropdownOptions(field) {
 		const firstOption = field.appliedValue ?? field.name;
-		let options = /*html*/`<option value="">${MMXPCINET.encodeEntities(firstOption)}</option>`;
+		let options = /*html*/`<option value="" data-placeholder="true">${MMXPCINET.encodeEntities(firstOption)}</option>`;
 
 		return field.values.reduce((options, value) => {
 			const selected = field.selection === value ? 'selected' : '';
@@ -1628,6 +1687,18 @@ class MMXPCINET_CombinationFacetFields extends MMXPCINET_Element {
 			dropdown.value = '';
 			dropdown.innerHTML = this.#renderDropdownOptions(field);
 			dropdown.disabled = true;
+		});
+	}
+
+	#dropdownSlimSelect(dropdown) {
+		return new SlimSelect({
+			select: dropdown,
+			settings: {
+				showSearch: false,
+				disabled: dropdown.disabled,
+				contentPosition: 'fixed',
+				contentLocation: dropdown.parentElement,
+			}
 		});
 	}
 

@@ -1,124 +1,124 @@
 /* ==========================================================================
-   MMX / MESSAGES
+   MMX PCINET / MESSAGES
    ========================================================================== */
 :host {
-	--mmx-message__size: 1rem;
+	--mmx-pcinet-message__size: 1rem;
 }
 
-.mmx-message {
+.mmx-pcinet-message {
 	border: 1px solid currentColor;
 	border-radius: 0.25em;
-	font-size: calc(var(--mmx-message__size) * 0.9);
-	margin-bottom: var(--mmx-message__margin-bottom, 1em);
-	padding: 0.6em;
+	font-size: calc(var(--mmx-pcinet-message__size) * 0.9);
+	margin-bottom: var(--mmx-pcinet-message__margin-bottom, 1em);
+	padding: 12px;
 	position: relative;
 	text-align: center;
 }
 
 /* Elements */
-.mmx-message *:first-child {
+.mmx-pcinet-message *:first-child {
 	margin-top: 0;
 }
 
-.mmx-message *:last-child {
+.mmx-pcinet-message *:last-child {
 	margin-bottom: 0;
 }
 
 /* Icon */
-.mmx-message ::slotted(mmx-icon) {
+.mmx-pcinet-message ::slotted(mmx-pcinet-icon) {
 	vertical-align: middle;
 }
 
 /* Align */
-.mmx-message--align-left {
+.mmx-pcinet-message--align-left {
 	text-align: left;
 }
 
-.mmx-message--align-right {
+.mmx-pcinet-message--align-right {
 	text-align: right;
 }
 
 /* Display */
-.mmx-message--display-inline {
+.mmx-pcinet-message--display-inline {
 	display: inline;
 	padding: 0.4em;
 }
 
-.mmx-message--display-inline-block {
+.mmx-pcinet-message--display-inline-block {
 	display: inline-block;
 	padding: 0.2em 0.7em;
 }
 
 /* Size */
-.mmx-message--size-s {
-	font-size: calc(var(--mmx-message__size) * 0.75);
+.mmx-pcinet-message--size-s {
+	font-size: calc(var(--mmx-pcinet-message__size) * 0.75);
 }
 
-.mmx-message--size-l {
-	font-size: calc(var(--mmx-message__size) * 1.25);
+.mmx-pcinet-message--size-l {
+	font-size: calc(var(--mmx-pcinet-message__size) * 1.25);
 }
 
 /* Style */
-.mmx-message--style-info {
-	--mmx-heading-color: var(--mmx-color-info-text);
-	--mmx-subheading-color: var(--mmx-color-info-text);
-	--mmx-paragraph-color: var(--mmx-color-info-text);
+.mmx-pcinet-message--style-info {
+	--mmx-pcinet-heading-color: var(--mmx-pcinet-color-info-text);
+	--mmx-pcinet-subheading-color: var(--mmx-pcinet-color-info-text);
+	--mmx-pcinet-paragraph-color: var(--mmx-pcinet-color-info-text);
 
-	background-color: var(--mmx-color-info-background);
-	border-color: var(--mmx-color-info-border);
-	color: var(--mmx-color-info-text);
+	background-color: var(--mmx-pcinet-color-info-background);
+	border-color: var(--mmx-pcinet-color-info-border);
+	color: var(--mmx-pcinet-color-info-text);
 }
 
-.mmx-message--style-warning {
-	--mmx-heading-color: var(--mmx-color-warning-text);
-	--mmx-subheading-color: var(--mmx-color-warning-text);
-	--mmx-paragraph-color: var(--mmx-color-warning-text);
+.mmx-pcinet-message--style-warning {
+	--mmx-pcinet-heading-color: var(--mmx-pcinet-color-warning-text);
+	--mmx-pcinet-subheading-color: var(--mmx-pcinet-color-warning-text);
+	--mmx-pcinet-paragraph-color: var(--mmx-pcinet-color-warning-text);
 
-	background-color: var(--mmx-color-warning-background);
-	border-color: var(--mmx-color-warning-border);
-	color: var(--mmx-color-warning-text);
+	background-color: var(--mmx-pcinet-color-warning-background);
+	border-color: var(--mmx-pcinet-color-warning-border);
+	color: var(--mmx-pcinet-color-warning-text);
 }
 
-.mmx-message--style-error {
-	--mmx-heading-color: var(--mmx-color-error-text);
-	--mmx-subheading-color: var(--mmx-color-error-text);
-	--mmx-paragraph-color: var(--mmx-color-error-text);
+.mmx-pcinet-message--style-error {
+	--mmx-pcinet-heading-color: var(--mmx-pcinet-color-error-text);
+	--mmx-pcinet-subheading-color: var(--mmx-pcinet-color-error-text);
+	--mmx-pcinet-paragraph-color: var(--mmx-pcinet-color-error-text);
 
-	background-color: var(--mmx-color-error-background);
-	border-color: var(--mmx-color-error-border);
-	color: var(--mmx-color-error-text);
+	background-color: var(--mmx-pcinet-color-error-background);
+	border-color: var(--mmx-pcinet-color-error-border);
+	color: var(--mmx-pcinet-color-error-text);
 }
 
-.mmx-message--style-success {
-	--mmx-heading-color: var(--mmx-color-success-text);
-	--mmx-subheading-color: var(--mmx-color-success-text);
-	--mmx-paragraph-color: var(--mmx-color-success-text);
+.mmx-pcinet-message--style-success {
+	--mmx-pcinet-heading-color: var(--mmx-pcinet-color-success-text);
+	--mmx-pcinet-subheading-color: var(--mmx-pcinet-color-success-text);
+	--mmx-pcinet-paragraph-color: var(--mmx-pcinet-color-success-text);
 
-	background-color: var(--mmx-color-success-background);
-	border-color: var(--mmx-color-success-border);
-	color: var(--mmx-color-success-text);
+	background-color: var(--mmx-pcinet-color-success-background);
+	border-color: var(--mmx-pcinet-color-success-border);
+	color: var(--mmx-pcinet-color-success-text);
 }
 
 /* Variant */
-.mmx-message--variant-flag {
-	--mmx-message__size: 0.75rem;
+.mmx-pcinet-message--variant-flag {
+	--mmx-pcinet-message__size: 0.75rem;
 	background: none;
 	border-color: currentColor;
 	text-transform: uppercase;
 }
 
-.mmx-message--variant-minimal {
-	--mmx-message__size: 0.75rem;
+.mmx-pcinet-message--variant-minimal {
+	--mmx-pcinet-message__size: 0.75rem;
 	border: none;
 	text-transform: uppercase;
 }
 
-.mmx-message--variant-pill {
+.mmx-pcinet-message--variant-pill {
 	border: none;
 	border-radius: 2em;
 	text-transform: capitalize;
 }
 
-.mmx-message--variant-pill.mmx-message--display-inline-block {
+.mmx-pcinet-message--variant-pill.mmx-pcinet-message--display-inline-block {
 	padding: 0.3em 1.25em;
 }

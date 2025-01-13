@@ -1,26 +1,18 @@
 {
-	"code": "mmx-card",
-	"name": "MMX Card",
+	"code": "mmx-pcinet-card",
+	"name": "MMX PCInet Card",
 	"type": "library",
-	"version": "10.11.00",
+	"version": "00.01.00",
 	"managed": true,
-	"resourcegroup_code": "mmx-card",
+	"resourcegroup_code": "mmx-pcinet-card",
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-card.js",
-			"resource_code": "mmx-card",
+			"resource_code": "mmx-pcinet-card",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-EXzPpaVb0fELGDddiCoaAitA6qdUkfQS5gob6ANjkpE= sha384-LtYOgiJDR+08NGLjbdZ7eIz4h6l3F+42Dl83WcyZIKDxqTsQ9vRdYgpFGUXzcF8w sha512-00b6V7PR/PZxqVOvvB+wCgi6pjeWKtOSEoHuF5k8MAjdpRgrMOtk0Iy7IOJI0DVmB2yCTHZ+FkmraB9H5Gaj3A=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -28,7 +20,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-card.css",
-			"resource_code": "mmx-card",
+			"resource_code": "mmx-pcinet-card",
 			"attributes": [
 				{
 					"name": "type",
@@ -41,19 +33,11 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-rtzdFULtzvjpJ4Jd1wQABZ7yvzDgqmFKgjkj3UsH0yM= sha384-x//9vC76OnT2bWG/q5QEXLXUkzM0cI7z//01M29WWGUFlpK9m7Ff9nlALK9G9/BL sha512-58V+BGrYZSV/6hYacDtOnME2wR1tvD0K/CVugEIzmrA9Fwt/P3wAAl8ECSsojYKTYtVnL1LXIn8eT9u8Iou1og=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00"
 	}
 }

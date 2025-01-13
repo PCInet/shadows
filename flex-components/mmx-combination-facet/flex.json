@@ -3,7 +3,7 @@
 	"name": "PCInet Combination Facet",
 	"type": "component",
 	"version": "00.01.00",
-	"managed": false,
+	"managed": true,
 	"resourcegroup_code": "mmx-pcinet-combination-facet",
 	"category": "combination-facet",
 	"preview_component_selector": "[data-page-code=\"%page_code%\"][data-flex-component=\"%component_code%\"][data-flex-item=\"%element_code%\"]",
@@ -204,6 +204,14 @@
 										"text": "Default"
 									},
 									{
+											"text": "Poppins",
+											"value": "\"Poppins\", sans-serif"
+									},
+									{
+											"text": "Inter",
+											"value": "\"Inter\", sans-serif"
+									},
+									{
 										"text": "Helvetica",
 										"value": "Helvetica, sans-serif"
 									},
@@ -276,7 +284,35 @@
 									"normal"
 								],
 								"size": "one-third",
-								"style": "font-size",
+								"style": "--mmx-pcinet-text--font-size-desktop",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_tablet",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"tablet"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-tablet",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_mobile",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"mobile"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-mobile",
 								"style_suffix": "px",
 								"text_type": "number",
 								"type": "text"
@@ -337,6 +373,54 @@
 								],
 								"style": "color",
 								"type": "color"
+							},
+							{
+								"code": "line_height",
+								"label": "px",
+								"prompt": "Line Height",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "line-height",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "letter_spacing",
+								"label": "px",
+								"prompt": "Letter Spacing",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "letter-spacing",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "padding",
+								"placeholder": "top right bottom left",
+								"prompt": "Padding",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--padding",
+								"type": "text"
+							},
+							{
+								"code": "margin",
+								"placeholder": "top right bottom left",
+								"prompt": "Margin",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--margin",
+								"type": "text"
 							}
 						]
 					},
@@ -420,6 +504,14 @@
 										"text": "Default"
 									},
 									{
+											"text": "Poppins",
+											"value": "\"Poppins\", sans-serif"
+									},
+									{
+											"text": "Inter",
+											"value": "\"Inter\", sans-serif"
+									},
+									{
 										"text": "Helvetica",
 										"value": "Helvetica, sans-serif"
 									},
@@ -492,7 +584,35 @@
 									"normal"
 								],
 								"size": "one-third",
-								"style": "font-size",
+								"style": "--mmx-pcinet-text--font-size-desktop",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_tablet",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"tablet"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-tablet",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_mobile",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"mobile"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-mobile",
 								"style_suffix": "px",
 								"text_type": "number",
 								"type": "text"
@@ -553,6 +673,54 @@
 								],
 								"style": "color",
 								"type": "color"
+							},
+							{
+								"code": "line_height",
+								"label": "px",
+								"prompt": "Line Height",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "line-height",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "letter_spacing",
+								"label": "px",
+								"prompt": "Letter Spacing",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "letter-spacing",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "padding",
+								"placeholder": "top right bottom left",
+								"prompt": "Padding",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--padding",
+								"type": "text"
+							},
+							{
+								"code": "margin",
+								"placeholder": "top right bottom left",
+								"prompt": "Margin",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--margin",
+								"type": "text"
 							}
 						]
 					},
@@ -661,6 +829,14 @@
 										"text": "Default"
 									},
 									{
+											"text": "Poppins",
+											"value": "\"Poppins\", sans-serif"
+									},
+									{
+											"text": "Inter",
+											"value": "\"Inter\", sans-serif"
+									},
+									{
 										"text": "Helvetica",
 										"value": "Helvetica, sans-serif"
 									},
@@ -733,7 +909,35 @@
 									"normal"
 								],
 								"size": "one-third",
-								"style": "font-size",
+								"style": "--mmx-pcinet-text--font-size-desktop",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_tablet",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"tablet"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-tablet",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "font_size_mobile",
+								"label": "px",
+								"min": 1,
+								"prompt": "Font Size",
+								"pseudoclasses": [
+									"mobile"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--font-size-mobile",
 								"style_suffix": "px",
 								"text_type": "number",
 								"type": "text"
@@ -794,6 +998,54 @@
 								],
 								"style": "color",
 								"type": "color"
+							},
+							{
+								"code": "line_height",
+								"label": "px",
+								"prompt": "Line Height",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "line-height",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "letter_spacing",
+								"label": "px",
+								"prompt": "Letter Spacing",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "half",
+								"style": "letter-spacing",
+								"style_suffix": "px",
+								"text_type": "number",
+								"type": "text"
+							},
+							{
+								"code": "padding",
+								"placeholder": "top right bottom left",
+								"prompt": "Padding",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--padding",
+								"type": "text"
+							},
+							{
+								"code": "margin",
+								"placeholder": "top right bottom left",
+								"prompt": "Margin",
+								"pseudoclasses": [
+									"normal"
+								],
+								"size": "one-third",
+								"style": "--mmx-pcinet-text--margin",
+								"type": "text"
 							}
 						]
 					},
@@ -937,7 +1189,7 @@
 			"type": "group"
 		},
 		{
-			"can_disable": "true",
+			"can_disable": true,
 			"code": "content",
 			"prompt": "Text",
 			"properties": [
@@ -969,253 +1221,337 @@
 					"prompt": "Heading Text",
 					"textsettings": {
 						"fields": [
-							{
-								"code": "heading_style",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Display One",
-										"value": "display-1"
-									},
-									{
-										"text": "Display Two",
-										"value": "display-2"
-									},
-									{
-										"text": "Display Three",
-										"value": "display-3"
-									},
-									{
-										"text": "Title One",
-										"value": "title-1"
-									},
-									{
-										"text": "Title Two",
-										"value": "title-2"
-									},
-									{
-										"text": "Title Three",
-										"value": "title-3"
-									},
-									{
-										"text": "Title Four",
-										"value": "title-4"
-									},
-									{
-										"text": "Subheading Large",
-										"value": "subheading-l"
-									},
-									{
-										"text": "Subheading Small",
-										"value": "subheading-s"
-									},
-									{
-										"text": "Subheading Extra-Small",
-										"value": "subheading-xs"
-									},
-									{
-										"text": "Paragraph Large",
-										"value": "paragraph-l"
-									},
-									{
-										"text": "Paragraph Small",
-										"value": "paragraph-s"
-									},
-									{
-										"text": "Paragraph Extra-Small",
-										"value": "paragraph-xs"
-									}
-								],
-								"prompt": "Heading Style",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							},
-							{
-								"code": "font_family",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Helvetica",
-										"value": "Helvetica, sans-serif"
-									},
-									{
-										"text": "Georgia",
-										"value": "Georgia, serif"
-									},
-									{
-										"text": "Palatino Linotype",
-										"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
-									},
-									{
-										"text": "Times New Roman",
-										"value": "\"Times New Roman\", Times, serif"
-									},
-									{
-										"text": "Arial",
-										"value": "Arial, Helvetica, sans-serif"
-									},
-									{
-										"text": "Arial Black",
-										"value": "\"Arial Black\", Gadget, sans-serif"
-									},
-									{
-										"text": "Comic Sans MS",
-										"value": "\"Comic Sans MS\", cursive, sans-serif"
-									},
-									{
-										"text": "Impact",
-										"value": "Impact, Charcoal, sans-serif"
-									},
-									{
-										"text": "Lucida Sans Unicode",
-										"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
-									},
-									{
-										"text": "Tahoma",
-										"value": "Tahoma, Geneva, sans-serif"
-									},
-									{
-										"text": "Trebuchet MS",
-										"value": "\"Trebuchet MS\", Helvetica, sans-serif"
-									},
-									{
-										"text": "Verdana",
-										"value": "Verdana, Geneva, sans-serif"
-									},
-									{
-										"text": "Courier New",
-										"value": "\"Courier New\", Courier, monospace"
-									},
-									{
-										"text": "Lucida Console",
-										"value": "\"Lucida Console\", Monaco, monospace"
-									}
-								],
-								"prompt": "Font Family",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "font-family",
-								"type": "select"
-							},
-							{
-								"code": "font_size",
-								"label": "px",
-								"min": 1,
-								"prompt": "Font Size",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "one-third",
-								"style": "font-size",
-								"style_suffix": "px",
-								"text_type": "number",
-								"type": "text"
-							},
-							{
-								"code": "font_weight",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Ultra-Thin",
-										"value": 100
-									},
-									{
-										"text": "Light",
-										"value": 200
-									},
-									{
-										"text": "Book",
-										"value": 300
-									},
-									{
-										"text": "Normal",
-										"value": 400
-									},
-									{
-										"text": "Medium",
-										"value": 500
-									},
-									{
-										"text": "Semi-Bold",
-										"value": 600
-									},
-									{
-										"text": "Bold",
-										"value": 700
-									},
-									{
-										"text": "Black",
-										"value": 900
-									}
-								],
-								"prompt": "Font Weight",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "two-thirds",
-								"style": "font-weight",
-								"type": "select"
-							},
-							{
-								"code": "font_color",
-								"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-								"prompt": "Font Color",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "color",
-								"type": "color"
-							},
-							{
-								"code": "heading_tag",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "h1",
-										"value": "h1"
-									},
-									{
-										"text": "h2",
-										"value": "h2"
-									},
-									{
-										"text": "h3",
-										"value": "h3"
-									},
-									{
-										"text": "h4",
-										"value": "h4"
-									},
-									{
-										"text": "h5",
-										"value": "h5"
-									},
-									{
-										"text": "h6",
-										"value": "h6"
-									},
-									{
-										"text": "p",
-										"value": "p"
-									}
-								],
-								"prompt": "Heading Tag",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							}
+								{
+										"code": "heading_style",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Display One",
+														"value": "display-1"
+												},
+												{
+														"text": "Display Two",
+														"value": "display-2"
+												},
+												{
+														"text": "Display Three",
+														"value": "display-3"
+												},
+												{
+														"text": "Title One",
+														"value": "title-1"
+												},
+												{
+														"text": "Title Two",
+														"value": "title-2"
+												},
+												{
+														"text": "Title Three",
+														"value": "title-3"
+												},
+												{
+														"text": "Title Four",
+														"value": "title-4"
+												},
+												{
+														"text": "Subheading Large",
+														"value": "subheading-l"
+												},
+												{
+														"text": "Subheading Small",
+														"value": "subheading-s"
+												},
+												{
+														"text": "Subheading Extra-Small",
+														"value": "subheading-xs"
+												},
+												{
+														"text": "Paragraph Large",
+														"value": "paragraph-l"
+												},
+												{
+														"text": "Paragraph Small",
+														"value": "paragraph-s"
+												},
+												{
+														"text": "Paragraph Extra-Small",
+														"value": "paragraph-xs"
+												}
+										],
+										"prompt": "Heading Style",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								},
+								{
+										"code": "font_family",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Poppins",
+														"value": "\"Poppins\", sans-serif"
+												},
+												{
+														"text": "Inter",
+														"value": "\"Inter\", sans-serif"
+												},
+												{
+														"text": "Helvetica",
+														"value": "Helvetica, sans-serif"
+												},
+												{
+														"text": "Georgia",
+														"value": "Georgia, serif"
+												},
+												{
+														"text": "Palatino Linotype",
+														"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+												},
+												{
+														"text": "Times New Roman",
+														"value": "\"Times New Roman\", Times, serif"
+												},
+												{
+														"text": "Arial",
+														"value": "Arial, Helvetica, sans-serif"
+												},
+												{
+														"text": "Arial Black",
+														"value": "\"Arial Black\", Gadget, sans-serif"
+												},
+												{
+														"text": "Comic Sans MS",
+														"value": "\"Comic Sans MS\", cursive, sans-serif"
+												},
+												{
+														"text": "Impact",
+														"value": "Impact, Charcoal, sans-serif"
+												},
+												{
+														"text": "Lucida Sans Unicode",
+														"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+												},
+												{
+														"text": "Tahoma",
+														"value": "Tahoma, Geneva, sans-serif"
+												},
+												{
+														"text": "Trebuchet MS",
+														"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+												},
+												{
+														"text": "Verdana",
+														"value": "Verdana, Geneva, sans-serif"
+												},
+												{
+														"text": "Courier New",
+														"value": "\"Courier New\", Courier, monospace"
+												},
+												{
+														"text": "Lucida Console",
+														"value": "\"Lucida Console\", Monaco, monospace"
+												}
+										],
+										"prompt": "Font Family",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "font-family",
+										"type": "select"
+								},
+								{
+										"code": "font_size",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-desktop",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_tablet",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"tablet"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-tablet",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_mobile",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"mobile"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-mobile",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_weight",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Ultra-Thin",
+														"value": 100
+												},
+												{
+														"text": "Light",
+														"value": 200
+												},
+												{
+														"text": "Book",
+														"value": 300
+												},
+												{
+														"text": "Normal",
+														"value": 400
+												},
+												{
+														"text": "Medium",
+														"value": 500
+												},
+												{
+														"text": "Semi-Bold",
+														"value": 600
+												},
+												{
+														"text": "Bold",
+														"value": 700
+												},
+												{
+														"text": "Black",
+														"value": 900
+												}
+										],
+										"prompt": "Font Weight",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "two-thirds",
+										"style": "font-weight",
+										"type": "select"
+								},
+								{
+										"code": "font_color",
+										"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+										"prompt": "Font Color",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "color",
+										"type": "color"
+								},
+								{
+										"code": "line_height",
+										"label": "px",
+										"prompt": "Line Height",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "line-height",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "letter_spacing",
+										"label": "px",
+										"prompt": "Letter Spacing",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "letter-spacing",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "padding",
+										"placeholder": "top right bottom left",
+										"prompt": "Padding",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--padding",
+										"type": "text"
+								},
+								{
+										"code": "margin",
+										"placeholder": "top right bottom left",
+										"prompt": "Margin",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--margin",
+										"type": "text"
+								},
+								{
+										"code": "heading_tag",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "h1",
+														"value": "h1"
+												},
+												{
+														"text": "h2",
+														"value": "h2"
+												},
+												{
+														"text": "h3",
+														"value": "h3"
+												},
+												{
+														"text": "h4",
+														"value": "h4"
+												},
+												{
+														"text": "h5",
+														"value": "h5"
+												},
+												{
+														"text": "h6",
+														"value": "h6"
+												},
+												{
+														"text": "p",
+														"value": "p"
+												}
+										],
+										"prompt": "Heading Tag",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								}
 						]
 					},
 					"type": "text"
@@ -1226,212 +1562,337 @@
 					"prompt": "Subheading Text",
 					"textsettings": {
 						"fields": [
-							{
-								"code": "subheading_style",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Display One",
-										"value": "display-1"
-									},
-									{
-										"text": "Display Two",
-										"value": "display-2"
-									},
-									{
-										"text": "Display Three",
-										"value": "display-3"
-									},
-									{
-										"text": "Title One",
-										"value": "title-1"
-									},
-									{
-										"text": "Title Two",
-										"value": "title-2"
-									},
-									{
-										"text": "Title Three",
-										"value": "title-3"
-									},
-									{
-										"text": "Title Four",
-										"value": "title-4"
-									},
-									{
-										"text": "Subheading Large",
-										"value": "subheading-l"
-									},
-									{
-										"text": "Subheading Small",
-										"value": "subheading-s"
-									},
-									{
-										"text": "Subheading Extra-Small",
-										"value": "subheading-xs"
-									},
-									{
-										"text": "Paragraph Large",
-										"value": "paragraph-l"
-									},
-									{
-										"text": "Paragraph Small",
-										"value": "paragraph-s"
-									},
-									{
-										"text": "Paragraph Extra-Small",
-										"value": "paragraph-xs"
-									}
-								],
-								"prompt": "Subheading Style",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							},
-							{
-								"code": "font_family",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Helvetica",
-										"value": "Helvetica, sans-serif"
-									},
-									{
-										"text": "Georgia",
-										"value": "Georgia, serif"
-									},
-									{
-										"text": "Palatino Linotype",
-										"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
-									},
-									{
-										"text": "Times New Roman",
-										"value": "\"Times New Roman\", Times, serif"
-									},
-									{
-										"text": "Arial",
-										"value": "Arial, Helvetica, sans-serif"
-									},
-									{
-										"text": "Arial Black",
-										"value": "\"Arial Black\", Gadget, sans-serif"
-									},
-									{
-										"text": "Comic Sans MS",
-										"value": "\"Comic Sans MS\", cursive, sans-serif"
-									},
-									{
-										"text": "Impact",
-										"value": "Impact, Charcoal, sans-serif"
-									},
-									{
-										"text": "Lucida Sans Unicode",
-										"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
-									},
-									{
-										"text": "Tahoma",
-										"value": "Tahoma, Geneva, sans-serif"
-									},
-									{
-										"text": "Trebuchet MS",
-										"value": "\"Trebuchet MS\", Helvetica, sans-serif"
-									},
-									{
-										"text": "Verdana",
-										"value": "Verdana, Geneva, sans-serif"
-									},
-									{
-										"text": "Courier New",
-										"value": "\"Courier New\", Courier, monospace"
-									},
-									{
-										"text": "Lucida Console",
-										"value": "\"Lucida Console\", Monaco, monospace"
-									}
-								],
-								"prompt": "Font Family",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "font-family",
-								"type": "select"
-							},
-							{
-								"code": "font_size",
-								"label": "px",
-								"min": 1,
-								"prompt": "Font Size",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "one-third",
-								"style": "font-size",
-								"style_suffix": "px",
-								"text_type": "number",
-								"type": "text"
-							},
-							{
-								"code": "font_weight",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Ultra-Thin",
-										"value": 100
-									},
-									{
-										"text": "Light",
-										"value": 200
-									},
-									{
-										"text": "Book",
-										"value": 300
-									},
-									{
-										"text": "Normal",
-										"value": 400
-									},
-									{
-										"text": "Medium",
-										"value": 500
-									},
-									{
-										"text": "Semi-Bold",
-										"value": 600
-									},
-									{
-										"text": "Bold",
-										"value": 700
-									},
-									{
-										"text": "Black",
-										"value": 900
-									}
-								],
-								"prompt": "Font Weight",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "two-thirds",
-								"style": "font-weight",
-								"type": "select"
-							},
-							{
-								"code": "font_color",
-								"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-								"prompt": "Font Color",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "color",
-								"type": "color"
-							}
+								{
+										"code": "subheading_style",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Display One",
+														"value": "display-1"
+												},
+												{
+														"text": "Display Two",
+														"value": "display-2"
+												},
+												{
+														"text": "Display Three",
+														"value": "display-3"
+												},
+												{
+														"text": "Title One",
+														"value": "title-1"
+												},
+												{
+														"text": "Title Two",
+														"value": "title-2"
+												},
+												{
+														"text": "Title Three",
+														"value": "title-3"
+												},
+												{
+														"text": "Title Four",
+														"value": "title-4"
+												},
+												{
+														"text": "Subheading Large",
+														"value": "subheading-l"
+												},
+												{
+														"text": "Subheading Small",
+														"value": "subheading-s"
+												},
+												{
+														"text": "Subheading Extra-Small",
+														"value": "subheading-xs"
+												},
+												{
+														"text": "Paragraph Large",
+														"value": "paragraph-l"
+												},
+												{
+														"text": "Paragraph Small",
+														"value": "paragraph-s"
+												},
+												{
+														"text": "Paragraph Extra-Small",
+														"value": "paragraph-xs"
+												}
+										],
+										"prompt": "Subheading Style",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								},
+								{
+										"code": "font_family",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Poppins",
+														"value": "\"Poppins\", sans-serif"
+												},
+												{
+														"text": "Inter",
+														"value": "\"Inter\", sans-serif"
+												},
+												{
+														"text": "Helvetica",
+														"value": "Helvetica, sans-serif"
+												},
+												{
+														"text": "Georgia",
+														"value": "Georgia, serif"
+												},
+												{
+														"text": "Palatino Linotype",
+														"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+												},
+												{
+														"text": "Times New Roman",
+														"value": "\"Times New Roman\", Times, serif"
+												},
+												{
+														"text": "Arial",
+														"value": "Arial, Helvetica, sans-serif"
+												},
+												{
+														"text": "Arial Black",
+														"value": "\"Arial Black\", Gadget, sans-serif"
+												},
+												{
+														"text": "Comic Sans MS",
+														"value": "\"Comic Sans MS\", cursive, sans-serif"
+												},
+												{
+														"text": "Impact",
+														"value": "Impact, Charcoal, sans-serif"
+												},
+												{
+														"text": "Lucida Sans Unicode",
+														"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+												},
+												{
+														"text": "Tahoma",
+														"value": "Tahoma, Geneva, sans-serif"
+												},
+												{
+														"text": "Trebuchet MS",
+														"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+												},
+												{
+														"text": "Verdana",
+														"value": "Verdana, Geneva, sans-serif"
+												},
+												{
+														"text": "Courier New",
+														"value": "\"Courier New\", Courier, monospace"
+												},
+												{
+														"text": "Lucida Console",
+														"value": "\"Lucida Console\", Monaco, monospace"
+												}
+										],
+										"prompt": "Font Family",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "font-family",
+										"type": "select"
+								},
+								{
+										"code": "font_size",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-desktop",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_tablet",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"tablet"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-tablet",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_mobile",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"mobile"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-mobile",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_weight",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Ultra-Thin",
+														"value": 100
+												},
+												{
+														"text": "Light",
+														"value": 200
+												},
+												{
+														"text": "Book",
+														"value": 300
+												},
+												{
+														"text": "Normal",
+														"value": 400
+												},
+												{
+														"text": "Medium",
+														"value": 500
+												},
+												{
+														"text": "Semi-Bold",
+														"value": 600
+												},
+												{
+														"text": "Bold",
+														"value": 700
+												},
+												{
+														"text": "Black",
+														"value": 900
+												}
+										],
+										"prompt": "Font Weight",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "two-thirds",
+										"style": "font-weight",
+										"type": "select"
+								},
+								{
+										"code": "font_color",
+										"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+										"prompt": "Font Color",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "color",
+										"type": "color"
+								},
+								{
+										"code": "line_height",
+										"label": "px",
+										"prompt": "Line Height",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "line-height",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "letter_spacing",
+										"label": "px",
+										"prompt": "Letter Spacing",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "letter-spacing",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "padding",
+										"placeholder": "top right bottom left",
+										"prompt": "Padding",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--padding",
+										"type": "text"
+								},
+								{
+										"code": "margin",
+										"placeholder": "top right bottom left",
+										"prompt": "Margin",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--margin",
+										"type": "text"
+								},
+								{
+										"code": "heading_tag",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "h1",
+														"value": "h1"
+												},
+												{
+														"text": "h2",
+														"value": "h2"
+												},
+												{
+														"text": "h3",
+														"value": "h3"
+												},
+												{
+														"text": "h4",
+														"value": "h4"
+												},
+												{
+														"text": "h5",
+														"value": "h5"
+												},
+												{
+														"text": "h6",
+														"value": "h6"
+												},
+												{
+														"text": "p",
+														"value": "p"
+												}
+										],
+										"prompt": "Heading Tag",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								}
 						]
 					},
 					"type": "text"
@@ -1443,212 +1904,337 @@
 					"prompt": "Body Text",
 					"textsettings": {
 						"fields": [
-							{
-								"code": "body_style",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Display One",
-										"value": "display-1"
-									},
-									{
-										"text": "Display Two",
-										"value": "display-2"
-									},
-									{
-										"text": "Display Three",
-										"value": "display-3"
-									},
-									{
-										"text": "Title One",
-										"value": "title-1"
-									},
-									{
-										"text": "Title Two",
-										"value": "title-2"
-									},
-									{
-										"text": "Title Three",
-										"value": "title-3"
-									},
-									{
-										"text": "Title Four",
-										"value": "title-4"
-									},
-									{
-										"text": "Subheading Large",
-										"value": "subheading-l"
-									},
-									{
-										"text": "Subheading Small",
-										"value": "subheading-s"
-									},
-									{
-										"text": "Subheading Extra-Small",
-										"value": "subheading-xs"
-									},
-									{
-										"text": "Paragraph Large",
-										"value": "paragraph-l"
-									},
-									{
-										"text": "Paragraph Small",
-										"value": "paragraph-s"
-									},
-									{
-										"text": "Paragraph Extra-Small",
-										"value": "paragraph-xs"
-									}
-								],
-								"prompt": "Body Style",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							},
-							{
-								"code": "font_family",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Helvetica",
-										"value": "Helvetica, sans-serif"
-									},
-									{
-										"text": "Georgia",
-										"value": "Georgia, serif"
-									},
-									{
-										"text": "Palatino Linotype",
-										"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
-									},
-									{
-										"text": "Times New Roman",
-										"value": "\"Times New Roman\", Times, serif"
-									},
-									{
-										"text": "Arial",
-										"value": "Arial, Helvetica, sans-serif"
-									},
-									{
-										"text": "Arial Black",
-										"value": "\"Arial Black\", Gadget, sans-serif"
-									},
-									{
-										"text": "Comic Sans MS",
-										"value": "\"Comic Sans MS\", cursive, sans-serif"
-									},
-									{
-										"text": "Impact",
-										"value": "Impact, Charcoal, sans-serif"
-									},
-									{
-										"text": "Lucida Sans Unicode",
-										"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
-									},
-									{
-										"text": "Tahoma",
-										"value": "Tahoma, Geneva, sans-serif"
-									},
-									{
-										"text": "Trebuchet MS",
-										"value": "\"Trebuchet MS\", Helvetica, sans-serif"
-									},
-									{
-										"text": "Verdana",
-										"value": "Verdana, Geneva, sans-serif"
-									},
-									{
-										"text": "Courier New",
-										"value": "\"Courier New\", Courier, monospace"
-									},
-									{
-										"text": "Lucida Console",
-										"value": "\"Lucida Console\", Monaco, monospace"
-									}
-								],
-								"prompt": "Font Family",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "font-family",
-								"type": "select"
-							},
-							{
-								"code": "font_size",
-								"label": "px",
-								"min": 1,
-								"prompt": "Font Size",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "one-third",
-								"style": "font-size",
-								"style_suffix": "px",
-								"text_type": "number",
-								"type": "text"
-							},
-							{
-								"code": "font_weight",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Ultra-Thin",
-										"value": 100
-									},
-									{
-										"text": "Light",
-										"value": 200
-									},
-									{
-										"text": "Book",
-										"value": 300
-									},
-									{
-										"text": "Normal",
-										"value": 400
-									},
-									{
-										"text": "Medium",
-										"value": 500
-									},
-									{
-										"text": "Semi-Bold",
-										"value": 600
-									},
-									{
-										"text": "Bold",
-										"value": 700
-									},
-									{
-										"text": "Black",
-										"value": 900
-									}
-								],
-								"prompt": "Font Weight",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "two-thirds",
-								"style": "font-weight",
-								"type": "select"
-							},
-							{
-								"code": "font_color",
-								"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-								"prompt": "Font Color",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "color",
-								"type": "color"
-							}
+								{
+										"code": "body_style",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Display One",
+														"value": "display-1"
+												},
+												{
+														"text": "Display Two",
+														"value": "display-2"
+												},
+												{
+														"text": "Display Three",
+														"value": "display-3"
+												},
+												{
+														"text": "Title One",
+														"value": "title-1"
+												},
+												{
+														"text": "Title Two",
+														"value": "title-2"
+												},
+												{
+														"text": "Title Three",
+														"value": "title-3"
+												},
+												{
+														"text": "Title Four",
+														"value": "title-4"
+												},
+												{
+														"text": "Subheading Large",
+														"value": "subheading-l"
+												},
+												{
+														"text": "Subheading Small",
+														"value": "subheading-s"
+												},
+												{
+														"text": "Subheading Extra-Small",
+														"value": "subheading-xs"
+												},
+												{
+														"text": "Paragraph Large",
+														"value": "paragraph-l"
+												},
+												{
+														"text": "Paragraph Small",
+														"value": "paragraph-s"
+												},
+												{
+														"text": "Paragraph Extra-Small",
+														"value": "paragraph-xs"
+												}
+										],
+										"prompt": "Body Style",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								},
+								{
+										"code": "font_family",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Poppins",
+														"value": "\"Poppins\", sans-serif"
+												},
+												{
+														"text": "Inter",
+														"value": "\"Inter\", sans-serif"
+												},
+												{
+														"text": "Helvetica",
+														"value": "Helvetica, sans-serif"
+												},
+												{
+														"text": "Georgia",
+														"value": "Georgia, serif"
+												},
+												{
+														"text": "Palatino Linotype",
+														"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+												},
+												{
+														"text": "Times New Roman",
+														"value": "\"Times New Roman\", Times, serif"
+												},
+												{
+														"text": "Arial",
+														"value": "Arial, Helvetica, sans-serif"
+												},
+												{
+														"text": "Arial Black",
+														"value": "\"Arial Black\", Gadget, sans-serif"
+												},
+												{
+														"text": "Comic Sans MS",
+														"value": "\"Comic Sans MS\", cursive, sans-serif"
+												},
+												{
+														"text": "Impact",
+														"value": "Impact, Charcoal, sans-serif"
+												},
+												{
+														"text": "Lucida Sans Unicode",
+														"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+												},
+												{
+														"text": "Tahoma",
+														"value": "Tahoma, Geneva, sans-serif"
+												},
+												{
+														"text": "Trebuchet MS",
+														"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+												},
+												{
+														"text": "Verdana",
+														"value": "Verdana, Geneva, sans-serif"
+												},
+												{
+														"text": "Courier New",
+														"value": "\"Courier New\", Courier, monospace"
+												},
+												{
+														"text": "Lucida Console",
+														"value": "\"Lucida Console\", Monaco, monospace"
+												}
+										],
+										"prompt": "Font Family",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "font-family",
+										"type": "select"
+								},
+								{
+										"code": "font_size",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-desktop",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_tablet",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"tablet"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-tablet",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_mobile",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"mobile"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-mobile",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_weight",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Ultra-Thin",
+														"value": 100
+												},
+												{
+														"text": "Light",
+														"value": 200
+												},
+												{
+														"text": "Book",
+														"value": 300
+												},
+												{
+														"text": "Normal",
+														"value": 400
+												},
+												{
+														"text": "Medium",
+														"value": 500
+												},
+												{
+														"text": "Semi-Bold",
+														"value": 600
+												},
+												{
+														"text": "Bold",
+														"value": 700
+												},
+												{
+														"text": "Black",
+														"value": 900
+												}
+										],
+										"prompt": "Font Weight",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "two-thirds",
+										"style": "font-weight",
+										"type": "select"
+								},
+								{
+										"code": "font_color",
+										"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+										"prompt": "Font Color",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "color",
+										"type": "color"
+								},
+								{
+										"code": "line_height",
+										"label": "px",
+										"prompt": "Line Height",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "line-height",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "letter_spacing",
+										"label": "px",
+										"prompt": "Letter Spacing",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "letter-spacing",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "padding",
+										"placeholder": "top right bottom left",
+										"prompt": "Padding",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--padding",
+										"type": "text"
+								},
+								{
+										"code": "margin",
+										"placeholder": "top right bottom left",
+										"prompt": "Margin",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--margin",
+										"type": "text"
+								},
+								{
+										"code": "heading_tag",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "h1",
+														"value": "h1"
+												},
+												{
+														"text": "h2",
+														"value": "h2"
+												},
+												{
+														"text": "h3",
+														"value": "h3"
+												},
+												{
+														"text": "h4",
+														"value": "h4"
+												},
+												{
+														"text": "h5",
+														"value": "h5"
+												},
+												{
+														"text": "h6",
+														"value": "h6"
+												},
+												{
+														"text": "p",
+														"value": "p"
+												}
+										],
+										"prompt": "Heading Tag",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								}
 						]
 					},
 					"type": "textarea"

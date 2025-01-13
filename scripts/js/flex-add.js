@@ -60,5 +60,3 @@ fetch(`${process.env.STORE_URL}/mm5/json.mvc?${query.toString()}`, {
 	  console.log(d);
 	})
   .catch(error => console.error(error));
-
-	

@@ -1,8 +1,8 @@
 /**
- * MMX / MESSAGE
+ * MMX PCINET / MESSAGE
  */
 
-class MMX_Message extends MMX_Element {
+class MMXPCINET_Message extends MMXPCINET_Element {
 
 	static get props() {
 		return {
@@ -33,7 +33,7 @@ class MMX_Message extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-text', 'mmx-messages'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-text', 'mmx-pcinet-messages'];
 	renderUniquely = true;
 
 	constructor() {
@@ -46,12 +46,12 @@ class MMX_Message extends MMX_Element {
 			<div
 				part="wrapper"
 				class="
-					mmx-message
-					mmx-message--align-${this.getPropValue('align')}
-					mmx-message--display-${this.getPropValue('display')}
-					mmx-message--size-${this.getPropValue('size')}
-					mmx-message--style-${this.getPropValue('style')}
-					mmx-message--variant-${this.getPropValue('variant')}
+					mmx-pcinet-message
+					mmx-pcinet-message--align-${this.getPropValue('align')}
+					mmx-pcinet-message--display-${this.getPropValue('display')}
+					mmx-pcinet-message--size-${this.getPropValue('size')}
+					mmx-pcinet-message--style-${this.getPropValue('style')}
+					mmx-pcinet-message--variant-${this.getPropValue('variant')}
 				"
 			>
 				${this.renderContent()}
@@ -68,6 +68,6 @@ class MMX_Message extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-message')){
-	customElements.define('mmx-message', MMX_Message);
+if (!customElements.get('mmx-pcinet-message')){
+	customElements.define('mmx-pcinet-message', MMXPCINET_Message);
 }

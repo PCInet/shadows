@@ -16,12 +16,12 @@
 </mvt:if>
 
 <mvt:comment>Render Component</mvt:comment>
-<mmx-image-and-text
+<mmx-pcinet-image-and-text
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
 	data-flex-item="&mvte:instance_item:item_code;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	data-init="script"
 >
 	<mvt:comment>Init Script</mvt:comment>
@@ -46,45 +46,64 @@
 
 	<mvt:comment>Slotted Content</mvt:comment>
 	<mvt:if expr="NOT ISNULL l.settings:instance:content:subheading:value">
-		<mmx-text
+		<mmx-pcinet-text
 			slot="subheading"
 			data-style="&mvte:instance:content:subheading:textsettings:fields:normal:subheading_style:value;"
-			style="&mvte:instance:content:subheading:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:subheading:textsettings:styles:normal;
+				&mvte:instance:content:subheading:textsettings:styles:tablet;
+				&mvte:instance:content:subheading:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:content:subheading:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 	<mvt:if expr="NOT ISNULL l.settings:instance:content:heading:value">
-		<mmx-text
+		<mmx-pcinet-text
 			slot="heading"
 			data-style="&mvte:instance:content:heading:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:content:heading:textsettings:fields:normal:heading_tag:value;"
-			style="&mvte:instance:content:heading:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:heading:textsettings:styles:normal;
+				&mvte:instance:content:heading:textsettings:styles:tablet;
+				&mvte:instance:content:heading:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:content:heading:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 	<mvt:if expr="NOT ISNULL l.settings:instance:content:body:value">
-		<mmx-text
+		<mmx-pcinet-text
 			slot="body"
 			data-style="&mvte:instance:content:body:textsettings:fields:normal:body_style:value;"
 			data-source="&mvte:instance:content:body:source;"
-			style="&mvte:instance:content:body:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:body:textsettings:styles:normal;
+				&mvte:instance:content:body:textsettings:styles:tablet;
+				&mvte:instance:content:body:textsettings:styles:mobile;
+			"
 		>
 			<mvt:if expr="l.settings:instance:content:body:source EQ 'markdown'">
 				&mvt:instance:content:body:value;
 			<mvt:else>
 				&mvte:instance:content:body:value;
 			</mvt:if>
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 	<mvt:if expr="l.settings:instance:content:button:settings:enabled">
-		<mmx-button
+		<mmx-pcinet-button
 			slot="button"
 			data-style="&mvte:instance:content:button:button_text:textsettings:fields:normal:button_style:value;"
 			data-size="&mvte:instance:content:button:button_text:textsettings:fields:normal:button_size:value;"
+			data-styles="
+				&mvte:instance:content:button:button_text:textsettings:styles:normal;
+				&mvte:instance:content:button:button_text:textsettings:styles:tablet;
+				&mvte:instance:content:button:button_text:textsettings:styles:mobile;
+				&mvte:instance:content:button:button_text:textsettings:styles:hover;
+				&mvte:instance:content:button:button_text:textsettings:styles:disabled;
+			"
 		>
 			&mvte:instance:content:button:button_text:value;
-		</mmx-button>
+		</mmx-pcinet-button>
 	</mvt:if>
-</mmx-image-and-text>
+</mmx-pcinet-image-and-text>

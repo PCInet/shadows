@@ -183,6 +183,10 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 				default: 'none',
 				allowAny: true
 			},
+			'content-bg-border-radius': {
+				allowAny: true,
+				default: '0'
+			},
 			'content-theme': {
 				options: [
 					'light',
@@ -274,6 +278,11 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 			'img-alt': {
 				allowAny: true,
 				default: null
+			},
+			badges: {
+				allowAny: true,
+				isJson: true,
+				default: []
 			}
 		};
 	}
@@ -305,6 +314,7 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 				"
 			>
 				<div part="image-container" class="mmx-pcinet-hero__image-container">
+					${this.renderBadges()}
 					${this.renderImage()}
 					<slot name="image"></slot>
 				</div>
@@ -333,6 +343,7 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 				--mmx-pcinet-hero__aspect-ratio: ${this.getAspectRatio()};
 				--mmx-pcinet-hero__content-bg-color--desktop: ${this.getPropValue('content-bg-color--desktop')};
 				--mmx-pcinet-hero__content-bg-color--mobile: ${this.getPropValue('content-bg-color--mobile')};
+				--mmx-pcinet-hero__content-bg-border-radius: ${this.getPropValue('content-bg-border-radius')}px;
 				--mmx-pcinet-hero__content-height: ${this.getPropValue('content-height')};
 				--mmx-pcinet-hero__content-width: ${this.getContentWidth()};
 				--mmx-pcinet-hero__grid-template-columns: ${this.getGridTemplateColumns()};
@@ -640,6 +651,28 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 		return classes.join(' ');
 	}
 
+	renderBadges() {
+		const badges = JSON.parse(this.dataset.badges || '[]');
+
+		if (!badges?.length) {
+			return '';
+		}
+
+		return /*html*/`
+			<div part="badges" class="mmx-pcinet-hero__badges">
+				${badges.map((badge) => this.renderBadge(badge)).join('')}
+			</div>
+		`;
+	}
+
+	renderBadge(badge) {
+		return /*html*/`
+			<mmx-pcinet-badge>
+				Test Badge
+			</mmx-pcinet-badge>
+		`;
+	}
+
 	renderImage() {
 		if (this.slottedImage()) {
 			return '';
@@ -744,6 +777,7 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 
 	renderBody() {
 		const body = this.getPropValue('body');
+
 		if (!body) {
 			return '';
 		}
@@ -801,6 +835,7 @@ class MMXPCINET_Hero extends MMXPCINET_Element {
 			'data-overlay-bg-opacity': this.data?.advanced?.desktop?.overlay_opacity?.value,
 			'data-content-bg-color--mobile': this.data?.advanced?.mobile?.background_color?.settings?.enabled ? this.data?.advanced?.mobile?.background_color?.color?.value : undefined,
 			'data-content-bg-color--desktop': this.data?.advanced?.desktop?.background_color?.settings?.enabled ? this.data?.advanced?.desktop?.background_color?.color?.value : undefined,
+			'data-content-bg-border-radius': this.data?.advanced?.desktop?.background_color?.settings?.enabled ? this.data?.advanced?.desktop?.background_color?.border_radius?.value : undefined,
 			'data-content-theme': this.data?.advanced?.content_theme?.value,
 			'data-subheading': this.data?.content?.settings?.enabled ? this.data?.content?.subheading?.value : undefined,
 			'data-subheading-style': this.data?.content?.settings?.enabled ? this.data?.content?.subheading?.textsettings?.fields?.normal?.subheading_style?.value : undefined,

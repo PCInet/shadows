@@ -71,7 +71,7 @@
 	/**
 	 * Fonts
 	 */
-	--mmx-pcinet-font-family-1: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	--mmx-pcinet-font-family-1: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 	--mmx-pcinet-text-margin-bottom: 0.3em;
 	--mmx-pcinet-markdown-spacing: 0.3em;
 
@@ -97,7 +97,7 @@
 	--mmx-pcinet-heading-font-family: var(--mmx-pcinet-font-family-1);
 	--mmx-pcinet-heading-spacing: 0;
 	--mmx-pcinet-heading-style: normal;
-	--mmx-pcinet-heading-weight: var(--mmx-pcinet-font-weight-bold);
+	--mmx-pcinet-heading-weight: var(--mmx-pcinet-font-weight-medium);
 
 
 	/**
@@ -332,8 +332,8 @@
 	--mmx-pcinet-product-price-case: none;
 	--mmx-pcinet-product-price-spacing: 0;
 	--mmx-pcinet-product-price-color: var(--mmx-pcinet-color-black);
-	--mmx-pcinet-product-price-line-height: calc(20 / 13);
-	--mmx-pcinet-product-price-size: 13px;
+	--mmx-pcinet-product-price-line-height: calc(20 / 14);
+	--mmx-pcinet-product-price-size: 14px;
 	--mmx-pcinet-product-price-font: var(--mmx-pcinet-product-price-style) var(--mmx-pcinet-product-price-weight) var(--mmx-pcinet-product-price-size) / var(--mmx-pcinet-product-price-line-height) var(--mmx-pcinet-product-price-font-family);
 
 	/**
@@ -359,6 +359,20 @@
 	--mmx-pcinet-spacing-l: 32px;
 	--mmx-pcinet-spacing-xl: 64px;
 	--mmx-pcinet-spacing-sequence: 40px;
+
+	/**
+	 * Typography > Button
+	 */
+	--mmx-pcinet-button-padding-xs: 12px 16px;
+	--mmx-pcinet-button-padding-s: 12px 16px;
+	--mmx-pcinet-button-padding-m: 12px 16px;
+	--mmx-pcinet-button-padding-l: 12px 16px;
+	--mmx-pcinet-button-border-radius: 12px;
+
+	/**
+	 * Typography > Input
+	 */
+	--mmx-pcinet-input-padding: 12px 16px;
 }
 
 
@@ -393,11 +407,13 @@
 	--mmx-pcinet-color-form-field-fill--light: var(--mmx-pcinet-color-grey-01);
 	--mmx-pcinet-color-dark-focus: #8CB1E1;
 	--mmx-pcinet-color-secondary-link: #575A5D;
-	--mmx-pcinet-color-pill-bg: var(--mmx-pcinet-color-grey-01);
+	--mmx-pcinet-color-pill-bg: #E5F2F4;
 	--mmx-pcinet-color-pill-text: var(--mmx-pcinet-color-body-copy);
-	--mmx-pcinet-color-input-border: var(--mmx-pcinet-color-grey-03);
+	/* --mmx-pcinet-color-input-border: var(--mmx-pcinet-color-grey-03); */
+	--mmx-pcinet-color-input-border: rgba(47, 43, 67, 0.10);
 	--mmx-pcinet-color-input-background: var(--mmx-pcinet-color-white);
-	--mmx-pcinet-color-input-color: var(--mmx-pcinet-color-body-copy);
+	/* --mmx-pcinet-color-input-color: var(--mmx-pcinet-color-body-copy); */
+	--mmx-pcinet-color-input-color: var(--mmx-pcinet-color-black);
 	--mmx-pcinet-color-input-background--disabled: var(--mmx-pcinet-color-grey-01);
 	--mmx-pcinet-color-form-labels: var(--mmx-pcinet-color-black);
 	--mmx-pcinet-color-modal-dialog-background: var(--mmx-pcinet-color-white);

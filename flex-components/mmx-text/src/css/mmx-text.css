@@ -270,6 +270,22 @@ h6 {
 		font: var(--mmx-pcinet-paragraph-xs-font);
 		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-paragraph-xs-size));
 	}
+
+	.type-call-to-action {
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-call-to-action-size));
+	}
+	
+	.type-product-name {
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-product-name-size));
+	}
+	
+	.type-product-price {
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-product-price-size));
+	}
+	
+	.type-product-additional-price {
+		font-size: var(--mmx-pcinet-text--font-size-tablet, var(--mmx-pcinet-product-additional-price-size));
+	}
 }
 
 /* Typography Styles: Large Breakpoint [60em = 960px]
@@ -345,6 +361,22 @@ h6 {
 		font: var(--mmx-pcinet-paragraph-xs-font);
 		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-paragraph-xs-size));
 	}
+
+	.type-call-to-action {
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-call-to-action-size));
+	}
+	
+	.type-product-name {
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-product-name-size));
+	}
+	
+	.type-product-price {
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-product-price-size));
+	}
+	
+	.type-product-additional-price {
+		font-size: var(--mmx-pcinet-text--font-size-desktop, var(--mmx-pcinet-product-additional-price-size));
+	}	
 }
 
 /* Markdown Element Styles

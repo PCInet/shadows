@@ -1,10 +1,10 @@
-class MMX_Accordion extends MMX_Element {
+class MMXPCINET_Accordion extends MMXPCINET_Element {
 	static get props() {
 		return {
 		};
 	}
 
-	styleResourceCodes = ['mmx-accordion'];
+	styleResourceCodes = ['mmx-pcinet-accordion'];
 	renderUniquely = true;
 
 	constructor() {
@@ -15,7 +15,7 @@ class MMX_Accordion extends MMX_Element {
 
 	render() {
 		return /*html*/`
-			<div part="wrapper" class="mmx-accordion">
+			<div part="wrapper" class="mmx-pcinet-accordion">
 				<slot part="title" name="title"></slot>
 				<slot part="details" name="details"></slot>
 			</div>
@@ -57,7 +57,7 @@ class MMX_Accordion extends MMX_Element {
 	}
 
 	revealElement(element) {
-		const details = MMX.closestElement('details', element);
+		const details = MMXPCINET.closestElement('details', element);
 
 		if (!details) {
 			return;
@@ -67,6 +67,6 @@ class MMX_Accordion extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-accordion')) {
-	customElements.define('mmx-accordion', MMX_Accordion);
+if (!customElements.get('mmx-pcinet-accordion')) {
+	customElements.define('mmx-pcinet-accordion', MMXPCINET_Accordion);
 }

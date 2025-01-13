@@ -1,15 +1,15 @@
 /* ==========================================================================
-   MMX / CARD
+   MMX PCINET / CARD
    ========================================================================== */
 
 :host {
-	--mmx-card__size: var(--mmx-spacing-m);
-	--mmx-card__gap: calc(var(--mmx-card__size) / 2);
+	--mmx-pcinet-card__size: var(--mmx-pcinet-spacing-m);
+	--mmx-pcinet-card__gap: calc(var(--mmx-pcinet-card__size) / 2);
 }
 
-.mmx-card {
+.mmx-pcinet-card {
 	align-content: start;
-	color: var(--mmx-color-body-copy);
+	color: var(--mmx-pcinet-color-body-copy);
 	display: grid;
 	grid-template-areas:
 		"header"
@@ -19,39 +19,39 @@
 	text-decoration: none;
 }
 
-.mmx-card__flag {
+.mmx-pcinet-card__flag {
 	align-items: flex-start;
 	display: flex;
-	gap: var(--mmx-card__gap);
-	margin: var(--mmx-card__gap);
+	gap: var(--mmx-pcinet-card__gap);
+	margin: var(--mmx-pcinet-card__gap);
 	text-align: left;
 	z-index: 1;
 	grid-area: main;
 	place-self: start left;
 }
 
-.mmx-card__header {
+.mmx-pcinet-card__header {
 	grid-area: header;
 }
 
-.mmx-card__main {
+.mmx-pcinet-card__main {
 	display: grid;
 	grid-area: main;
-	gap: var(--mmx-card__gap);
+	gap: var(--mmx-pcinet-card__gap);
 }
 
-.mmx-card__footer {
+.mmx-pcinet-card__footer {
 	grid-area: footer;
 }
 
-.mmx-card ::slotted(mmx-message) {
-	--mmx-message__margin-bottom: 0;
+.mmx-pcinet-card ::slotted(mmx-pcinet-message) {
+	--mmx-pcinet-message__margin-bottom: 0;
 }
 
-.mmx-card ::slotted(img) {
-    aspect-ratio: var(--mmx-card__aspect-ratio, 1 / 1);
+.mmx-pcinet-card ::slotted(img) {
+    aspect-ratio: var(--mmx-pcinet-card__aspect-ratio, 1 / 1);
     height: auto;
-    object-fit: var(--mmx-card__object-fit, contain);
+    object-fit: var(--mmx-pcinet-card__object-fit, contain);
     object-position: center;
     width: 100%;
 }
@@ -59,19 +59,19 @@
 /* ==========================================================================
    MMX / PRODUCT CARD
    ========================================================================== */
-.mmx-product-card mmx-button {
+.mmx-pcinet-product-card mmx-pcinet-button {
 	margin-top: unset;
 }
 
-.mmx-product-card__prices span {
+.mmx-pcinet-product-card__prices span {
 	display: inline-block;
 }
 
-.mmx-product-card__additional-price {
+.mmx-pcinet-product-card__additional-price {
 	margin-left: 0.5em;
 	text-decoration: line-through;
 }
 
-.mmx-product-card__detail--empty {
+.mmx-pcinet-product-card__detail--empty {
 	display: none;
 }

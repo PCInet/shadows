@@ -1,7 +1,7 @@
 /**
- * MMX / HERO SLIDER
+ * MMX PCINET / HERO SLIDER
  */
-class MMX_HeroSlider extends MMX_Element {
+class MMXPCINET_HeroSlider extends MMXPCINET_Element {
 	#current_slide;
 	#resize_observer;
 	#auto_image_height;
@@ -68,6 +68,18 @@ class MMX_HeroSlider extends MMX_Element {
 				],
 				default: 'over'
 			},
+			'nav-type': {
+				options: [
+					'image',
+					'bullet'
+				],
+				default: 'bullet'
+			},
+			'nav-images': {
+				allowAny: true,
+				isJson: true,
+				default: []
+			},
 			'arrow-style': {
 				options: [
 					'caret',
@@ -91,7 +103,7 @@ class MMX_HeroSlider extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-button', 'mmx-hero', 'mmx-hero-slider'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button', 'mmx-pcinet-hero', 'mmx-pcinet-hero-slider'];
 
 	constructor() {
 		super();
@@ -155,14 +167,14 @@ class MMX_HeroSlider extends MMX_Element {
 
 	render() {
 		return /*html*/`
-			<div part="wrapper" class="mmx-hero-slider mmx-hero-slider--arrow-style-${this.getPropValue('arrow-style')} mmx-hero-slider--per-page-${this.getCurrentPerPage()}">
-				<div part="slides" class="mmx-hero-slider__slides">
+			<div part="wrapper" class="mmx-pcinet-hero-slider mmx-pcinet-hero-slider--arrow-style-${this.getPropValue('arrow-style')} mmx-pcinet-hero-slider--per-page-${this.getCurrentPerPage()}">
+				<div part="slides" class="mmx-pcinet-hero-slider__slides">
 					${this.renderSlides()}
 					<slot name="hero_slide"></slot>
 				</div>
-				<button class="mmx-hero-slider__arrow-left" title="Move to previous slider page">${this.renderSliderArrowSVG()}</button>
-				<button class="mmx-hero-slider__arrow-right" title="Move to next slider page">${this.renderSliderArrowSVG()}</button>
-				<div class="mmx-hero-slider__slider-navigation mmx-hero-slider__slider-navigation--position-${this.getPropValue('nav-position')} mmx-hero-slider__slider-navigation--style-${this.getPropValue('nav-style')}"></div>
+				<button class="mmx-pcinet-hero-slider__arrow-left" title="Move to previous slider page">${this.renderSliderArrowSVG()}</button>
+				<button class="mmx-pcinet-hero-slider__arrow-right" title="Move to next slider page">${this.renderSliderArrowSVG()}</button>
+				<div class="mmx-pcinet-hero-slider__slider-navigation mmx-pcinet-hero-slider__slider-navigation--position-${this.getPropValue('nav-position')} mmx-pcinet-hero-slider__slider-navigation--style-${this.getPropValue('nav-style')} mmx-pcinet-hero-slider__slider-navigation--type-${this.getPropValue('nav-type')}"></div>
 			</div>
 		`;
 	}
@@ -177,14 +189,14 @@ class MMX_HeroSlider extends MMX_Element {
 
 	renderSliderArrowSVGCaret() {
 		return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="32.641" viewBox="0 0 20 32.641">
-			<path class="mmx-hero-slider__arrow-inner" d="M3.415,15.732l-.218.218.218.22L17.441,30.237l.01-.01,1.733-1.754-1.739-1.744L6.7,15.951,17.489,5.127l1.74-1.745L17.495,1.628l-.007-.007Z" transform="translate(0.771 0.391)" />
-			<path class="mmx-hero-slider__arrow-outer" d="M16.268,0,14.517,1.759.265,16.075,0,16.342H0L14.472,30.882l1.751,1.759.01-.01,1.98-2L4.186,16.56l-.218-.218.218-.218L18.259,2.012l-1.983-2Z" transform="translate(0 0)" />
+			<path class="mmx-pcinet-hero-slider__arrow-inner" d="M3.415,15.732l-.218.218.218.22L17.441,30.237l.01-.01,1.733-1.754-1.739-1.744L6.7,15.951,17.489,5.127l1.74-1.745L17.495,1.628l-.007-.007Z" transform="translate(0.771 0.391)" />
+			<path class="mmx-pcinet-hero-slider__arrow-outer" d="M16.268,0,14.517,1.759.265,16.075,0,16.342H0L14.472,30.882l1.751,1.759.01-.01,1.98-2L4.186,16.56l-.218-.218.218-.218L18.259,2.012l-1.983-2Z" transform="translate(0 0)" />
 		</svg>`;
 	}
 
 	renderSliderArrowSVGButton() {
 		return `<svg xmlns="http://www.w3.org/2000/svg" width="7.197" height="11.831" viewBox="0 0 7.197 11.831">
-			<path class="mmx-hero-slider__arrow-button" d="M1.31,0,0,1.3,5.916,7.2l5.916-5.9L10.521,0,5.916,4.606Z" transform="translate(7.197) rotate(90)" />
+			<path class="mmx-pcinet-hero-slider__arrow-button" d="M1.31,0,0,1.3,5.916,7.2l5.916-5.9L10.521,0,5.916,4.606Z" transform="translate(7.197) rotate(90)" />
 		</svg>`;
 	}
 
@@ -192,9 +204,9 @@ class MMX_HeroSlider extends MMX_Element {
 		const perPageBreakpoints = this.getPerPageBreakpoints();
 		return /*css*/`
 			:host {
-				--mmx-hero-slider__per-page--mobile: ${perPageBreakpoints.mobile};
-				--mmx-hero-slider__per-page--tablet: ${perPageBreakpoints.tablet};
-				--mmx-hero-slider__per-page--desktop: ${perPageBreakpoints.desktop};
+				--mmx-pcinet-hero-slider__per-page--mobile: ${perPageBreakpoints.mobile};
+				--mmx-pcinet-hero-slider__per-page--tablet: ${perPageBreakpoints.tablet};
+				--mmx-pcinet-hero-slider__per-page--desktop: ${perPageBreakpoints.desktop};
 			}
 		`;
 	}
@@ -225,8 +237,8 @@ class MMX_HeroSlider extends MMX_Element {
 		const slides = this.slideElements();
 
 		slides.forEach(slide => {
-			if (!slide.__mmx_resize_bound) {
-				slide.__mmx_resize_bound = true;
+			if (!slide.__mmxpcinet_resize_bound) {
+				slide.__mmxpcinet_resize_bound = true;
 				this.#resize_observer.observe(slide);
 			}
 		});
@@ -286,8 +298,8 @@ class MMX_HeroSlider extends MMX_Element {
 	};
 
 	#event_navigation_move_position_click = (e) => {
-		if (e?.currentTarget.hasOwnProperty('__mmx_item_position')) {
-			this.moveToPage(e.currentTarget.__mmx_item_position);
+		if (e?.currentTarget.hasOwnProperty('__mmxpcinet_item_position')) {
+			this.moveToPage(e.currentTarget.__mmxpcinet_item_position);
 			return false;
 		}
 	};
@@ -304,7 +316,7 @@ class MMX_HeroSlider extends MMX_Element {
 	}
 
 	bindNavigationSlide(item, position) {
-		item.__mmx_item_position = position;
+		item.__mmxpcinet_item_position = position;
 		item.addEventListener('click', this.#event_navigation_move_position_click);
 	}
 
@@ -602,17 +614,17 @@ class MMX_HeroSlider extends MMX_Element {
 		const perPages = this.getPropValue('per-page');
 
 		let [mobile, tablet, desktop] = perPages.split(',').map(perPage => {
-			return MMX.coerceNumber(perPage, 1);
+			return MMXPCINET.coerceNumber(perPage, 1);
 		});
 
-		mobile = MMX.coerceNumber(mobile, 1);
-		tablet = MMX.coerceNumber(tablet, mobile);
-		desktop = MMX.coerceNumber(desktop, mobile);
+		mobile = MMXPCINET.coerceNumber(mobile, 1);
+		tablet = MMXPCINET.coerceNumber(tablet, mobile);
+		desktop = MMXPCINET.coerceNumber(desktop, mobile);
 
-		let current = this.sliderElement() ? window.getComputedStyle(this.sliderElement()).getPropertyValue('--mmx-hero-slider__per-page') : mobile;
+		let current = this.sliderElement() ? window.getComputedStyle(this.sliderElement()).getPropertyValue('--mmx-pcinet-hero-slider__per-page') : mobile;
 
 		return {
-			current: MMX.coerceNumber(current, mobile),
+			current: MMXPCINET.coerceNumber(current, mobile),
 			mobile,
 			tablet,
 			desktop
@@ -620,7 +632,7 @@ class MMX_HeroSlider extends MMX_Element {
 	}
 
 	sliderElement() {
-		return this.shadowRoot.querySelector('.mmx-hero-slider');
+		return this.shadowRoot.querySelector('.mmx-pcinet-hero-slider');
 	}
 
 	slides() {
@@ -632,23 +644,23 @@ class MMX_HeroSlider extends MMX_Element {
 	}
 
 	shadowSlides() {
-		return this.shadowRoot.querySelectorAll('mmx-hero');
+		return this.shadowRoot.querySelectorAll('mmx-pcinet-hero');
 	}
 
 	navigationLeftElement() {
-		return this.shadowRoot.querySelector('.mmx-hero-slider__arrow-left');
+		return this.shadowRoot.querySelector('.mmx-pcinet-hero-slider__arrow-left');
 	}
 
 	navigationRightElement() {
-		return this.shadowRoot.querySelector('.mmx-hero-slider__arrow-right');
+		return this.shadowRoot.querySelector('.mmx-pcinet-hero-slider__arrow-right');
 	}
 
 	navigationSliderElement() {
-		return this.shadowRoot.querySelector('.mmx-hero-slider__slider-navigation');
+		return this.shadowRoot.querySelector('.mmx-pcinet-hero-slider__slider-navigation');
 	}
 
 	navigationSliderElements() {
-		return this.shadowRoot.querySelectorAll('.mmx-hero-slider__slider-navigation > button');
+		return this.shadowRoot.querySelectorAll('.mmx-pcinet-hero-slider__slider-navigation > button');
 	}
 
 	slideElements() {
@@ -658,7 +670,7 @@ class MMX_HeroSlider extends MMX_Element {
 	renderSlides() {
 		return this.slides().map((slide => {
 			return this.createElement({
-				type: 'mmx-hero',
+				type: 'mmx-pcinet-hero',
 				attributes: slide
 			}).outerHTML;
 		})).join('');
@@ -701,6 +713,7 @@ class MMX_HeroSlider extends MMX_Element {
 	updateSliderNavigation() {
 		const pageCount = this.getPageCount();
 		const sliderNavigation = this.navigationSliderElement();
+		const navigationType = this.getPropValue('nav-type');
 
 		if (!(pageCount > 1)) {
 			return sliderNavigation.style.display = 'none';
@@ -708,14 +721,39 @@ class MMX_HeroSlider extends MMX_Element {
 
 		sliderNavigation.style.display = '';
 
-		sliderNavigation.innerHTML = Array.from(Array(pageCount)).map(((page, i) => {
-			return this.createElement({
-				type: 'button',
-				attributes: {
-					title: `Move slider to page #${i + 1}`
-				}
-			}).outerHTML;
-		})).join('');
+		if (navigationType === 'image') {
+			sliderNavigation.innerHTML = Array.from(Array(pageCount)).map(((page, i) => {
+				const button = this.createElement({
+					type: 'button',
+					attributes: {
+						title: `Move slider to page #${i + 1}`
+					}
+				});
+
+				const img = this.createElement({
+					type: 'img',
+					attributes: {
+						width: '100',
+						height: '100',
+						src: this.getPropValue('nav-images')[i] || `https://placehold.co/100x100?text=${i + 1}`,
+						alt: `Move slider to page #${i + 1}`
+					}
+				});
+
+				button.appendChild(img);
+				return button.outerHTML;
+			})).join('');
+		}
+		else {
+			sliderNavigation.innerHTML = Array.from(Array(pageCount)).map(((page, i) => {
+				return this.createElement({
+					type: 'button',
+					attributes: {
+						title: `Move slider to page #${i + 1}`
+					}
+				}).outerHTML;
+			})).join('');
+		}
 
 		this.bindNavigation();
 	}
@@ -865,11 +903,11 @@ class MMX_HeroSlider extends MMX_Element {
 	}
 
 	revealElement(element) {
-		const slide = MMX.closestElement('[slot="hero_slide"]', element);
+		const slide = MMXPCINET.closestElement('[slot="hero_slide"]', element);
 		this.moveToSlideElement(slide);
 	}
 }
 
-if (!customElements.get('mmx-hero-slider')) {
-	customElements.define('mmx-hero-slider', MMX_HeroSlider);
+if (!customElements.get('mmx-pcinet-hero-slider')) {
+	customElements.define('mmx-pcinet-hero-slider', MMXPCINET_HeroSlider);
 }

@@ -7,7 +7,7 @@
 </mvt:if>
 
 <mvt:comment>Render Component</mvt:comment>
-<mmx-product-carousel
+<mmx-pcinet-product-carousel
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
@@ -18,7 +18,7 @@
 	data-per-page="&mvte:instance:advanced:settings:per_page:value;"
 	data-per-move="&mvte:instance:advanced:settings:per_move:value;"
 	data-peek="&mvte:instance:advanced:settings:peek:value;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	data-init="script"
 >
 	<mvt:comment>Init Script</mvt:comment>
@@ -31,14 +31,18 @@
 		<mvt:if expr="ISNULL l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value OR l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value EQ 'default'">
 			<mvt:assign name="l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value" value="'title-1'" />
 		</mvt:if>
-		<mmx-text
+		<mmx-pcinet-text
 			slot="title"
 			data-style="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_tag:value;"
 			data-align="&mvte:instance:heading:heading_align:value;"
-			style="&mvte:instance:heading:heading_text:textsettings:styles:normal;"
+			style="
+				&mvte:instance:heading:heading_text:textsettings:styles:normal;
+				&mvte:instance:heading:heading_text:textsettings:styles:tablet;
+				&mvte:instance:heading:heading_text:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:heading:heading_text:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
-</mmx-product-carousel>
+</mmx-pcinet-product-carousel>

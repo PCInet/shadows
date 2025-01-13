@@ -3,7 +3,7 @@
 	"name": "MMX PCInet Icons",
 	"type": "library",
 	"version": "00.01.00",
-	"managed": false,
+	"managed": true,
 	"resourcegroup_code": "mmx-pcinet-icons",
 	"scripts": [
 		{

@@ -1,11 +1,13 @@
 /**
  * MMX / IMAGE ACROSS
  */
-class MMX_ImageAcross extends MMX_Element {
+class MMXPCINET_ImageAcross extends MMXPCINET_Element {
 	#auto_image_height;
 	#scroll_position;
 	#resize_observer;
 	#intersection_observer;
+	#left_arrow_disabled;
+	#right_arrow_disabled;
 
 	static get props() {
 		return {
@@ -53,29 +55,43 @@ class MMX_ImageAcross extends MMX_Element {
 					'wrap'
 				],
 				default: 'scroll'
-			}
+			},
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-button', 'mmx-hero', 'mmx-image-across'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-button', 'mmx-pcinet-hero', 'mmx-pcinet-image-across'];
 
 	constructor() {
 		super();
 		this.makeShadow();
 		this.#scroll_position		= 0;
 		this.#resize_observer		= new ResizeObserver(entries => this.setScrollPosition());
-		this.#intersection_observer	= new IntersectionObserver(entries => {this.calculateScrollPosition();}, { rootMargin: '100% 0%', threshold: 0 });
+		this.#intersection_observer	= new IntersectionObserver(entries => {
+			
+			this.calculateScrollPosition();
+			this.handleScrollControls();
+		}, { rootMargin: '100% 0%', threshold: 0 });
 	}
 
 	render() {
 		return /*html*/`
-			<div part="wrapper" class="mmx-image-across">
-				<div part="title" class="mmx-image-across__title">
+			<div part="wrapper" class="mmx-pcinet-image-across">
+				<div part="title" class="mmx-pcinet-image-across__title">
 					<slot name="title"></slot>
 				</div>
-				<div part="images" class="mmx-image-across__images mmx-image-across__images-columns--${this.maxColumns()} mmx-image-across__images-overflow--${this.getPropValue('overflow')}">
-					${this.renderImages()}
-					<slot name="image"></slot>
+				<div part="content" class="mmx-pcinet-image-across__content">
+					<div part="images" class="mmx-pcinet-image-across__images mmx-pcinet-image-across__images-columns--${this.maxColumns()} mmx-pcinet-image-across__images-overflow--${this.getPropValue('overflow')}">
+						${this.renderImages()}
+						<slot name="image"></slot>
+					</div>
+					<div part="controls" class="mmx-pcinet-image-across__controls">
+						<span part="arrow-left" class="mmx-pcinet-image-across__arrow mmx-pcinet-image-across__arrow--prev mmx-pcinet-image-across__arrow--disabled">
+							<mmx-pcinet-icon data-color="white" data-size="12px">chevron-left</mmx-pcinet-icon>
+						</span>
+						<span part="arrow-right" class="mmx-pcinet-image-across__arrow mmx-pcinet-image-across__arrow--next">
+							<mmx-pcinet-icon data-color="white" data-size="12px">chevron-right</mmx-pcinet-icon>
+						</span>
+					</div>
 				</div>
 			</div>
 		`;
@@ -85,20 +101,35 @@ class MMX_ImageAcross extends MMX_Element {
 		this.setImageHeight();
 		this.#resize_observer.observe(this.shadowImagesContainer());
 		this.slottedImages().forEach(image => {this.#intersection_observer.observe(image);});
+		this.hideScrollbar();
+		this.bindEvents();
 	}
 
 	styles() {
 		return /*css*/`
 			:host {
-				--mmx-image-across__text-align: ${this.getPropValue('align')};
-				--mmx-image-across__columns: ${this.maxColumns()};
-				--mmx-image-across__image-count: ${this.getImageCount()};
+				--mmx-pcinet-image-across__text-align: ${this.getPropValue('align')};
+				--mmx-pcinet-image-across__columns: ${this.maxColumns()};
+				--mmx-pcinet-image-across__image-count: ${this.getImageCount()};
 			}
 		`;
 	}
 
+	bindEvents() {
+		this.arrowLeft().addEventListener('click', this.scrollLeft.bind(this));
+		this.arrowRight().addEventListener('click', this.scrollRight.bind(this));
+	}
+
 	images() {
 		return this.loadPropertyData('images') || [];
+	}
+
+	arrowLeft() {
+		return this.shadowRoot.querySelector('[part="arrow-left"]');
+	}
+
+	arrowRight() {
+		return this.shadowRoot.querySelector('[part="arrow-right"]');
 	}
 
 	slottedImages() {
@@ -120,7 +151,7 @@ class MMX_ImageAcross extends MMX_Element {
 	renderImages() {
 		return this.images().map((image => {
 			return this.createElement({
-				type: 'mmx-hero',
+				type: 'mmx-pcinet-hero',
 				attributes: {
 					part: 'image',
 					...image
@@ -155,6 +186,19 @@ class MMX_ImageAcross extends MMX_Element {
 			return this.#auto_image_height + 'px';
 		} else {
 			return size;
+		}
+	}
+
+	hideScrollbar() {
+		const container = this.shadowImagesContainer();
+		const isScrollable = container.scrollWidth > container.clientWidth;
+
+		if (isScrollable) {
+			// Adjust margin to hide scrollbar
+			container.style.marginBottom = -(container.offsetHeight - container.clientHeight) + 'px';
+		} else {
+			// Reset margin if not scrollable
+			container.style.marginBottom = '0px';
 		}
 	}
 
@@ -209,6 +253,71 @@ class MMX_ImageAcross extends MMX_Element {
 		}
 	}
 
+	handleScrollControls() {
+		const container = this.shadowImagesContainer();
+		const scrollLeft = container.scrollLeft;
+		const maxScrollLeft = container.scrollWidth - container.clientWidth;
+		const peek = 50;
+
+		const arrowLeft = this.arrowLeft();
+		const arrowRight = this.arrowRight();
+
+		
+		// Check if the container is scrollable
+		if (maxScrollLeft <= 0) {
+				// Hide both arrows if no scrolling is possible
+				arrowLeft.style.display = 'none';
+				arrowRight.style.display = 'none';
+				return;
+		} else {
+				// Show arrows if scrolling is possible
+				arrowLeft.style.display = '';
+				arrowRight.style.display = '';
+		}
+
+		// Disable the left arrow if at the start
+		if (scrollLeft <= peek) {
+			if (!this.#left_arrow_disabled) {
+				arrowLeft.classList.add('mmx-pcinet-image-across__arrow--disabled');
+				arrowLeft.setAttribute('aria-disabled', 'true');
+				this.#left_arrow_disabled = true;
+			}
+		} else {
+			if (this.#left_arrow_disabled) {
+				arrowLeft.classList.remove('mmx-pcinet-image-across__arrow--disabled');
+				arrowLeft.removeAttribute('aria-disabled');
+				this.#left_arrow_disabled = false;
+			}
+		}
+
+		// Disable the right arrow if at the end
+		if (scrollLeft >= maxScrollLeft - peek) {
+			if (!this.#right_arrow_disabled) {
+				arrowRight.classList.add('mmx-pcinet-image-across__arrow--disabled');
+				arrowRight.setAttribute('aria-disabled', 'true');
+				this.#right_arrow_disabled = true;
+			}
+		} else {
+			if (this.#right_arrow_disabled) {
+				arrowRight.classList.remove('mmx-pcinet-image-across__arrow--disabled');
+				arrowRight.removeAttribute('aria-disabled');
+				this.#right_arrow_disabled = false;
+			}
+		}
+	}
+
+	scrollLeft() {
+		const image_width = this.slottedImages()?.[0]?.offsetWidth;
+
+		this.shadowImagesContainer().scroll({behavior: 'smooth', left: this.shadowImagesContainer().scrollLeft - image_width || 0});
+	}
+
+	scrollRight() {
+		const image_width = this.slottedImages()?.[0]?.offsetWidth;
+
+		this.shadowImagesContainer().scroll({behavior: 'smooth', left: this.shadowImagesContainer().scrollLeft + image_width || 0});
+	}
+
 	calculateScrollPosition()
 	{
 		const image_container	= this.shadowImagesContainer().scrollWidth;
@@ -225,8 +334,12 @@ class MMX_ImageAcross extends MMX_Element {
 
 		this.shadowImagesContainer().scrollLeft	= new_position;
 	}
+
+	onDataChange() {
+		MMXPCINET.setElementAttributes(this, {});
+	}
 }
 
-if (!customElements.get('mmx-image-across')){
-	customElements.define('mmx-image-across', MMX_ImageAcross);
+if (!customElements.get('mmx-pcinet-image-across')){
+	customElements.define('mmx-pcinet-image-across', MMXPCINET_ImageAcross);
 }

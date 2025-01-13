@@ -95,6 +95,13 @@
 			slot="button"
 			data-style="&mvte:instance:content:button:textsettings:fields:normal:button_style:value;"
 			data-size="&mvte:instance:content:button:textsettings:fields:normal:button_size:value;"
+			data-styles="
+				&mvte:instance:content:button:textsettings:styles:normal;
+				&mvte:instance:content:button:textsettings:styles:tablet;
+				&mvte:instance:content:button:textsettings:styles:mobile;
+				&mvte:instance:content:button:textsettings:styles:hover;
+				&mvte:instance:content:button:textsettings:styles:disabled;
+			"
 		>
 			&mvte:instance:content:button:value;
 		</mmx-pcinet-button>

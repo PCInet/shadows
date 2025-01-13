@@ -22,6 +22,10 @@ class MMXPCINET_Button extends MMXPCINET_Element {
 				options: ['submit', 'reset', 'button', 'link'],
 				default: '' // Default can be either `button` or `link` and is determined in getType()
 			},
+			'styles': {
+				allowAny: true,
+				default: ''
+			},
 			shape: {
 				options: ['normal', 'round'],
 				default: 'normal'
@@ -44,6 +48,28 @@ class MMXPCINET_Button extends MMXPCINET_Element {
 			<${tag} class="mmx-pcinet-button ${this.getStyleClass()} mmx-pcinet-button__size--${this.getPropValue('size')} mmx-pcinet-button__width--${this.getPropValue('width')} mmx-pcinet-button__shape--${this.getPropValue('shape')} ${this.darkClass()}" ${this.inheritAttrs()} part="button">
 				<slot></slot>
 			</${tag}>
+		`;
+	}
+
+	styles() {
+		const styles = [];
+		const restrictedValues = ['px', 'em', 'rem', 'vh', 'vw', '%'];
+
+		this.getStyles()?.trim()?.split('\n')?.forEach(pseudo => {
+			const properties = pseudo?.split(';')?.map(s => s.trim());
+			properties?.forEach(property => {
+				const [key, value] = property?.split(':')?.map(s => s.trim());
+
+				if (key && value && !restrictedValues.includes(value)) {
+					styles.push(`${key}: ${value};`);
+				}
+			});
+		});
+
+		return /*css*/`
+			:host {
+				${styles.join('\n\t')}
+			}
 		`;
 	}
 
@@ -143,6 +169,10 @@ class MMXPCINET_Button extends MMXPCINET_Element {
 				return 'button';
 			}
 		}
+	}
+
+	getStyles() {
+		return this.getPropValue('styles');
 	}
 
 	darkClass() {

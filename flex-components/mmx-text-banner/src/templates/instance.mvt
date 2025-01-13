@@ -25,12 +25,12 @@
 </mvt:if>
 
 <mvt:comment>Render Component</mvt:comment>
-<mmx-hero
+<mmx-pcinet-hero
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
 	data-flex-item="&mvte:instance_item:item_code;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	data-align="&mvte:instance:content:align:value;"
 	data-content-location="center"
 	data-content-layout="&mvte:instance:text_layout:value;"
@@ -39,7 +39,7 @@
 	data-overlay-bg="&mvte:overlay_bg;"
 	data-size="content"
 	data-padding="&mvte:instance:banner_size:value;"
-	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;"
+	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;border-radius: &mvte:instance:border_radius:value;px;overflow: hidden;"
 >
 	<mvt:comment>Slotted Image</mvt:comment>
 	<mvt:if expr="NOT ISNULL l.settings:instance:background:img:image">
@@ -58,40 +58,54 @@
 
 	<mvt:comment>Slotted Content</mvt:comment>
 	<mvt:if expr="NOT ISNULL l.settings:instance:content:heading:value">
-		<mmx-text
+		<mmx-pcinet-text
 			slot="heading"
 			data-style="&mvte:instance:content:heading:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:content:heading:textsettings:fields:normal:heading_tag:value;"
-			style="&mvte:instance:content:heading:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:heading:textsettings:styles:normal;
+				&mvte:instance:content:heading:textsettings:styles:tablet;
+				&mvte:instance:content:heading:textsettings:styles:mobile;
+			"
 			data-chars-per-line="none"
 		>
 			&mvte:instance:content:heading:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 	<mvt:if expr="NOT ISNULL l.settings:instance:content:body:value">
-		<mmx-text
+		<mmx-pcinet-text
 			slot="body"
 			data-style="&mvte:instance:content:body:textsettings:fields:normal:body_style:value;"
 			data-source="&mvte:instance:content:body:source;"
-			style="&mvte:instance:content:body:textsettings:styles:normal;"
+			style="
+				&mvte:instance:content:body:textsettings:styles:normal;
+				&mvte:instance:content:body:textsettings:styles:tablet;
+				&mvte:instance:content:body:textsettings:styles:mobile;
+			"
 		>
 			<mvt:if expr="l.settings:instance:content:body:source EQ 'markdown'">
 				&mvt:instance:content:body:value;
 			<mvt:else>
 				&mvte:instance:content:body:value;
 			</mvt:if>
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 	<mvt:if expr="l.settings:instance:content:button:settings:enabled AND NOT ISNULL l.settings:instance:content:button:button_text:value">
 		<mvt:assign name="l.settings:instance:content:button:button_link:html:attr:target" value="ternary( l.settings:instance:content:button:button_link:new_tab, '_blank', '' )" />
-		<mmx-button
+		<mmx-pcinet-button
 			slot="button"
 			data-style="&mvte:instance:content:button:button_text:textsettings:fields:normal:button_style:value;"
 			data-size="&mvte:instance:content:button:button_text:textsettings:fields:normal:button_size:value;"
 			href="&mvte:instance:content:button:button_link:url;"
 			target="&mvte:instance:content:button:button_link:html:attr:target;"
+			data-styles="
+				&mvte:instance:content:button:button_text:textsettings:styles:normal;
+				&mvte:instance:content:button:button_text:textsettings:styles:tablet;
+				&mvte:instance:content:button:button_text:textsettings:styles:mobile;
+				&mvte:instance:content:button:button_text:textsettings:styles:hover;
+			"
 		>
 			&mvte:instance:content:button:button_text:value;
-		</mmx-button>
+		</mmx-pcinet-button>
 	</mvt:if>
-</mmx-hero>
+</mmx-pcinet-hero>

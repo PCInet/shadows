@@ -1,10 +1,10 @@
 /**
- * MMX / PRODUCT CAROUSEL
+ * MMX PCINET / PRODUCT CAROUSEL
  */
-class MMX_ProductCarousel extends MMX_Element {
+class MMXPCINET_ProductCarousel extends MMXPCINET_Element {
 
 	static get props() {
-		let props = MMX.assign(MMX_ProductCarousel.carouselProps, MMX_HeroSlider.props);
+		let props = MMXPCINET.assign(MMXPCINET_ProductCarousel.carouselProps, MMXPCINET_HeroSlider.props);
 		props['per-page'].default = '1,3,5';
 		props['arrow-style'].default = 'button';
 		props['nav-position'].default = 'none';
@@ -44,7 +44,7 @@ class MMX_ProductCarousel extends MMX_Element {
 		}
 	};
 
-	styleResourceCodes = ['mmx-base', 'mmx-text', 'mmx-button', 'mmx-hero', 'mmx-hero-slider'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-text', 'mmx-pcinet-button', 'mmx-pcinet-hero', 'mmx-pcinet-hero-slider'];
 
 	products = [];
 
@@ -56,10 +56,8 @@ class MMX_ProductCarousel extends MMX_Element {
 
 	render() {
 		return /*html*/`
-			<div part="wrapper" class="mmx-product-carousel">
-				<div part="title" class="mmx-product-carousel__title">
-					<slot name="title"></slot>
-				</div>
+			<div part="wrapper" class="mmx-pcinet-product-carousel">
+				${this.products.length ? this.renderHeading() : ''}
 				${this.renderProducts()}
 			</div>
 		`;
@@ -69,7 +67,7 @@ class MMX_ProductCarousel extends MMX_Element {
 		this.#debouncedAfterRender();
 	}
 
-	#debouncedAfterRender = MMX.debounce(() => {
+	#debouncedAfterRender = MMXPCINET.debounce(() => {
 		this.notifyOfProductPriceChanges();
 	}, 100);
 
@@ -85,7 +83,7 @@ class MMX_ProductCarousel extends MMX_Element {
 
 	styles() {
 		return /*css*/`
-			slot[name="title"]::slotted(*) {
+			.mmx-pcinet-product-carousel__title {
 				margin: 0 auto 3%;
 			}
 		`;
@@ -94,15 +92,19 @@ class MMX_ProductCarousel extends MMX_Element {
 	onDataChange() {
 		this.products = [];
 
-		if (MMX.isTruthy(this.data.products.from_individual.settings.enabled)) {
+		if (MMXPCINET.isTruthy(this.data.products.from_individual.settings.enabled)) {
 			this.loadIndividualProducts();
 		}
 
-		if (MMX.isTruthy(this.data.products.from_category.settings.enabled)) {
+		if (MMXPCINET.isTruthy(this.data.products.from_category.settings.enabled)) {
 			this.loadProductsFromCategory();
 		}
 
-		MMX.setElementAttributes(this, {
+		if (MMXPCINET.isTruthy(this.data.products.from_related.value)) {
+			this.loadProductsFromRelated();
+		}
+
+		MMXPCINET.setElementAttributes(this, {
 			'data-size': this.data?.products?.image_size?.value,
 			'data-image-fit': this.data?.products?.image_fit?.value
 		});
@@ -139,14 +141,38 @@ class MMX_ProductCarousel extends MMX_Element {
 		sort = sort ?? this?.data?.products?.from_category?.sort?.value;
 		filter = filter ?? this.getDefaultFilters();
 
-		if (MMX.valueIsEmpty(category_code)) {
+		if (MMXPCINET.valueIsEmpty(category_code)) {
 			return;
 		}
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				function: 'Runtime_CategoryProductList_Load_Query',
 				category_code,
+				count,
+				sort,
+				filter
+			}
+		})
+		.then(response => {
+			this.products.push(...response.data.data);
+			this.forceUpdate();
+		})
+		.catch(response => {});
+	}
+
+	loadProductsFromRelated({product_code, count, sort, filter} = {}) {
+		product_code = product_code ?? window?.mivaJS?.Product_Code;
+		filter = filter ?? this.getDefaultFilters();
+
+		if (MMXPCINET.valueIsEmpty(product_code)) {
+			return;
+		}
+
+		MMXPCINET.Runtime_JSON_API_Call({
+			params: {
+				function: 'Runtime_RelatedProductList_Load_Query',
+				product_code,
 				count,
 				sort,
 				filter
@@ -166,7 +192,7 @@ class MMX_ProductCarousel extends MMX_Element {
 			return;
 		}
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: {
 				function: 'Runtime_ProductList_Load_Query',
 				filter: [
@@ -187,7 +213,7 @@ class MMX_ProductCarousel extends MMX_Element {
 		.then(response => {
 			// Sort products by manual sort order
 			response.data.data.sort((a, b) => {
-				return productCodes.indexOf(MMX.normalizeCode(a?.code)) - productCodes.indexOf(MMX.normalizeCode(b?.code));
+				return productCodes.indexOf(MMXPCINET.normalizeCode(a?.code)) - productCodes.indexOf(MMXPCINET.normalizeCode(b?.code));
 			});
 
 			response.data.data.map(product => {
@@ -209,12 +235,20 @@ class MMX_ProductCarousel extends MMX_Element {
 		}
 
 		return products.reduce((codes, product) => {
-			const code = MMX.normalizeCode(product?.product?.code);
-			if (!MMX.valueIsEmpty(code) && codes.indexOf(code) === -1) {
+			const code = MMXPCINET.normalizeCode(product?.product?.code);
+			if (!MMXPCINET.valueIsEmpty(code) && codes.indexOf(code) === -1) {
 				codes.push(code);
 			}
 			return codes;
 		}, []);
+	}
+
+	renderHeading() {
+		return /*html*/`
+			<div part="title" class="mmx-pcinet-product-carousel__title">
+				<slot name="title"></slot>
+			</div>
+		`;
 	}
 
 	renderProducts() {
@@ -223,7 +257,7 @@ class MMX_ProductCarousel extends MMX_Element {
 		}
 
 		return /*html*/`
-			<mmx-hero-slider
+			<mmx-pcinet-hero-slider
 				part="slider"
 				data-per-page="${this.getPropValue('per-page')}"
 				data-per-move="${this.getPropValue('per-move')}"
@@ -239,7 +273,7 @@ class MMX_ProductCarousel extends MMX_Element {
 				data-wrap="${this.getPropValue('wrap')}"
 			>
 				${this.products.map(product => this.renderProduct(product)).join('')}
-			</mmx-hero-slider>
+			</mmx-pcinet-hero-slider>
 		`;
 	}
 
@@ -256,12 +290,12 @@ class MMX_ProductCarousel extends MMX_Element {
 		product.imgSrc = product.imagetypes?.[imageType]?.sizes?.[this.getPropValue('image-dimensions')]?.url ?? product?.imagetypes?.[imageType]?.sizes?.original?.url ?? '';
 
 		return /*html*/`
-			<mmx-hero
+			<mmx-pcinet-hero
 				slot="hero_slide"
 				part="hero_slide product ${product.isIndividual ? 'product--individual' : 'product--category'}"
-				data-fit="${MMX.encodeEntities(this.getPropValue('image-fit'))}"
-				data-href="${MMX.encodeEntities(product.url)}"
-				data-img-src="${MMX.encodeEntities(product.imgSrc)}"
+				data-fit="${MMXPCINET.encodeEntities(this.getPropValue('image-fit'))}"
+				data-href="${MMXPCINET.encodeEntities(product.url)}"
+				data-img-src="${MMXPCINET.encodeEntities(product.imgSrc)}"
 			>
 				<div slot="content">
 					<div part="product-name" class="type-product-name">${product.name}</div>
@@ -269,7 +303,7 @@ class MMX_ProductCarousel extends MMX_Element {
 					${this.renderProductFragmentPart(product)}
 					${this.renderButton(product)}
 				</div>
-			</mmx-hero>
+			</mmx-pcinet-hero>
 		`;
 	}
 
@@ -305,44 +339,50 @@ class MMX_ProductCarousel extends MMX_Element {
 	}
 
 	renderButton(product) {
-		if (MMX.isFalsy(this?.data?.advanced?.settings?.button?.settings?.enabled)) {
+		if (MMXPCINET.isFalsy(this?.data?.products?.button?.settings?.enabled)) {
 			return '';
 		}
 
 		return /*html*/`
-			<mmx-button
-				href="${MMX.encodeEntities(this.buttonUrl(product))}"
-				data-style="${this?.data?.advanced?.settings?.button?.adpr_text?.textsettings?.fields?.normal?.button_style?.value}"
-				data-size="${this?.data?.advanced?.settings?.button?.adpr_text?.textsettings?.fields?.normal?.button_size?.value}"
-				data-width="full"
+			<mmx-pcinet-button
+				href="${MMXPCINET.encodeEntities(this.buttonUrl(product, {action: this?.data?.products?.button?.action?.value}))}"
+				data-style="${this?.data?.products?.button?.adpr_text?.textsettings?.fields?.normal?.button_style?.value}"
+				data-size="${this?.data?.products?.button?.adpr_text?.textsettings?.fields?.normal?.button_size?.value}"
+				data-styles="
+					${MMXPCINET.encodeEntities(this?.data?.products?.button?.adpr_text?.textsettings?.styles?.normal)}
+					${MMXPCINET.encodeEntities(this?.data?.products?.button?.adpr_text?.textsettings?.styles?.tablet)}
+					${MMXPCINET.encodeEntities(this?.data?.products?.button?.adpr_text?.textsettings?.styles?.mobile)}
+					${MMXPCINET.encodeEntities(this?.data?.products?.button?.adpr_text?.textsettings?.styles?.hover)}
+					${MMXPCINET.encodeEntities(this?.data?.products?.button?.adpr_text?.textsettings?.styles?.disabled)}
+				"
 				part="button"
 				exportparts="button: button__inner"
 			>
-				${product?.attributes?.length ? this?.data?.advanced?.settings?.button?.prod_text?.value : this?.data?.advanced?.settings?.button?.adpr_text?.value}
-			</mmx-button>`;
+				${product?.attributes?.length ? this?.data?.products?.button?.prod_text?.value : this?.data?.products?.button?.adpr_text?.value}
+			</mmx-pcinet-button>`;
 	}
 
 	renderProductFragmentPart(product) {
 		const fragmentCode		= this.getFragmentCode();
 		const fragmentContent = this.renderProductFragment({product, fragmentCode});
 
-		if (MMX.valueIsEmpty(fragmentContent)){
+		if (MMXPCINET.valueIsEmpty(fragmentContent)){
 			return '';
 		}
 
 		return /*html*/`
-			<div part="product-fragment product-fragment__${MMX.encodeEntities(fragmentCode)}">
+			<div part="product-fragment product-fragment__${MMXPCINET.encodeEntities(fragmentCode)}">
 				${fragmentContent}
 			</div>`;
 	}
 
 	getBaskUrl() {
-		return this.getPropValue('bask-url') ?? MMX.longMerchantUrl({Screen: 'BASK'});
+		return this.getPropValue('bask-url') ?? MMXPCINET.longMerchantUrl({Screen: 'BASK'});
 	}
 
-	buttonUrl(product, quantity = 1) {
+	buttonUrl(product, {quantity = 1, action = 'add-to-cart'} = {}) {
 		// Link to PROD page when the product has attributes
-		if(product?.attributes?.length) {
+		if(product?.attributes?.length || action === 'view-details') {
 			return product.url;
 		}
 
@@ -363,6 +403,6 @@ class MMX_ProductCarousel extends MMX_Element {
 	}
 }
 
-if (!customElements.get('mmx-product-carousel')) {
-	customElements.define('mmx-product-carousel', MMX_ProductCarousel);
+if (!customElements.get('mmx-pcinet-product-carousel')) {
+	customElements.define('mmx-pcinet-product-carousel', MMXPCINET_ProductCarousel);
 }

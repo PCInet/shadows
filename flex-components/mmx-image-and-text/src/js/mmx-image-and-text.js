@@ -1,10 +1,10 @@
 /**
- * MMX / IMAGE AND TEXT
+ * MMX PCINET / IMAGE AND TEXT
  */
-class MMX_ImageAndText extends MMX_Hero {
+class MMXPCINET_ImageAndText extends MMXPCINET_Hero {
 
 	static get props() {
-		return MMX_ImageAndText.reduceProps(MMX.copy(MMX_Hero.props));
+		return MMXPCINET_ImageAndText.reduceProps(MMXPCINET.copy(MMXPCINET_Hero.props));
 	}
 
 	static reduceProps(props) {
@@ -21,7 +21,7 @@ class MMX_ImageAndText extends MMX_Hero {
 
 	onDataChange() {
 		this.setSpacing(this.data?.advanced?.spacing);
-		MMX.setElementAttributes(this, {
+		MMXPCINET.setElementAttributes(this, {
 			'data-href': this.data?.link?.url,
 			'data-target': this.data?.link?.new_tab ? '_blank' : undefined,
 			'data-size': this.data?.image?.size?.value,
@@ -31,6 +31,7 @@ class MMX_ImageAndText extends MMX_Hero {
 			'data-align': this.data?.content?.align?.value,
 			'data-content-bg-color--mobile': this.data?.advanced?.text_background?.settings?.enabled ? this.data?.advanced?.text_background?.color?.value : undefined,
 			'data-content-bg-color--desktop': this.data?.advanced?.text_background?.settings?.enabled ? this.data?.advanced?.text_background?.color?.value : undefined,
+			'data-content-bg-border-radius': this.data?.advanced?.text_background?.settings?.enabled ? this.data?.advanced?.text_background?.border_radius?.value : undefined,
 			'data-subheading': this.data?.content?.settings?.enabled ? this.data?.content?.subheading?.value : undefined,
 			'data-subheading-style': this.data?.content?.settings?.enabled ? this.data?.content?.subheading?.textsettings?.fields?.normal?.subheading_style?.value : undefined,
 			'data-heading': this.data?.content?.settings?.enabled ? this.data?.content?.heading?.value : undefined,
@@ -45,6 +46,6 @@ class MMX_ImageAndText extends MMX_Hero {
 	}
 }
 
-if (!customElements.get('mmx-image-and-text')) {
-	customElements.define('mmx-image-and-text', MMX_ImageAndText);
+if (!customElements.get('mmx-pcinet-image-and-text')) {
+	customElements.define('mmx-pcinet-image-and-text', MMXPCINET_ImageAndText);
 }

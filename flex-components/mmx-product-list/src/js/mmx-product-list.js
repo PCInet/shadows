@@ -1,7 +1,7 @@
 /**
- * MMX / PRODUCT LIST
+ * MMX PCINET / PRODUCT LIST
  */
-class MMX_ProductList extends MMX_Element {
+class MMXPCINET_ProductList extends MMXPCINET_Element {
 
 	static get props() {
 		return {
@@ -87,11 +87,11 @@ class MMX_ProductList extends MMX_Element {
 			},
 			'adpr-url': {
 				allowAny: true,
-				default:  MMX.longMerchantUrl({Screen: 'BASK'})
+				default:  MMXPCINET.longMerchantUrl({Screen: 'BASK'})
 			},
 			'atwl-url': {
 				allowAny: true,
-				default:  MMX.longMerchantUrl({Screen: 'WISH'})
+				default:  MMXPCINET.longMerchantUrl({Screen: 'WISH'})
 			},
 			'show-facets': {
 				isBoolean: true,
@@ -190,7 +190,7 @@ class MMX_ProductList extends MMX_Element {
 		};
 	}
 
-	styleResourceCodes = ['mmx-base', 'mmx-text', 'mmx-accordion', 'mmx-forms', 'mmx-product-list'];
+	styleResourceCodes = ['mmx-pcinet-base', 'mmx-pcinet-text', 'mmx-pcinet-accordion', 'mmx-pcinet-forms', 'mmx-pcinet-product-list', 'slim-select'];
 	renderUniquely = true;
 
 	#products = [];
@@ -212,7 +212,7 @@ class MMX_ProductList extends MMX_Element {
 		this.#bindComponentEvents();
 	}
 
-	// MMX_Element Render Life Cycle
+	// MMXPCINET_Element Render Life Cycle
 	render() {
 		if (!this.#shouldRender()) {
 			return '';
@@ -222,14 +222,14 @@ class MMX_ProductList extends MMX_Element {
 			<div
 				part="wrapper"
 				class="
-					mmx-product-list
-					has-facets--${MMX.encodeEntities(this.getPropValue('show-facets'))}
-					has-per-page--${MMX.encodeEntities(this.getPropValue('show-per-page'))}
-					has-sort-by--${MMX.encodeEntities(this.getPropValue('show-sort-by'))}
-					has-details--${MMX.encodeEntities(this.getPropValue('show-details'))}
+					mmx-pcinet-product-list
+					has-facets--${MMXPCINET.encodeEntities(this.getPropValue('show-facets'))}
+					has-per-page--${MMXPCINET.encodeEntities(this.getPropValue('show-per-page'))}
+					has-sort-by--${MMXPCINET.encodeEntities(this.getPropValue('show-sort-by'))}
+					has-details--${MMXPCINET.encodeEntities(this.getPropValue('show-details'))}
 				"
 			>
-				<div part="title" class="mmx-product-list__title">
+				<div part="title" class="mmx-pcinet-product-list__title">
 					<slot name="title"></slot>
 				</div>
 				${this.#renderMain()}
@@ -251,10 +251,10 @@ class MMX_ProductList extends MMX_Element {
 		const productsWidth = 100 - facetsWidth;
 		return /*css*/`
 			:host {
-				--mmx-product-list__columns--mobile: ${columns.mobile};
-				--mmx-product-list__columns--tablet: ${columns.tablet};
-				--mmx-product-list__columns--desktop: ${columns.desktop};
-				--mmx-product-list__facets-width: ${facetsWidth}% ${productsWidth}%;
+				--mmx-pcinet-product-list__columns--mobile: ${columns.mobile};
+				--mmx-pcinet-product-list__columns--tablet: ${columns.tablet};
+				--mmx-pcinet-product-list__columns--desktop: ${columns.desktop};
+				--mmx-pcinet-product-list__facets-width: ${facetsWidth}% calc(${productsWidth}% - 16px);
 			}
 		`;
 	}
@@ -265,7 +265,7 @@ class MMX_ProductList extends MMX_Element {
 		this.#sortByOptions = Array.from(this.data?.list?.sort_by?.options?.children ?? []);
 		this.#perPageOptions = Array.from(this.data?.list?.per_page?.options?.children ?? []);
 
-		MMX.setElementAttributes(this, {
+		MMXPCINET.setElementAttributes(this, {
 			'data-product-set': this.data?.list?.products?.product_set?.value,
 			'data-category-code': this.data?.list?.products?.category?.category_code,
 			'data-product-code': this.data?.list?.products?.product?.product_code,
@@ -285,14 +285,16 @@ class MMX_ProductList extends MMX_Element {
 			'data-pagination-previous-text': this.data?.list?.pagination?.previous_text?.value,
 			'data-facets-title': this.data?.list?.facets?.title?.value,
 			'data-facets-title-style': this.data?.list?.facets?.title?.textsettings?.fields?.normal?.title_style?.value,
-			'data-facets-title-styles': this.data?.list?.facets?.title?.textsettings?.styles?.normal,
+			'data-facets-title-styles': this.data?.list?.facets?.title?.textsettings?.styles?.normal
+				+ this.data?.list?.facets?.title?.textsettings?.styles?.tablet
+				+ this.data?.list?.facets?.title?.textsettings?.styles?.mobile,
 			'data-facets-width': this.data?.list?.facets?.width?.value,
 			'data-facet-style': this.data?.list?.facets?.facet_styles?.facet_style?.value,
 			'data-facet-styles': this.getStylesFromGroup(this.data?.list?.facets?.facet_styles),
 			'data-columns': [
-				MMX.coerceNumber(this.data?.list?.columns?.mobile?.value, 2),
-				MMX.coerceNumber(this.data?.list?.columns?.tablet?.value, 3),
-				MMX.coerceNumber(this.data?.list?.columns?.desktop?.value, 4)
+				MMXPCINET.coerceNumber(this.data?.list?.columns?.mobile?.value, 2),
+				MMXPCINET.coerceNumber(this.data?.list?.columns?.tablet?.value, 3),
+				MMXPCINET.coerceNumber(this.data?.list?.columns?.desktop?.value, 4)
 			].join(','),
 			'data-show-details': this.data?.list?.details?.settings?.enabled ?? false,
 			'data-show-detail-products': this.data?.list?.details?.show_total_products?.value,
@@ -317,12 +319,19 @@ class MMX_ProductList extends MMX_Element {
 	afterRender() {
 		this.#replaceProducts();
 		this.#bindEvents();
+		this.#applySlimSelect();
 		this.#debouncedAfterRender();
 	}
 
-	#debouncedAfterRender = MMX.debounce(() => {
+	#debouncedAfterRender = MMXPCINET.debounce(() => {
 		this.#notifyProductsRendered();
 	}, 100);
+
+	#applySlimSelect() {
+		this.shadowRoot.querySelectorAll('select')?.forEach(dropdown => {
+			this.#dropdownSlimSelect(dropdown);
+		});
+	}
 
 	#bindComponentEvents() {
 		this.#desktopBreakpoint.addEventListener('change', () => this.#onDesktopBreakpointChange());
@@ -355,7 +364,7 @@ class MMX_ProductList extends MMX_Element {
 			element.addEventListener('input', () => this.#onManagedFacetInput());
 		});
 
-		this.#facetList()?.querySelectorAll('mmx-form-input-range')?.forEach(element => {
+		this.#facetList()?.querySelectorAll('mmx-pcinet-form-input-range')?.forEach(element => {
 			element.addEventListener('input', () => this.#debouncedManagedFacetInput());
 		});
 
@@ -387,7 +396,7 @@ class MMX_ProductList extends MMX_Element {
 		});
 	}
 
-	#debouncedManagedFacetInput = MMX.debounce(() => {
+	#debouncedManagedFacetInput = MMXPCINET.debounce(() => {
 		this.#onManagedFacetInput();
 	}, this.#debounceDelay);
 
@@ -408,7 +417,7 @@ class MMX_ProductList extends MMX_Element {
 	}
 
 	#managedLinks() {
-		return this.shadowRoot.querySelectorAll('[part~="pagination"] mmx-button, [part~="facet-applied-values"] mmx-button, [part~="clear-all"]');
+		return this.shadowRoot.querySelectorAll('[part~="pagination"] mmx-pcinet-button, [part~="facet-applied-values"] mmx-pcinet-button, [part~="clear-all"]');
 	}
 
 	#onManagedLinkClick(e) {
@@ -427,12 +436,12 @@ class MMX_ProductList extends MMX_Element {
 		const columns = this.getPropValue('columns');
 
 		let [mobile, tablet, desktop] = columns.split(',').map(column => {
-			return MMX.coerceNumber(column, 1);
+			return MMXPCINET.coerceNumber(column, 1);
 		});
 
-		mobile = MMX.coerceNumber(mobile, 1);
-		tablet = MMX.coerceNumber(tablet, mobile);
-		desktop = MMX.coerceNumber(desktop, mobile);
+		mobile = MMXPCINET.coerceNumber(mobile, 1);
+		tablet = MMXPCINET.coerceNumber(tablet, mobile);
+		desktop = MMXPCINET.coerceNumber(desktop, mobile);
 
 		return {
 			mobile,
@@ -452,7 +461,7 @@ class MMX_ProductList extends MMX_Element {
 			return 'category';
 		}
 
-		if (productSet === 'search' || (productSet === 'auto' && !MMX.valueIsEmpty(this.#getSearch()))) {
+		if (productSet === 'search' || (productSet === 'auto' && !MMXPCINET.valueIsEmpty(this.#getSearch()))) {
 			return 'search';
 		}
 
@@ -466,7 +475,7 @@ class MMX_ProductList extends MMX_Element {
 		this.#errorMessage = undefined;
 		this.#clearPagination();
 
-		MMX.Runtime_JSON_API_Call({
+		MMXPCINET.Runtime_JSON_API_Call({
 			params: this.#getListLoadQueryParams()
 		})
 		.then(response => {
@@ -643,7 +652,7 @@ class MMX_ProductList extends MMX_Element {
 
 	#getSearchFilters() {
 		const search = this.#getSearch();
-		if (MMX.valueIsEmpty(search)) {
+		if (MMXPCINET.valueIsEmpty(search)) {
 			return [];
 		}
 
@@ -716,7 +725,7 @@ class MMX_ProductList extends MMX_Element {
 
 	#renderMainValid() {
 		return /*html*/`
-			<div part="main" class="mmx-product-list__main">
+			<div part="main" class="mmx-pcinet-product-list__main">
 				${this.#renderHeader()}
 				${this.#renderProducts()}
 				${this.#renderFooter()}
@@ -727,8 +736,8 @@ class MMX_ProductList extends MMX_Element {
 
 	#renderMainError() {
 		return /*html*/`
-			<div part="error" class="mmx-product-list__error">
-				<mmx-message data-style="warning">We're unable to display the products: ${MMX.encodeEntities(this.#errorMessage ?? 'There was a problem loading the products')}</mmx-message>
+			<div part="error" class="mmx-pcinet-product-list__error">
+				<mmx-pcinet-message data-style="warning">We're unable to display the products: ${MMXPCINET.encodeEntities(this.#errorMessage ?? 'There was a problem loading the products')}</mmx-pcinet-message>
 			</div>
 		`;
 	}
@@ -736,20 +745,20 @@ class MMX_ProductList extends MMX_Element {
 	#renderMainEmpty() {
 		const message = this.getPropValue('empty-results-message');
 
-		if (MMX.valueIsEmpty(message)) {
+		if (MMXPCINET.valueIsEmpty(message)) {
 			return '';
 		}
 
 		return /*html*/`
-			<div part="empty" class="mmx-product-list__empty">
-				<mmx-message data-style="info">${MMX.encodeEntities(message)}</mmx-message>
+			<div part="empty" class="mmx-pcinet-product-list__empty">
+				<mmx-pcinet-message data-style="info">${MMXPCINET.encodeEntities(message)}</mmx-pcinet-message>
 			</div>
 		`;
 	}
 
 	#renderMainLoading() {
 		return /*html*/`
-			<div part="loading" class="mmx-product-list__loading"></div>
+			<div part="loading" class="mmx-pcinet-product-list__loading"></div>
 		`;
 	}
 
@@ -761,7 +770,7 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__header"
+				class="mmx-pcinet-product-list__header"
 				part="header"
 			>
 				${this.#renderFacetsDialogOpen()}
@@ -780,17 +789,17 @@ class MMX_ProductList extends MMX_Element {
 		const search = this.#getSearch();
 
 		return /*html*/`
-			<div part="details" class="mmx-product-list__details">
+			<div part="details" class="mmx-pcinet-product-list__details">
 				${this.getPropValue('show-detail-search') && search?.length ? /*html*/`
-					<div part="detail detail-search-term" class="mmx-product-list__detail">
-						Search: "${MMX.encodeEntities(search)}"
+					<div part="detail detail-search-term" class="mmx-pcinet-product-list__detail">
+						Search: "${MMXPCINET.encodeEntities(search)}"
 					</div>
 				` : ''}
-				${this.getPropValue('show-detail-products') ? /*html*/`<div part="detail detail-total-products" class="mmx-product-list__detail">
-					${MMX.encodeEntities(this.#pagination.totals.products)} ${MMX.pluralize('Item', this.#pagination.totals.products)}
+				${this.getPropValue('show-detail-products') ? /*html*/`<div part="detail detail-total-products" class="mmx-pcinet-product-list__detail">
+					${MMXPCINET.encodeEntities(this.#pagination.totals.products)} ${MMXPCINET.pluralize('Item', this.#pagination.totals.products)}
 				</div>` : ''}
-				${this.getPropValue('show-detail-page') ? /*html*/`<div part="detail detail-current-page" class="mmx-product-list__detail">
-					Page ${MMX.encodeEntities(this.#pagination.pages.current)} of ${MMX.encodeEntities(this.#pagination.pages.last)}
+				${this.getPropValue('show-detail-page') ? /*html*/`<div part="detail detail-current-page" class="mmx-pcinet-product-list__detail">
+					Page ${MMXPCINET.encodeEntities(this.#pagination.pages.current)} of ${MMXPCINET.encodeEntities(this.#pagination.pages.last)}
 				</div>` : ''}
 			</div>
 		`;
@@ -803,7 +812,7 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__per-page-sort-by"
+				class="mmx-pcinet-product-list__per-page-sort-by"
 				part="per-page-sort-by"
 			>
 				${this.#renderPerPage()}
@@ -820,22 +829,22 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__per-page"
+				class="mmx-pcinet-product-list__per-page"
 				part="per-page"
 			>
 				<label
-					class="mmx-form-label mmx-form-label--required"
+					class="mmx-pcinet-form-label mmx-pcinet-form-label--required"
 					part="per-page-label"
 				>
 					View:
 				</label>
 				<div
-					class="mmx-form-select mmx-form-select--minimal"
+					class="mmx-pcinet-form-select mmx-pcinet-form-select--minimal"
 					part="per-page-select"
 				>
 					<select
 						name="Per_Page"
-						class="mmx-form-select__dropdown"
+						class="mmx-pcinet-form-select__dropdown"
 						part="per-page-select-dropdown"
 						required
 					>
@@ -851,7 +860,7 @@ class MMX_ProductList extends MMX_Element {
 		const label = option?.label?.value;
 		const selected = value == this.#getPerPage() ? 'selected' : '';
 		return /*html*/`
-			<option value="${MMX.encodeEntities(value)}" ${selected}>${label}</option>
+			<option value="${MMXPCINET.encodeEntities(value)}" ${selected}>${label}</option>
 		`;
 	}
 
@@ -879,22 +888,22 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__sort-by"
+				class="mmx-pcinet-product-list__sort-by"
 				part="sort-by"
 			>
 				<label
-					class="mmx-form-label mmx-form-label--required"
+					class="mmx-pcinet-form-label mmx-pcinet-form-label--required"
 					part="sort-by-label"
 				>
 					Sort By:
 				</label>
 				<div
-					class="mmx-form-select mmx-form-select--minimal"
+					class="mmx-pcinet-form-select mmx-pcinet-form-select--minimal"
 					part="sort-by-select"
 				>
 					<select
 						name="Sort_By"
-						class="mmx-form-select__dropdown"
+						class="mmx-pcinet-form-select__dropdown"
 						part="sort-by-select-dropdown"
 						required
 					>
@@ -910,7 +919,7 @@ class MMX_ProductList extends MMX_Element {
 		const label = option?.label?.value ?? this.#sortValueLabelMap[value];
 		const selected = value === this.#getSortBy() ? 'selected' : '';
 		return /*html*/`
-			<option value="${MMX.encodeEntities(value)}" ${selected}>${label}</option>
+			<option value="${MMXPCINET.encodeEntities(value)}" ${selected}>${label}</option>
 		`;
 	}
 
@@ -918,7 +927,7 @@ class MMX_ProductList extends MMX_Element {
 	#renderProducts() {
 		return /*html*/`
 			<div
-				class="mmx-product-list__products"
+				class="mmx-pcinet-product-list__products"
 				part="products"
 			>
 				${this.#pagination?.totals?.products > 0 ? /*html*/`<slot name="products"></slot>` : this.#renderMainEmpty()}
@@ -954,25 +963,25 @@ class MMX_ProductList extends MMX_Element {
 
 		this.#products.forEach(product => {
 			attributes['data-product-code'] = product.code;
-			MMX_ProductCard.create({product, details, parent, attributes});
+			MMXPCINET_ProductCard.create({product, details, parent, attributes});
 		});
 
 		return parent;
 	}
 
 	#productCards() {
-		return this.querySelectorAll('mmx-product-card');
+		return this.querySelectorAll('mmx-pcinet-product-card');
 	}
 
 	// Product List Parameters
 	#setParamPrefix() {
 		const prefix = this.getPropValue('param-prefix');
 
-		if (!MMX.valueIsEmpty(prefix)) {
+		if (!MMXPCINET.valueIsEmpty(prefix)) {
 			return this.#paramPrefix = prefix;
 		}
 
-		const productLists = document.querySelectorAll('mmx-product-list:not([data-param-prefix])');
+		const productLists = document.querySelectorAll('mmx-pcinet-product-list:not([data-param-prefix])');
 		const myProductListIndex = Array.from(productLists).findIndex(productList => {
 			return productList === this;
 		});
@@ -1009,7 +1018,7 @@ class MMX_ProductList extends MMX_Element {
 		const url = this.#getUrlFromLocation();
 
 		// Per Page
-		const perPage = MMX.coerceNumber(Per_Page, this.#getPerPage());
+		const perPage = MMXPCINET.coerceNumber(Per_Page, this.#getPerPage());
 		const perPageParam = this.#scopeParam('Per_Page');
 		url.searchParams.delete(perPageParam);
 		if (perPage !== this.getPropValue('per-page')) {
@@ -1025,7 +1034,7 @@ class MMX_ProductList extends MMX_Element {
 		}
 
 		// Offset
-		const offset = MMX.coerceNumber(Offset, this.#getOffset());
+		const offset = MMXPCINET.coerceNumber(Offset, this.#getOffset());
 		const offsetParam = this.#scopeParam('Offset');
 		url.searchParams.delete(offsetParam);
 		if (offset !== this.getPropValue('offset')) {
@@ -1052,7 +1061,7 @@ class MMX_ProductList extends MMX_Element {
 	#getDestinationUrl({Per_Page, Sort_By, Offset, omitFacets} = {}) {
 		const url = this.#buildUrlToSelf({Per_Page, Sort_By, Offset, omitFacets});
 
-		if (MMX.valueIsEmpty(Offset)) {
+		if (MMXPCINET.valueIsEmpty(Offset)) {
 			url.searchParams.delete(this.#scopeParam('Offset'));
 		}
 
@@ -1125,11 +1134,11 @@ class MMX_ProductList extends MMX_Element {
 	}
 
 	#getPerPage() {
-		return MMX.coerceNumber(this.#getParameter('Per_Page') ?? this.getPropValue('per-page'));
+		return MMXPCINET.coerceNumber(this.#getParameter('Per_Page') ?? this.getPropValue('per-page'));
 	}
 
 	#getOffset() {
-		return MMX.coerceNumber(this.#getParameter('Offset') ?? this.getPropValue('offset'));
+		return MMXPCINET.coerceNumber(this.#getParameter('Offset') ?? this.getPropValue('offset'));
 	}
 
 	#getSearch() {
@@ -1144,7 +1153,7 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__footer"
+				class="mmx-pcinet-product-list__footer"
 				part="footer"
 			>
 				${this.#renderPagination()}
@@ -1166,11 +1175,11 @@ class MMX_ProductList extends MMX_Element {
 			links: []
 		};
 
-		pagination.totals.products = MMX.coerceNumber(response.data.total_count);
-		pagination.totals.productsOnPage = MMX.coerceNumber(response?.data?.data?.length);
+		pagination.totals.products = MMXPCINET.coerceNumber(response.data.total_count);
+		pagination.totals.productsOnPage = MMXPCINET.coerceNumber(response?.data?.data?.length);
 		pagination.totals.pages = Math.ceil(pagination.totals.products / pagination.perPage);
 
-		pagination.offsets.current = MMX.coerceNumber(response.data.start_offset);
+		pagination.offsets.current = MMXPCINET.coerceNumber(response.data.start_offset);
 
 		pagination.offsets.next = pagination.offsets.current + pagination.perPage;
 		pagination.offsets.next = pagination.offsets.next > pagination.totals.products ? null : pagination.offsets.next;
@@ -1252,7 +1261,7 @@ class MMX_ProductList extends MMX_Element {
 	}
 
 	#hasMultiplePages() {
-		return MMX.coerceNumber(this.#pagination?.totals?.pages) > 1;
+		return MMXPCINET.coerceNumber(this.#pagination?.totals?.pages) > 1;
 	}
 
 	// Pagination: Dropdown
@@ -1263,7 +1272,7 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__pagination"
+				class="mmx-pcinet-product-list__pagination"
 				part="pagination"
 			>
 				${this.#renderPaginationPreviousButton()}
@@ -1288,7 +1297,7 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				part="pagination-page-numbers pagination-page-numbers-${MMX.encodeEntities(type)}"
+				part="pagination-page-numbers pagination-page-numbers-${MMXPCINET.encodeEntities(type)}"
 			>
 				${links}
 			</div>
@@ -1298,12 +1307,12 @@ class MMX_ProductList extends MMX_Element {
 	#renderPaginationTypeDropdown() {
 		return /*html*/`
 			<div
-				class="mmx-form-select"
+				class="mmx-pcinet-form-select"
 				part="pagination-select"
 			>
 				<select
 					name="Offset"
-					class="mmx-form-select__dropdown"
+					class="mmx-pcinet-form-select__dropdown"
 					part="pagination-select-dropdown"
 					required
 				>
@@ -1334,15 +1343,15 @@ class MMX_ProductList extends MMX_Element {
 			}
 
 			return /*html*/`
-				<mmx-button
+				<mmx-pcinet-button
 					data-style="display-link"
 					data-shape="round"
-					href="${MMX.encodeEntities(link.url)}"
-					class="mmx-product-list__pagination-page ${link.isCurrentPage ? 'hover' : ''}"
+					href="${MMXPCINET.encodeEntities(link.url)}"
+					class="mmx-pcinet-product-list__pagination-page ${link.isCurrentPage ? 'hover' : ''}"
 					part="pagination-page ${link.isCurrentPage ? 'pagination-page-current' : ''}"
 				>
 					${link.text}
-				</mmx-button>
+				</mmx-pcinet-button>
 			`;
 		}).join('');
 	}
@@ -1358,16 +1367,16 @@ class MMX_ProductList extends MMX_Element {
 		const text = this.getPropValue('pagination-previous-text');
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				part="pagination-previous"
-				class="mmx-product-list__pagination-previous"
+				class="mmx-pcinet-product-list__pagination-previous"
 				data-style="display-link"
 				data-shape="${nextPreviousType === 'arrows' ? 'round' : ''}"
-				title="${MMX.encodeEntities(text)} Page"
-				href="${MMX.encodeEntities(this.#pagination.links.previous.url)}"
+				title="${MMXPCINET.encodeEntities(text)} Page"
+				href="${MMXPCINET.encodeEntities(this.#pagination.links.previous.url)}"
 			>
-				${nextPreviousType === 'arrows' ? /*html*/`<mmx-icon part="pagination-previous-icon" data-name="chevron-left">${MMX.encodeEntities(text)} Page</mmx-icon>` : MMX.encodeEntities(text)}
-			</mmx-button>
+				${nextPreviousType === 'arrows' ? /*html*/`<mmx-pcinet-icon part="pagination-previous-icon" data-name="chevron-left">${MMXPCINET.encodeEntities(text)} Page</mmx-pcinet-icon>` : MMXPCINET.encodeEntities(text)}
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -1382,16 +1391,16 @@ class MMX_ProductList extends MMX_Element {
 		const text = this.getPropValue('pagination-next-text');
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				part="pagination-next"
-				class="mmx-product-list__pagination-next"
+				class="mmx-pcinet-product-list__pagination-next"
 				data-style="display-link"
 				data-shape="${nextPreviousType === 'arrows' ? 'round' : ''}"
-				href="${MMX.encodeEntities(this.#pagination.links.next.url)}"
-				title="${MMX.encodeEntities(text)} Page"
+				href="${MMXPCINET.encodeEntities(this.#pagination.links.next.url)}"
+				title="${MMXPCINET.encodeEntities(text)} Page"
 			>
-				${nextPreviousType === 'arrows' ? /*html*/`<mmx-icon part="pagination-next-icon" data-name="chevron-right">${MMX.encodeEntities(text)} Page</mmx-icon>` : MMX.encodeEntities(text)}
-			</mmx-button>
+				${nextPreviousType === 'arrows' ? /*html*/`<mmx-pcinet-icon part="pagination-next-icon" data-name="chevron-right">${MMXPCINET.encodeEntities(text)} Page</mmx-pcinet-icon>` : MMXPCINET.encodeEntities(text)}
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -1487,7 +1496,7 @@ class MMX_ProductList extends MMX_Element {
 			return this.#hasValidRangeFacetValue({facet, value});
 		}
 
-		return !MMX.valueIsEmpty(value);
+		return !MMXPCINET.valueIsEmpty(value);
 	}
 
 	#hasValidRangeFacetValue({facet, value} = {}) {
@@ -1500,7 +1509,7 @@ class MMX_ProductList extends MMX_Element {
 			return false;
 		}
 
-		return !MMX.valueIsEmpty(value);
+		return !MMXPCINET.valueIsEmpty(value);
 	}
 
 	#getFacetByCode(code) {
@@ -1521,11 +1530,11 @@ class MMX_ProductList extends MMX_Element {
 		return /*html*/`
 			<dialog
 				part="facets facets-dialog"
-				class="mmx-product-list__facets mmx-product-list__facets-dialog"
+				class="mmx-pcinet-product-list__facets mmx-pcinet-product-list__facets-dialog"
 			>
 				<form
 					part="facets-form"
-					class="mmx-product-list__facets-form"
+					class="mmx-pcinet-product-list__facets-form"
 				>
 					${this.#renderFacetsHeader()}
 					${this.#renderPerPageSortBy()}
@@ -1533,15 +1542,15 @@ class MMX_ProductList extends MMX_Element {
 					${this.#renderFacetsList()}
 					${this.#renderCategoryTree()}
 				</form>
-				<mmx-button
+				<mmx-pcinet-button
 					part="facets-dialog-close"
-					class="mmx-product-list__facets-dialog-close"
+					class="mmx-pcinet-product-list__facets-dialog-close"
 					data-style="display-link"
 					data-shape="round"
 					title="Close Dialog?"
 				>
-					<mmx-icon>cross</mmx-icon>
-				</mmx-button>
+					<mmx-pcinet-icon>cross</mmx-pcinet-icon>
+				</mmx-pcinet-button>
 			</dialog>
 		`;
 	}
@@ -1556,15 +1565,35 @@ class MMX_ProductList extends MMX_Element {
 		}
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				data-style="secondary"
 				data-size="xs"
 				part="facets-dialog-open"
-				class="mmx-product-list__facets-dialog-open"
+				class="mmx-pcinet-product-list__facets-dialog-open"
+				data-styles="
+					--mmx-pcinet-button--font-family: Poppins, sans-serif;
+					--mmx-pcinet-button--font-size-desktop: 12px;
+					--mmx-pcinet-button--font-weight: 500;
+					--mmx-pcinet-button--line-height: 16px;
+					--mmx-pcinet-button--font-color: var(--mmx-pcinet-color-black);
+					--mmx-pcinet-button--background-color: var(--mmx-pcinet-color-grey-05);
+					--mmx-pcinet-button--border-width: 1px;
+					--mmx-pcinet-button--border-color: var(--mmx-pcinet-color-grey-05);
+					--mmx-pcinet-button--border-radius: 12px;
+					--mmx-pcinet-button--padding-desktop: 12px 16px;
+					--mmx-pcinet-button--font-size-tablet: 14px;
+					--mmx-pcinet-button--padding-tablet: 12px 16px;
+					--mmx-pcinet-button--font-size-mobile: 14px;
+					--mmx-pcinet-button--padding-mobile: 12px 16px;
+					--mmx-pcinet-button--font-color-hover: var(--mmx-pcinet-color-grey-05);
+					--mmx-pcinet-button--background-color-hover: var(--mmx-pcinet-color-white);
+					--mmx-pcinet-button--border-width-hover: 1px;
+					--mmx-pcinet-button--border-color-hover: var(--mmx-pcinet-color-grey-05);
+				"
 			>
-				<mmx-icon>controls</mmx-icon>
-				${MMX.encodeEntities(this.getPropValue('facets-title'))}
-			</mmx-button>
+				<mmx-pcinet-icon>controls</mmx-pcinet-icon>
+				${MMXPCINET.encodeEntities(this.getPropValue('facets-title'))}
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -1612,17 +1641,17 @@ class MMX_ProductList extends MMX_Element {
 	#renderFacetsHeader() {
 		return /*html*/`
 			<div
-				class="mmx-product-list__facets-header"
+				class="mmx-pcinet-product-list__facets-header"
 				part="facets-header"
 			>
-				<mmx-text
-					class="mmx-product-list__facets-title"
+				<mmx-pcinet-text
+					class="mmx-pcinet-product-list__facets-title"
 					part="facets-title"
-					data-style="${MMX.encodeEntities(this.getPropValue('facets-title-style'))}"
-					style="${MMX.encodeEntities(this.getPropValue('facets-title-styles'))}"
+					data-style="${MMXPCINET.encodeEntities(this.getPropValue('facets-title-style'))}"
+					style="${MMXPCINET.encodeEntities(this.getPropValue('facets-title-styles'))}"
 				>
-					${MMX.encodeEntities(this.getPropValue('facets-title'))}
-				</mmx-text>
+					${MMXPCINET.encodeEntities(this.getPropValue('facets-title'))}
+				</mmx-pcinet-text>
 
 				${this.#renderClearAllFacetsLink()}
 			</div>
@@ -1637,14 +1666,23 @@ class MMX_ProductList extends MMX_Element {
 		const url = this.#buildUrlToSelf({Offset: 0, omitFacets: true});
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				part="clear-all"
-				class="mmx-product-list__clear-all"
+				class="mmx-pcinet-product-list__clear-all"
 				data-style="secondary-link"
-				href="${MMX.encodeEntities(url)}"
+				href="${MMXPCINET.encodeEntities(url)}"
+				style="
+					--mmx-pcinet-button--padding-desktop: 0;
+					--mmx-pcinet-button--padding-tablet: 0;
+					--mmx-pcinet-button--padding-mobile: 0;
+					--mmx-pcinet-button--font-size-desktop: 13px;
+					--mmx-pcinet-button--font-size-tablet: 13px;
+					--mmx-pcinet-button--font-size-mobile: 13px;
+					color: var(--mmx-pcinet-color-black);
+				"
 			>
-				<mmx-icon data-size="0.75em" data-name="cross"></mmx-icon> Clear All
-			</mmx-button>
+				<mmx-pcinet-icon data-size="0.75em" data-name="cross"></mmx-pcinet-icon> Clear All
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -1652,13 +1690,13 @@ class MMX_ProductList extends MMX_Element {
 	#renderAppliedFacets() {
 		const appliedFacets = this.#facets.map(facet => this.#renderAppliedFacet(facet)).join('');
 
-		if (MMX.valueIsEmpty(appliedFacets)) {
+		if (MMXPCINET.valueIsEmpty(appliedFacets)) {
 			return '';
 		}
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__facet-applied-values"
+				class="mmx-pcinet-product-list__facet-applied-values"
 				part="facet-applied-values"
 			>
 				${appliedFacets}
@@ -1676,14 +1714,14 @@ class MMX_ProductList extends MMX_Element {
 		const clearFacetUrl = this.#getUrlToClearFacet({facet, facetValue});
 
 		return /*html*/`
-			<mmx-button
+			<mmx-pcinet-button
 				data-style="pill"
-				title='Remove "${MMX.encodeEntities(facetValue.prompt)}"?'
-				href="${MMX.encodeEntities(clearFacetUrl)}"
+				title='Remove "${MMXPCINET.encodeEntities(facetValue.prompt)}"?'
+				href="${MMXPCINET.encodeEntities(clearFacetUrl)}"
 			>
-				<mmx-icon data-size="0.75em" data-name="cross"></mmx-icon>
 				${facetValue.prompt}
-			</mmx-button>
+				<mmx-pcinet-icon data-size="0.75em" data-name="cross"></mmx-pcinet-icon>
+			</mmx-pcinet-button>
 		`;
 	}
 
@@ -1699,16 +1737,16 @@ class MMX_ProductList extends MMX_Element {
 
 	#renderFacetsList() {
 		return /*html*/`
-			<mmx-accordion
+			<mmx-pcinet-accordion
 				part="facet-list"
-				class="mmx-product-list__facet-list"
+				class="mmx-pcinet-product-list__facet-list"
 				data-border-location="underline"
 				data-icon-location="right"
 			>
 				${this.#facets.map(facet => {
 					return this.#renderFacet(facet);
 				}).join('')}
-			</mmx-accordion>
+			</mmx-pcinet-accordion>
 		`;
 	}
 
@@ -1717,29 +1755,29 @@ class MMX_ProductList extends MMX_Element {
 		return /*html*/`
 			<details
 				slot="details"
-				part="facet facet--${MMX.encodeEntities(facet.code)}"
-				class="mmx-product-list__facet mmx-accordion__details"
+				part="facet facet--${MMXPCINET.encodeEntities(facet.code)}"
+				class="mmx-pcinet-product-list__facet mmx-pcinet-accordion__details"
 				${this.#desktopBreakpoint.matches ? 'open' : ''}
 			>
-				<summary class="mmx-accordion__heading">
-					<mmx-text
-						class="mmx-product-list__facet-title mmx-accordion__heading-text"
+				<summary class="mmx-pcinet-accordion__heading">
+					<mmx-pcinet-text
+						class="mmx-pcinet-product-list__facet-title mmx-pcinet-accordion__heading-text"
 						part="facet-title"
-						data-style="${MMX.encodeEntities(this.getPropValue('facet-style'))}"
-						style="${MMX.encodeEntities(this.getPropValue('facet-styles'))}"
+						data-style="${MMXPCINET.encodeEntities(this.getPropValue('facet-style'))}"
+						style="${MMXPCINET.encodeEntities(this.getPropValue('facet-styles'))}"
 					>
 						${facet?.name}
-					</mmx-text>
-					<mmx-icon
-						class="mmx-accordion__heading-icon-open"
-						data-name="subtract"
-					></mmx-icon>
-					<mmx-icon
-						class="mmx-accordion__heading-icon-closed"
-						data-name="add"
-					></mmx-icon>
+					</mmx-pcinet-text>
+					<mmx-pcinet-icon
+						class="mmx-pcinet-accordion__heading-icon-open"
+						data-name="chevron-down"
+					></mmx-pcinet-icon>
+					<mmx-pcinet-icon
+						class="mmx-pcinet-accordion__heading-icon-closed"
+						data-name="chevron-up"
+					></mmx-pcinet-icon>
 				</summary>
-				<div class="mmx-accordion__content">
+				<div class="mmx-pcinet-accordion__content">
 					${this.#renderFacetValuesByType(facet)}
 				</div>
 			</details>
@@ -1766,7 +1804,7 @@ class MMX_ProductList extends MMX_Element {
 	#renderFacetValuesControls(facet) {
 		return /*html*/`
 			<fieldset
-				class="mmx-product-list__facet-values mmx-form-fieldset"
+				class="mmx-pcinet-product-list__facet-values mmx-pcinet-form-fieldset"
 				part="facet-values facet-values-list"
 			>
 				${facet?.values?.map(facetValue => this.#renderFacetValueControl({facet, facetValue})).join('')}
@@ -1777,23 +1815,23 @@ class MMX_ProductList extends MMX_Element {
 	#renderFacetValueControl({facet, facetValue, depth = 0} = {}) {
 		const controlType = facet.type === 'radio' ? 'radio' : 'checkbox';
 		const checked = facetValue.selected ? 'checked' : '';
-		depth = MMX.coerceNumber(depth);
+		depth = MMXPCINET.coerceNumber(depth);
 
 		return /*html*/`
 			<label
-				class="mmx-product-list__facet-value mmx-form-${controlType}"
+				class="mmx-pcinet-product-list__facet-value mmx-pcinet-form-${controlType}"
 				part="facet-value"
-				style="--mmx-product-list__facet-value-depth: ${depth};"
+				style="--mmx-pcinet-product-list__facet-value-depth: ${depth};"
 				data-depth="${depth}"
 			>
 				<input
 					type="${controlType}"
-					class="mmx-form-${controlType}__input"
-					name="${MMX.encodeEntities(facet.code)}"
-					value="${MMX.encodeEntities(facetValue.value)}"
+					class="mmx-pcinet-form-${controlType}__input"
+					name="${MMXPCINET.encodeEntities(facet.code)}"
+					value="${MMXPCINET.encodeEntities(facetValue.value)}"
 					${checked}
 				>
-				<span class="mmx-form-caption">${facetValue.prompt}</span>
+				<span class="mmx-pcinet-form-caption">${facetValue.prompt}</span>
 				${this.#renderFacetValueCount(facetValue)}
 			</label>
 		`;
@@ -1805,7 +1843,7 @@ class MMX_ProductList extends MMX_Element {
 		}
 
 		return /*html*/`
-			<span part="facet-value-count" class="mmx-product-list__facet-value-count">(${facetValue.count})</span>
+			<span part="facet-value-count" class="mmx-pcinet-product-list__facet-value-count">(${facetValue.count})</span>
 		`;
 	}
 
@@ -1818,9 +1856,9 @@ class MMX_ProductList extends MMX_Element {
 	}
 
 	#uncheckNestedFacetValues(facetValue) {
-		const currentDepth = MMX.coerceNumber(facetValue?.dataset?.depth);
+		const currentDepth = MMXPCINET.coerceNumber(facetValue?.dataset?.depth);
 		const nextFacetValue = facetValue?.nextElementSibling;
-		const nextDepth = MMX.coerceNumber(nextFacetValue?.dataset?.depth);
+		const nextDepth = MMXPCINET.coerceNumber(nextFacetValue?.dataset?.depth);
 		const nextCheckbox = nextFacetValue?.querySelector('[type="checkbox"]');
 
 		if (nextDepth > currentDepth && nextCheckbox.checked) {
@@ -1833,12 +1871,12 @@ class MMX_ProductList extends MMX_Element {
 	#renderFacetValuesSelect(facet) {
 		return /*html*/`
 			<div
-				class="mmx-product-list__facet-values mmx-form-select"
+				class="mmx-pcinet-product-list__facet-values mmx-pcinet-form-select"
 				part="facet-values facet-values-select"
 			>
 				<select
-					name="${MMX.encodeEntities(facet.code)}"
-					class="mmx-form-select__dropdown"
+					name="${MMXPCINET.encodeEntities(facet.code)}"
+					class="mmx-pcinet-form-select__dropdown"
 					part="facet-values facet-values-select-dropdown"
 				>
 					<option value="">&lt;Select One&gt;</option>
@@ -1851,14 +1889,14 @@ class MMX_ProductList extends MMX_Element {
 	#renderFacetValuesSelectOption({facet, facetValue} = {}) {
 		const selected = facetValue.selected ? 'selected' : '';
 
-		return /*html*/`<option value="${MMX.encodeEntities(facetValue.value)}" ${selected}>${facetValue.prompt}</option>`;
+		return /*html*/`<option value="${MMXPCINET.encodeEntities(facetValue.value)}" ${selected}>${facetValue.prompt}</option>`;
 	}
 
 	// Nested Facet
 	#renderFacetValuesNested(facet) {
 		return /*html*/`
 			<div
-				class="mmx-product-list__facet-values"
+				class="mmx-pcinet-product-list__facet-values"
 				part="facet-values facet-values-nested"
 			>
 				${this.#renderFacetValuesNestedApplied({facet})}
@@ -1894,18 +1932,18 @@ class MMX_ProductList extends MMX_Element {
 
 		return /*html*/`
 			<div
-				class="mmx-product-list__facet-values"
+				class="mmx-pcinet-product-list__facet-values"
 				part="facet-values facet-values-range"
 			>
-				<mmx-form-input-range
-					data-name="${MMX.encodeEntities(facet.code)}"
-					data-min="${MMX.encodeEntities(facet.value_low)}"
-					data-max="${MMX.encodeEntities(facet.value_high)}"
-					data-low="${MMX.encodeEntities(low)}"
-					data-high="${MMX.encodeEntities(high)}"
+				<mmx-pcinet-form-input-range
+					data-name="${MMXPCINET.encodeEntities(facet.code)}"
+					data-min="${MMXPCINET.encodeEntities(facet.value_low)}"
+					data-max="${MMXPCINET.encodeEntities(facet.value_high)}"
+					data-low="${MMXPCINET.encodeEntities(low)}"
+					data-high="${MMXPCINET.encodeEntities(high)}"
 					data-formatter="${formatter}"
 				>
-				</mmx-form-input-range>
+				</mmx-pcinet-form-input-range>
 			</div>
 		`;
 	}
@@ -1920,8 +1958,26 @@ class MMX_ProductList extends MMX_Element {
 			<slot part="category-tree" name="category-tree"></slot>
 		`;
 	}
+
+	// Public Functions
+	#dropdownSlimSelect(dropdown) {
+		return new SlimSelect({
+			select: dropdown,
+			settings: {
+				showSearch: false,
+				disabled: dropdown.disabled,
+				contentPosition: 'fixed',
+				contentLocation: dropdown.parentElement,
+			},
+			events: {
+				afterChange: () => {
+					dropdown.dispatchEvent(new Event('input', {bubbles: true}));
+				}
+			}
+		});
+	}
 }
 
-if (!customElements.get('mmx-product-list')) {
-	customElements.define('mmx-product-list', MMX_ProductList);
+if (!customElements.get('mmx-pcinet-product-list')) {
+	customElements.define('mmx-pcinet-product-list', MMXPCINET_ProductList);
 }

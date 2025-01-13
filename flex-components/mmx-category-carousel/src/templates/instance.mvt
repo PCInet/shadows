@@ -6,8 +6,33 @@
 	<mvt:assign name="l.settings:component_id"	value="l.settings:instance_item:component_code $ '__' $ l.settings:instance_item:item_code" />
 </mvt:if>
 
+<mvt:comment> Load Categories from Page </mvt:comment>
+<mvt:if expr="l.settings:instance:category_group:from_page:value">
+	<mvt:if expr="l.settings:category:id">
+		<mvt:do file="g.Module_Library_DB" name="l.count" value="CategoryList_Load_Parent( l.settings:category:id, l.settings:subcategories )" />
+
+		<mvt:foreach iterator="subcategory" array="subcategories">
+			<mvt:assign name="l.child" value="''" />
+			<mvt:assign name="l.child:category" value="''" />
+			<mvt:assign name="l.child:category:category_code" value="l.settings:subcategory:code" />
+			<mvt:assign name="l.child:category:category" value="l.settings:subcategory" />
+
+			<mvt:assign name="l.child:image" value="''" />
+			<mvt:assign name="l.child:image:category_image" value="''" />
+			<mvt:assign name="l.child:image:category_image:settings:enabled" value="1" />
+			<mvt:assign name="l.child:image:category_image:value" value="'cattree'" />
+			<mvt:assign name="l.child:image:custom_image" value="''" />
+			<mvt:assign name="l.child:image:custom_image:settings:enabled" value="0" />
+
+			<mvt:assign name="l.settings:category:children" value="l.settings:category:children $ l.child" />
+
+			<mvt:assign name="l.void" value="miva_array_insert( l.settings:instance:category_group:categories:children, l.child, -1 )" />
+		</mvt:foreach>
+	</mvt:if>
+</mvt:if>
+
 <mvt:comment>Render Component</mvt:comment>
-<mmx-category-carousel
+<mmx-pcinet-category-carousel
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"	
 	data-flex-component="&mvte:instance_item:component_code;"
@@ -15,7 +40,7 @@
 	data-init="script"
 	data-fallback-image="graphics/00000001/catalog-fallback-image__200x200.jpg"
 	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 >
 	<mvt:comment>Init Script</mvt:comment>
 	<script type="application/json">
@@ -27,14 +52,18 @@
 		<mvt:if expr="ISNULL l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value OR l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value EQ 'default'">
 			<mvt:assign name="l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value" value="'title-1'" />
 		</mvt:if>
-		<mmx-text
+		<mmx-pcinet-text
 			slot="title"
 			data-style="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_tag:value;"
 			data-align="&mvte:instance:heading:heading_align:value;"
-			style="&mvte:instance:heading:heading_text:textsettings:styles:normal;"
+			style="
+				&mvte:instance:heading:heading_text:textsettings:styles:normal;
+				&mvte:instance:heading:heading_text:textsettings:styles:tablet;
+				&mvte:instance:heading:heading_text:textsettings:styles:mobile;
+			"
 		>
 			&mvte:instance:heading:heading_text:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
-</mmx-category-carousel>
+</mmx-pcinet-category-carousel>

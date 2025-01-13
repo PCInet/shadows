@@ -15,7 +15,8 @@
 	flex-direction: column;
 	max-width: var(--mmx-pcinet-hero__max-width);
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+	height: 100%;
 }
 
 .mmx-pcinet-hero--content-is-above-image {
@@ -30,6 +31,7 @@
 	justify-items: center;
 	align-items: center;
 	height: var(--mmx-pcinet-hero__max-height);
+	border-radius: 4px;
 	overflow: hidden;
 	position: relative;
 }
@@ -62,8 +64,8 @@ slot[name="image"]::slotted(*) {
    =========================================== */
 
 .mmx-pcinet-hero {
-  --mmx-pcinet-hero__iframe-width: 100vw;
-  --mmx-pcinet-hero__iframe-height: 100vh;
+	--mmx-pcinet-hero__iframe-width: 100vw;
+	--mmx-pcinet-hero__iframe-height: 100vh;
 }
 
 .mmx-pcinet-hero:is(.mmx-pcinet-hero--size-method--preset) .mmx-pcinet-hero__image-container > iframe,
@@ -109,6 +111,7 @@ slot[name="image"]::slotted(*) {
 	margin: var(--mmx-pcinet-hero__content-margin);
 	padding: var(--mmx-pcinet-hero__content-padding);
 	background: var(--mmx-pcinet-hero__content-bg-color--mobile);
+	border-radius: var(--mmx-pcinet-hero__content-bg-border-radius);
 	min-height: var(--mmx-pcinet-hero__content-height);
 	pointer-events: auto;
 }
@@ -158,7 +161,6 @@ slot + slot[name="button"],
 
 	.mmx-pcinet-hero__content {
 		background: var(--mmx-pcinet-hero__content-bg-color--desktop);
-		border-radius: 4px;
 		width: var(--mmx-pcinet-hero__content-width);
 		flex-wrap: wrap;
 	}
@@ -256,9 +258,9 @@ slot + slot[name="button"],
 
 .mmx-pcinet-hero--size--content .mmx-pcinet-hero__image-container {
 	height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: -1;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
 }
 
 .mmx-pcinet-hero--size--content .mmx-pcinet-hero__content-bg {
@@ -372,18 +374,18 @@ slot + slot[name="button"],
 }
 
 .mmx-pcinet-video-placeholder__icon {
-    align-items: center;
-    background: var(--mmx-pcinet-color-black);
-    border-radius: 100%;
-    color: var(--mmx-pcinet-color-white);
-    display: flex;
+	align-items: center;
+	background: var(--mmx-pcinet-color-black);
+	border-radius: 100%;
+	color: var(--mmx-pcinet-color-white);
+	display: flex;
 	font-size: 1.5rem;
-    height: 6rem;
-    justify-content: center;
-    opacity: 0.5;
+	height: 6rem;
+	justify-content: center;
+	opacity: 0.5;
 	padding-left: 0.25rem;
-    text-align: center;
-    width: 6rem;
+	text-align: center;
+	width: 6rem;
 }
 
 /* Hero > Product Card Styles

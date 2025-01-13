@@ -1,10 +1,10 @@
 {
-	"code": "mmx-image-across",
-	"name": "Image Across",
+	"code": "mmx-pcinet-image-across",
+	"name": "PCInet Image Across",
 	"type": "component",
-	"version": "10.11.00",
+	"version": "00.01.00",
 	"managed": true,
-	"resourcegroup_code": "mmx-image-across",
+	"resourcegroup_code": "mmx-pcinet-image-across",
 	"category": "image-across",
 	"preview_component_selector": "[data-page-code=\"%page_code%\"][data-flex-component=\"%component_code%\"][data-flex-item=\"%element_code%\"]",
 	"sample_data_types": "",
@@ -43,253 +43,338 @@
 					"prompt": "Heading Text",
 					"textsettings": {
 						"fields": [
-							{
-								"code": "heading_style",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Display One",
-										"value": "display-1"
-									},
-									{
-										"text": "Display Two",
-										"value": "display-2"
-									},
-									{
-										"text": "Display Three",
-										"value": "display-3"
-									},
-									{
-										"text": "Title One",
-										"value": "title-1"
-									},
-									{
-										"text": "Title Two",
-										"value": "title-2"
-									},
-									{
-										"text": "Title Three",
-										"value": "title-3"
-									},
-									{
-										"text": "Title Four",
-										"value": "title-4"
-									},
-									{
-										"text": "Subheading Large",
-										"value": "subheading-l"
-									},
-									{
-										"text": "Subheading Small",
-										"value": "subheading-s"
-									},
-									{
-										"text": "Subheading Extra-Small",
-										"value": "subheading-xs"
-									},
-									{
-										"text": "Paragraph Large",
-										"value": "paragraph-l"
-									},
-									{
-										"text": "Paragraph Small",
-										"value": "paragraph-s"
-									},
-									{
-										"text": "Paragraph Extra-Small",
-										"value": "paragraph-xs"
-									}
-								],
-								"prompt": "Heading Style",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							},
-							{
-								"code": "font_family",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Helvetica",
-										"value": "Helvetica, sans-serif"
-									},
-									{
-										"text": "Georgia",
-										"value": "Georgia, serif"
-									},
-									{
-										"text": "Palatino Linotype",
-										"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
-									},
-									{
-										"text": "Times New Roman",
-										"value": "\"Times New Roman\", Times, serif"
-									},
-									{
-										"text": "Arial",
-										"value": "Arial, Helvetica, sans-serif"
-									},
-									{
-										"text": "Arial Black",
-										"value": "\"Arial Black\", Gadget, sans-serif"
-									},
-									{
-										"text": "Comic Sans MS",
-										"value": "\"Comic Sans MS\", cursive, sans-serif"
-									},
-									{
-										"text": "Impact",
-										"value": "Impact, Charcoal, sans-serif"
-									},
-									{
-										"text": "Lucida Sans Unicode",
-										"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
-									},
-									{
-										"text": "Tahoma",
-										"value": "Tahoma, Geneva, sans-serif"
-									},
-									{
-										"text": "Trebuchet MS",
-										"value": "\"Trebuchet MS\", Helvetica, sans-serif"
-									},
-									{
-										"text": "Verdana",
-										"value": "Verdana, Geneva, sans-serif"
-									},
-									{
-										"text": "Courier New",
-										"value": "\"Courier New\", Courier, monospace"
-									},
-									{
-										"text": "Lucida Console",
-										"value": "\"Lucida Console\", Monaco, monospace"
-									}
-								],
-								"prompt": "Font Family",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "font-family",
-								"type": "select"
-							},
-							{
-								"code": "font_size",
-								"label": "px",
-								"min": 1,
-								"prompt": "Font Size",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "one-third",
-								"style": "font-size",
-								"style_suffix": "px",
-								"text_type": "number",
-								"type": "text"
-							},
-							{
-								"code": "font_weight",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "Ultra-Thin",
-										"value": 100
-									},
-									{
-										"text": "Light",
-										"value": 200
-									},
-									{
-										"text": "Book",
-										"value": 300
-									},
-									{
-										"text": "Normal",
-										"value": 400
-									},
-									{
-										"text": "Medium",
-										"value": 500
-									},
-									{
-										"text": "Semi-Bold",
-										"value": 600
-									},
-									{
-										"text": "Bold",
-										"value": 700
-									},
-									{
-										"text": "Black",
-										"value": 900
-									}
-								],
-								"prompt": "Font Weight",
-								"pseudoclasses": [
-									"normal"
-								],
-								"size": "two-thirds",
-								"style": "font-weight",
-								"type": "select"
-							},
-							{
-								"code": "font_color",
-								"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
-								"prompt": "Font Color",
-								"pseudoclasses": [
-									"normal"
-								],
-								"style": "color",
-								"type": "color"
-							},
-							{
-								"code": "heading_tag",
-								"options": [
-									{
-										"text": "Default"
-									},
-									{
-										"text": "h1",
-										"value": "h1"
-									},
-									{
-										"text": "h2",
-										"value": "h2"
-									},
-									{
-										"text": "h3",
-										"value": "h3"
-									},
-									{
-										"text": "h4",
-										"value": "h4"
-									},
-									{
-										"text": "h5",
-										"value": "h5"
-									},
-									{
-										"text": "h6",
-										"value": "h6"
-									},
-									{
-										"text": "p",
-										"value": "p"
-									}
-								],
-								"prompt": "Heading Tag",
-								"pseudoclasses": [
-									"normal"
-								],
-								"type": "select"
-							}
+								{
+										"code": "heading_style",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Display One",
+														"value": "display-1"
+												},
+												{
+														"text": "Display Two",
+														"value": "display-2"
+												},
+												{
+														"text": "Display Three",
+														"value": "display-3"
+												},
+												{
+														"text": "Title One",
+														"value": "title-1"
+												},
+												{
+														"text": "Title Two",
+														"value": "title-2"
+												},
+												{
+														"text": "Title Three",
+														"value": "title-3"
+												},
+												{
+														"text": "Title Four",
+														"value": "title-4"
+												},
+												{
+														"text": "Subheading Large",
+														"value": "subheading-l"
+												},
+												{
+														"text": "Subheading Small",
+														"value": "subheading-s"
+												},
+												{
+														"text": "Subheading Extra-Small",
+														"value": "subheading-xs"
+												},
+												{
+														"text": "Paragraph Large",
+														"value": "paragraph-l"
+												},
+												{
+														"text": "Paragraph Small",
+														"value": "paragraph-s"
+												},
+												{
+														"text": "Paragraph Extra-Small",
+														"value": "paragraph-xs"
+												}
+										],
+										"prompt": "Heading Style",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								},
+								{
+										"code": "font_family",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Poppins",
+														"value": "\"Poppins\", sans-serif"
+												},
+												{
+														"text": "Inter",
+														"value": "\"Inter\", sans-serif"
+												},
+												{
+														"text": "Helvetica",
+														"value": "Helvetica, sans-serif"
+												},
+												{
+														"text": "Georgia",
+														"value": "Georgia, serif"
+												},
+												{
+														"text": "Palatino Linotype",
+														"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+												},
+												{
+														"text": "Times New Roman",
+														"value": "\"Times New Roman\", Times, serif"
+												},
+												{
+														"text": "Arial",
+														"value": "Arial, Helvetica, sans-serif"
+												},
+												{
+														"text": "Arial Black",
+														"value": "\"Arial Black\", Gadget, sans-serif"
+												},
+												{
+														"text": "Comic Sans MS",
+														"value": "\"Comic Sans MS\", cursive, sans-serif"
+												},
+												{
+														"text": "Impact",
+														"value": "Impact, Charcoal, sans-serif"
+												},
+												{
+														"text": "Lucida Sans Unicode",
+														"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+												},
+												{
+														"text": "Tahoma",
+														"value": "Tahoma, Geneva, sans-serif"
+												},
+												{
+														"text": "Trebuchet MS",
+														"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+												},
+												{
+														"text": "Verdana",
+														"value": "Verdana, Geneva, sans-serif"
+												},
+												{
+														"text": "Courier New",
+														"value": "\"Courier New\", Courier, monospace"
+												},
+												{
+														"text": "Lucida Console",
+														"value": "\"Lucida Console\", Monaco, monospace"
+												}
+										],
+										"prompt": "Font Family",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "font-family",
+										"type": "select"
+								},
+								{
+										"code": "font_size",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-desktop",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_tablet",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"tablet"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-tablet",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_size_mobile",
+										"label": "px",
+										"min": 1,
+										"prompt": "Font Size",
+										"pseudoclasses": [
+												"mobile"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--font-size-mobile",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "font_weight",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "Ultra-Thin",
+														"value": 100
+												},
+												{
+														"text": "Light",
+														"value": 200
+												},
+												{
+														"text": "Book",
+														"value": 300
+												},
+												{
+														"text": "Normal",
+														"value": 400
+												},
+												{
+														"text": "Medium",
+														"value": 500
+												},
+												{
+														"text": "Semi-Bold",
+														"value": 600
+												},
+												{
+														"text": "Bold",
+														"value": 700
+												},
+												{
+														"text": "Black",
+														"value": 900
+												}
+										],
+										"prompt": "Font Weight",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "two-thirds",
+										"style": "font-weight",
+										"type": "select"
+								},
+								{
+										"code": "font_color",
+										"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+										"prompt": "Font Color",
+										"pseudoclasses": [
+												"normal"
+										],
+										"style": "color",
+										"type": "color"
+								},
+								{
+										"code": "line_height",
+										"label": "px",
+										"prompt": "Line Height",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "line-height",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "letter_spacing",
+										"label": "px",
+										"prompt": "Letter Spacing",
+										"step": 0.001,
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "half",
+										"style": "letter-spacing",
+										"style_suffix": "px",
+										"text_type": "number",
+										"type": "text"
+								},
+								{
+										"code": "padding",
+										"placeholder": "top right bottom left",
+										"prompt": "Padding",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--padding",
+										"type": "text"
+								},
+								{
+										"code": "margin",
+										"placeholder": "top right bottom left",
+										"prompt": "Margin",
+										"pseudoclasses": [
+												"normal"
+										],
+										"size": "one-third",
+										"style": "--mmx-pcinet-text--margin",
+										"type": "text"
+								},
+								{
+										"code": "heading_tag",
+										"options": [
+												{
+														"text": "Default"
+												},
+												{
+														"text": "h1",
+														"value": "h1"
+												},
+												{
+														"text": "h2",
+														"value": "h2"
+												},
+												{
+														"text": "h3",
+														"value": "h3"
+												},
+												{
+														"text": "h4",
+														"value": "h4"
+												},
+												{
+														"text": "h5",
+														"value": "h5"
+												},
+												{
+														"text": "h6",
+														"value": "h6"
+												},
+												{
+														"text": "p",
+														"value": "p"
+												}
+										],
+										"prompt": "Heading Tag",
+										"pseudoclasses": [
+												"normal"
+										],
+										"type": "select"
+								}
 						]
 					},
 					"type": "text"
@@ -555,6 +640,14 @@
 									"text": "Default"
 								},
 								{
+									"text": "Poppins",
+									"value": "Poppins, sans-serif"
+								},
+								{
+									"text": "Inter",
+									"value": "Inter, sans-serif"
+								},
+								{
 									"text": "Helvetica",
 									"value": "Helvetica, sans-serif"
 								},
@@ -613,10 +706,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
 							"prompt": "Font Family",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-family",
 							"type": "select"
 						},
 						{
@@ -624,12 +713,25 @@
 							"label": "px",
 							"min": 1,
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
-							"prompt": "Font Size",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-size",
-							"style_suffix": "px",
+							"prompt": "Desktop Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_tablet",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"prompt": "Tablet Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_mobile",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"prompt": "Mobile Font Size",
 							"text_type": "number",
 							"type": "text"
 						},
@@ -674,10 +776,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
 							"prompt": "Font Weight",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-weight",
 							"type": "select"
 						},
 						{
@@ -685,11 +783,38 @@
 							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
 							"prompt": "Font Color",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "color",
 							"type": "color"
+						},
+						{
+							"code": "line_height",
+							"label": "px",
+							"prompt": "Line Height",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "letter_spacing",
+							"label": "px",
+							"step": 0.001,
+							"prompt": "Letter Spacing",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "padding",
+							"placeholder": "top right bottom left",
+							"prompt": "Padding",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"type": "text"
+						},
+						{
+							"code": "margin",
+							"placeholder": "top right bottom left",
+							"prompt": "Margin",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"heading\"]",
+							"type": "text"
 						}
 					],
 					"type": "group"
@@ -769,6 +894,14 @@
 									"text": "Default"
 								},
 								{
+									"text": "Poppins",
+									"value": "Poppins, sans-serif"
+								},
+								{
+									"text": "Inter",
+									"value": "Inter, sans-serif"
+								},
+								{
 									"text": "Helvetica",
 									"value": "Helvetica, sans-serif"
 								},
@@ -827,10 +960,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
 							"prompt": "Font Family",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-family",
 							"type": "select"
 						},
 						{
@@ -838,12 +967,25 @@
 							"label": "px",
 							"min": 1,
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
-							"prompt": "Font Size",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-size",
-							"style_suffix": "px",
+							"prompt": "Desktop Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_tablet",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"prompt": "Tablet Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_mobile",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"prompt": "Mobile Font Size",
 							"text_type": "number",
 							"type": "text"
 						},
@@ -888,10 +1030,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
 							"prompt": "Font Weight",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-weight",
 							"type": "select"
 						},
 						{
@@ -899,11 +1037,38 @@
 							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
 							"prompt": "Font Color",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "color",
 							"type": "color"
+						},
+						{
+							"code": "line_height",
+							"label": "px",
+							"prompt": "Line Height",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "letter_spacing",
+							"label": "px",
+							"step": 0.001,
+							"prompt": "Letter Spacing",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "padding",
+							"placeholder": "top right bottom left",
+							"prompt": "Padding",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"type": "text"
+						},
+						{
+							"code": "margin",
+							"placeholder": "top right bottom left",
+							"prompt": "Margin",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"subheading\"]",
+							"type": "text"
 						}
 					],
 					"type": "group"
@@ -983,6 +1148,14 @@
 									"text": "Default"
 								},
 								{
+									"text": "Poppins",
+									"value": "Poppins, sans-serif"
+								},
+								{
+									"text": "Inter",
+									"value": "Inter, sans-serif"
+								},
+								{
 									"text": "Helvetica",
 									"value": "Helvetica, sans-serif"
 								},
@@ -1041,10 +1214,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
 							"prompt": "Font Family",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-family",
 							"type": "select"
 						},
 						{
@@ -1052,12 +1221,25 @@
 							"label": "px",
 							"min": 1,
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
-							"prompt": "Font Size",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-size",
-							"style_suffix": "px",
+							"prompt": "Desktop Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_tablet",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"prompt": "Tablet Font Size",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_mobile",
+							"label": "px",
+							"min": 1,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"prompt": "Mobile Font Size",
 							"text_type": "number",
 							"type": "text"
 						},
@@ -1102,10 +1284,6 @@
 							],
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
 							"prompt": "Font Weight",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "font-weight",
 							"type": "select"
 						},
 						{
@@ -1113,11 +1291,38 @@
 							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
 							"prompt": "Font Color",
-							"pseudoclasses": [
-								"normal"
-							],
-							"style": "color",
 							"type": "color"
+						},
+						{
+							"code": "line_height",
+							"label": "px",
+							"prompt": "Line Height",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "letter_spacing",
+							"label": "px",
+							"step": 0.001,
+							"prompt": "Letter Spacing",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "padding",
+							"placeholder": "top right bottom left",
+							"prompt": "Padding",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"type": "text"
+						},
+						{
+							"code": "margin",
+							"placeholder": "top right bottom left",
+							"prompt": "Margin",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"body\"]",
+							"type": "text"
 						}
 					],
 					"type": "group"
@@ -1184,6 +1389,268 @@
 							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
 							"prompt": "Button Size",
 							"type": "select"
+						},
+						{
+							"code": "font_family",
+							"options": [
+								{
+									"text": "Default"
+								},
+								{
+									"text": "Poppins",
+									"value": "Poppins, sans-serif"
+								},
+								{
+									"text": "Inter",
+									"value": "Inter, sans-serif"
+								},
+								{
+									"text": "Helvetica",
+									"value": "Helvetica, sans-serif"
+								},
+								{
+									"text": "Georgia",
+									"value": "Georgia, serif"
+								},
+								{
+									"text": "Palatino Linotype",
+									"value": "\"Palatino Linotype\", \"Book Antiqua\", Palatino, serif"
+								},
+								{
+									"text": "Times New Roman",
+									"value": "\"Times New Roman\", Times, serif"
+								},
+								{
+									"text": "Arial",
+									"value": "Arial, Helvetica, sans-serif"
+								},
+								{
+									"text": "Arial Black",
+									"value": "\"Arial Black\", Gadget, sans-serif"
+								},
+								{
+									"text": "Comic Sans MS",
+									"value": "\"Comic Sans MS\", cursive, sans-serif"
+								},
+								{
+									"text": "Impact",
+									"value": "Impact, Charcoal, sans-serif"
+								},
+								{
+									"text": "Lucida Sans Unicode",
+									"value": "\"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif"
+								},
+								{
+									"text": "Tahoma",
+									"value": "Tahoma, Geneva, sans-serif"
+								},
+								{
+									"text": "Trebuchet MS",
+									"value": "\"Trebuchet MS\", Helvetica, sans-serif"
+								},
+								{
+									"text": "Verdana",
+									"value": "Verdana, Geneva, sans-serif"
+								},
+								{
+									"text": "Courier New",
+									"value": "\"Courier New\", Courier, monospace"
+								},
+								{
+									"text": "Lucida Console",
+									"value": "\"Lucida Console\", Monaco, monospace"
+								}
+							],
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Font Family",
+							"type": "select"
+						},
+						{
+							"code": "font_size",
+							"label": "px",
+							"min": 1,
+							"prompt": "Desktop Font Size",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_tablet",
+							"label": "px",
+							"min": 1,
+							"prompt": "Tablet Font Size",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_size_mobile",
+							"label": "px",
+							"min": 1,
+							"prompt": "Mobile Font Size",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_weight",
+							"options": [
+								{
+									"text": "Default"
+								},
+								{
+									"text": "Ultra-Thin",
+									"value": 100
+								},
+								{
+									"text": "Light",
+									"value": 200
+								},
+								{
+									"text": "Book",
+									"value": 300
+								},
+								{
+									"text": "Normal",
+									"value": 400
+								},
+								{
+									"text": "Medium",
+									"value": 500
+								},
+								{
+									"text": "Semi-Bold",
+									"value": 600
+								},
+								{
+									"text": "Bold",
+									"value": 700
+								},
+								{
+									"text": "Black",
+									"value": 900
+								}
+							],
+							"prompt": "Font Weight",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"type": "select"
+						},
+						{
+							"code": "line_height",
+							"label": "px",
+							"prompt": "Line Height",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "letter_spacing",
+							"label": "px",
+							"prompt": "Letter Spacing",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"step": 0.001,
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "font_color",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Font Color",
+							"type": "color"
+						},
+						{
+							"code": "background_color",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Background Color",
+							"type": "color"
+						},
+						{
+							"code": "border_width",
+							"label": "px",
+							"min": 0,
+							"prompt": "Border Width",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "border_color",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Border Color",
+							"type": "color"
+						},
+						{
+							"code": "font_color_hover",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Hover Font Color",
+							"type": "color"
+						},
+						{
+							"code": "background_color_hover",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Hover Background Color",
+							"type": "color"
+						},
+						{
+							"code": "border_width_hover",
+							"label": "px",
+							"min": 0,
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Hover Border Width",
+							"text_type": "number",
+							"type": "text"
+						},
+						{
+							"code": "border_color_hover",
+							"placeholder": "#000000, rgba(0,0,0,0), hsl(0,0,0)",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Hover Border Color",
+							"type": "color"
+						},
+						{
+							"code": "border_radius",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Border Radius",
+							"type": "text"
+						},
+						{
+							"code": "box_shadow",
+							"placeholder": "inset 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0)",
+							"prompt": "Box Shadow",
+							"type": "text"
+						},
+						{
+							"code": "margin",
+							"placeholder": "top right bottom left",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Margin",
+							"type": "text"
+						},
+						{
+							"code": "padding",
+							"placeholder": "top right bottom left",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Desktop Padding",
+							"type": "text"
+						},
+						{
+							"code": "padding_tablet",
+							"placeholder": "top right bottom left",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Tablet Padding",
+							"type": "text"
+						},
+						{
+							"code": "padding_mobile",
+							"placeholder": "top right bottom left",
+							"preview_property_selector": "mmx-hero[slot=\"image\"] [slot=\"button\"]",
+							"prompt": "Mobile Padding",
+							"type": "text"
 						}
 					],
 					"type": "group"
@@ -1193,6 +1660,13 @@
 		}
 	],
 	"advanced_properties": [
+		{
+			"code": "border_radius",
+			"label": "px",
+			"prompt": "Border Radius",
+			"text_type": "number",
+			"type": "text"
+		},
 		{
 			"code": "loading",
 			"options": [
@@ -1548,19 +2022,11 @@
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-image-across.js",
-			"resource_code": "mmx-image-across",
+			"resource_code": "mmx-pcinet-image-across",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-kQWMePp5EwFWolHcpn6ARkX1vDEl/8+Ya3dTAJ5WVwY= sha384-5J4U5v+LCP9yP7DWiWStsfXYCVUzY4MtOjTmOBjDQvCUbJb9/XVspyPIC6jAqTBY sha512-MsAz238AwMCu5sNtgCcL4cVacdCPrskprPP6WFkbaROvHYB4VeT2nzDmB5/KD1rFNztPNerdDMfB73m8wQXKdw=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -1568,7 +2034,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-image-across.css",
-			"resource_code": "mmx-image-across",
+			"resource_code": "mmx-pcinet-image-across",
 			"attributes": [
 				{
 					"name": "type",
@@ -1581,22 +2047,14 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-dTczy53i5hh+g+vpZit4BW5YFvdfDNoJQDNLB3hJkWQ= sha384-bPVz6Bc9OHVJ/ed10RFn5jDyQvacf89XS7QzJ7vqpUUnf6CgzesMsO0Oo3d3z3i+ sha512-KuHP7j6E/CXFajtT0PudpwmK9b/2ubgcSzSuyDlQWo1bgqCNrUdRyJ7aBorGe5ip8Yrf29G5mt1Rk7s13El+xg=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00",
-		"mmx-button": "=10.11.00",
-		"mmx-hero": "=10.11.00",
-		"mmx-text": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00",
+		"mmx-pcinet-button": "=00.01.00",
+		"mmx-pcinet-hero": "=00.01.00",
+		"mmx-pcinet-text": "=00.01.00"
 	}
 }

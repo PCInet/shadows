@@ -4,10 +4,12 @@
 <template class="mmx-pcinet-resources">
 	<mvt:item name="head" param="css:mmx-pcinet-text" />
 	<mvt:item name="head" param="css:mmx-pcinet-button" />
+	<mvt:item name="head" param="css:mmx-pcinet-badge" />
 	<mvt:item name="head" param="css:mmx-pcinet-hero" />
 </template>
 
 <mvt:item name="head" param="js:mmx-pcinet-base" />
 <mvt:item name="head" param="js:mmx-pcinet-text" />
 <mvt:item name="head" param="js:mmx-pcinet-button" />
+<mvt:item name="head" param="js:mmx-pcinet-badge" />
 <mvt:item name="head" param="js:mmx-pcinet-hero" />

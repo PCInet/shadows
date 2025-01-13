@@ -19,12 +19,12 @@
 </mvt:if>
 
 <mvt:comment>Render Component</mvt:comment>
-<mmx-image-across
+<mmx-pcinet-image-across
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
 	data-flex-item="&mvte:instance_item:item_code;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;"
 	data-columns="&mvte:instance:advanced:desktop:column_count:value;"
 	data-overflow="&mvte:instance:advanced:mobile:overflow_behavior:value;"
@@ -36,7 +36,7 @@
 		<mvt:if expr="ISNULL l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value OR l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value EQ 'default'">
 			<mvt:assign name="l.settings:instance:heading:heading_text:textsettings:fields:normal:heading_style:value" value="'title-1'" />
 		</mvt:if>
-		<mmx-text
+		<mmx-pcinet-text
 			slot="title"
 			data-style="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_style:value;"
 			data-tag="&mvte:instance:heading:heading_text:textsettings:fields:normal:heading_tag:value;"
@@ -44,7 +44,7 @@
 			style="&mvte:instance:heading:heading_text:textsettings:styles:normal;"
 		>
 			&mvte:instance:heading:heading_text:value;
-		</mmx-text>
+		</mmx-pcinet-text>
 	</mvt:if>
 
 	<mvt:foreach iterator="image_across" array="instance:images_group:images_across:children">
@@ -54,7 +54,7 @@
 		<mvt:assign name="l.settings:image_across:link:html:attr:data_target" value="ternary( l.settings:image_across:link:new_tab, '_blank', '' )" />
 
 		<mvt:comment>Render Hero</mvt:comment>
-		<mmx-hero
+		<mmx-pcinet-hero
 			slot="image"
 			data-href="&mvte:image_across:link:url;"
 			data-target="&mvte:image_across:link:html:attr:data_target;"
@@ -67,6 +67,7 @@
 			data-content-theme="&mvte:instance:advanced:content_theme:value;"
 			data-overflow="&mvte:instance:advanced:mobile:overflow_behavior:value;"
 			data-fit="&mvte:instance:images_group:image_fit:value;"
+			style="border-radius: &mvte:instance:advanced:border_radius:value;px;overflow: hidden;"
 		>
 			<mvt:comment>Slotted Image</mvt:comment>
 			<picture slot="image">
@@ -84,45 +85,63 @@
 			<mvt:comment>Slotted Content</mvt:comment>
 			<mvt:if expr="l.settings:image_across:text:settings:enabled">
 				<mvt:if expr="NOT ISNULL l.settings:image_across:text:subheading:value">
-					<mmx-text
+					<mmx-pcinet-text
 						slot="subheading"
 						data-style="&mvte:instance:content_styles:subheading_text_styles:subheading_style:value;"
 						style="
 							font-family: &mvte:instance:content_styles:subheading_text_styles:font_family;;
-							font-size: &mvte:instance:content_styles:subheading_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-desktop: &mvte:instance:content_styles:subheading_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-tablet: &mvte:instance:content_styles:subheading_text_styles:font_size_tablet;px;
+							--mmx-pcinet-text--font-size-mobile: &mvte:instance:content_styles:subheading_text_styles:font_size_mobile;px;
 							font-weight: &mvte:instance:content_styles:subheading_text_styles:font_weight;;
 							color: &mvte:instance:content_styles:subheading_text_styles:font_color;;
+							line-height: &mvte:instance:content_styles:subheading_text_styles:line_height;px;
+							letter-spacing: &mvte:instance:content_styles:subheading_text_styles:letter_spacing;px;
+							--mmx-pcinet-text--padding: &mvte:instance:content_styles:subheading_text_styles:padding;;
+							--mmx-pcinet-text--margin: &mvte:instance:content_styles:subheading_text_styles:margin;;
 						"
 					>
 						&mvte:image_across:text:subheading:value;
-					</mmx-text>
+					</mmx-pcinet-text>
 				</mvt:if>
 
 				<mvt:if expr="NOT ISNULL l.settings:image_across:text:heading:value">
-					<mmx-text
+					<mmx-pcinet-text
 						slot="heading"
 						data-style="&mvte:instance:content_styles:heading_text_styles:heading_style:value;"
 						style="
 							font-family: &mvte:instance:content_styles:heading_text_styles:font_family;;
-							font-size: &mvte:instance:content_styles:heading_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-desktop: &mvte:instance:content_styles:heading_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-tablet: &mvte:instance:content_styles:heading_text_styles:font_size_tablet;px;
+							--mmx-pcinet-text--font-size-mobile: &mvte:instance:content_styles:heading_text_styles:font_size_mobile;px;
 							font-weight: &mvte:instance:content_styles:heading_text_styles:font_weight;;
 							color: &mvte:instance:content_styles:heading_text_styles:font_color;;
+							line-height: &mvte:instance:content_styles:heading_text_styles:line_height;px;
+							letter-spacing: &mvte:instance:content_styles:heading_text_styles:letter_spacing;px;
+							--mmx-pcinet-text--padding: &mvte:instance:content_styles:heading_text_styles:padding;;
+							--mmx-pcinet-text--margin: &mvte:instance:content_styles:heading_text_styles:margin;;
 						"
 					>
 						&mvte:image_across:text:heading:value;
-					</mmx-text>
+					</mmx-pcinet-text>
 				</mvt:if>
 
 				<mvt:if expr="NOT ISNULL l.settings:image_across:text:body:value">
-					<mmx-text
+					<mmx-pcinet-text
 						slot="body"
 						data-style="&mvte:instance:content_styles:body_text_styles:body_style:value;"
 						data-source="&mvte:image_across:text:body:source;"
 						style="
 							font-family: &mvte:instance:content_styles:body_text_styles:font_family;;
-							font-size: &mvte:instance:content_styles:body_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-desktop: &mvte:instance:content_styles:body_text_styles:font_size;px;
+							--mmx-pcinet-text--font-size-tablet: &mvte:instance:content_styles:body_text_styles:font_size_tablet;px;
+							--mmx-pcinet-text--font-size-mobile: &mvte:instance:content_styles:body_text_styles:font_size_mobile;px;
 							font-weight: &mvte:instance:content_styles:body_text_styles:font_weight;;
 							color: &mvte:instance:content_styles:body_text_styles:font_color;;
+							line-height: &mvte:instance:content_styles:body_text_styles:line_height;px;
+							letter-spacing: &mvte:instance:content_styles:body_text_styles:letter_spacing;px;
+							--mmx-pcinet-text--padding: &mvte:instance:content_styles:body_text_styles:padding;;
+							--mmx-pcinet-text--margin: &mvte:instance:content_styles:body_text_styles:margin;;
 						"
 					>
 						<mvt:if expr="l.settings:image_across:text:body:source EQ 'markdown'">
@@ -130,19 +149,42 @@
 						<mvt:else>
 							&mvte:image_across:text:body:value;
 						</mvt:if>
-					</mmx-text>
+					</mmx-pcinet-text>
 				</mvt:if>
 
 				<mvt:if expr="NOT ISNULL l.settings:image_across:text:button:value">
-					<mmx-button
+					<mmx-pcinet-button
 						slot="button"
 						data-style="&mvte:instance:content_styles:button_styles:button_style:value;"
 						data-size="&mvte:instance:content_styles:button_styles:button_size:value;"
+						data-styles="
+							--mmx-pcinet-button--font-family: &mvte:instance:content_styles:button_styles:font_family:value;;
+							--mmx-pcinet-button--font-size-desktop: &mvte:instance:content_styles:button_styles:font_size;px;
+							--mmx-pcinet-button--font-size-tablet: &mvte:instance:content_styles:button_styles:font_size_tablet;px;
+							--mmx-pcinet-button--font-size-mobile: &mvte:instance:content_styles:button_styles:font_size_mobile;px;
+							--mmx-pcinet-button--font-weight: &mvte:instance:content_styles:button_styles:font_weight:value;;
+							--mmx-pcinet-button--line-height: &mvte:instance:content_styles:button_styles:line_height;px;
+							--mmx-pcinet-button--letter-spacing: &mvte:instance:content_styles:button_styles:letter_spacing;px;
+							--mmx-pcinet-button--font-color: &mvte:instance:content_styles:button_styles:font_color:value;;
+							--mmx-pcinet-button--background-color: &mvte:instance:content_styles:button_styles:background_color:value;;
+							--mmx-pcinet-button--border-width: &mvte:instance:content_styles:button_styles:border_width;px;
+							--mmx-pcinet-button--border-color: &mvte:instance:content_styles:button_styles:border_color:value;;
+							--mmx-pcinet-button--border-color-hover: &mvte:instance:content_styles:button_styles:border_color_hover:value;;
+							--mmx-pcinet-button--background-color-hover: &mvte:instance:content_styles:button_styles:background_color_hover:value;;
+							--mmx-pcinet-button--font-color-hover: &mvte:instance:content_styles:button_styles:font_color_hover:value;;
+							--mmx-pcinet-button--border-width-hover: &mvte:instance:content_styles:button_styles:border_width_hover;px;
+							--mmx-pcinet-button--border-radius: &mvte:instance:content_styles:button_styles:border_radius;;
+							--mmx-pcinet-button--padding-desktop: &mvte:instance:content_styles:button_styles:padding;;
+							--mmx-pcinet-button--padding-tablet: &mvte:instance:content_styles:button_styles:padding_tablet;;
+							--mmx-pcinet-button--padding-mobile: &mvte:instance:content_styles:button_styles:padding_mobile;;
+							--mmx-pcinet-button--margin: &mvte:instance:content_styles:button_styles:margin;;
+							--mmx-pcinet-button--box-shadow: &mvte:instance:content_styles:button_styles:box_shadow;;
+						"
 					>
 						&mvte:image_across:text:button:value;
-					</mmx-button>
+					</mmx-pcinet-button>
 				</mvt:if>
 			</mvt:if>
-		</mmx-hero>
+		</mmx-pcinet-hero>
 	</mvt:foreach>
-</mmx-image-across>
+</mmx-pcinet-image-across>

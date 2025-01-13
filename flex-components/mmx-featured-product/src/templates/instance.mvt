@@ -9,18 +9,20 @@
 	<mvt:assign name="l.settings:component_id"	value="l.settings:instance_item:component_code $ '__' $ l.settings:instance_item:item_code" />
 </mvt:if>
 
-<mmx-featured-product
+<mmx-pcinet-featured-product
 	id="&mvte:component_id;"
 	data-page-code="&mvte:page_code;"
 	data-flex-component="&mvte:instance_item:component_code;"
 	data-flex-item="&mvte:instance_item:item_code;"
-	class="mmx-wrapper"
+	class="mmx-pcinet-wrapper"
 	style="margin-top: &mvte:instance:advanced:spacing:top:value;px; margin-bottom: &mvte:instance:advanced:spacing:bottom:value;px;"
 	data-bask-url="&mvte:urls:BASK:auto;"
 	data-init="script"
->
+>			<div part="error" class="mmx-pcinet-product-list__error">
+				<mmx-pcinet-message data-style="warning">We're unable to display the products: ${MMXPCINET.encodeEntities(this.#errorMessage ?? 'There was a problem loading the products')}</mmx-pcinet-message>
+			</div>
 	<mvt:comment>Init Script</mvt:comment>
 	<script type="application/json">
 		<mvt:eval expr="miva_json_encode( l.settings:instance, '')" />
 	</script>
-</mmx-featured-product>
+</mmx-pcinet-featured-product>

@@ -1,10 +1,10 @@
 {
-	"code": "mmx-accordion",
-	"name": "Accordion",
+	"code": "mmx-pcinet-accordion",
+	"name": "PCInet Accordion",
 	"type": "component",
-	"version": "10.11.00",
+	"version": "00.01.00",
 	"managed": true,
-	"resourcegroup_code": "mmx-accordion",
+	"resourcegroup_code": "mmx-pcinet-accordion",
 	"category": "accordion",
 	"preview_component_selector": "[data-page-code=\"%page_code%\"][data-flex-component=\"%component_code%\"][data-flex-item=\"%element_code%\"]",
 	"sample_data_types": "",
@@ -1100,19 +1100,11 @@
 	"scripts": [
 		{
 			"filepath": "src/js/mmx-accordion.js",
-			"resource_code": "mmx-accordion",
+			"resource_code": "mmx-pcinet-accordion",
 			"attributes": [
 				{
 					"name": "type",
 					"value": "text/javascript"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-Wr1Yp0v+o1P/7c0TsjvaR3bhYXJduCJWVqPWfoyr/ps= sha384-eZ8jwdco1CcgPh1E8Ya4d1YZk3MKFdJXbmJ0gC6N/9JdKUlwbm1I2e57PFxMyrE1 sha512-vU5lG0YrzrE8FuVxA+5uh7w4GnTMFSS3FnCMBI61W27Xj8uXeQS1o2ognluY2htghLHTLoFLLIhZz8jcFIdGLA=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
@@ -1120,7 +1112,7 @@
 	"styles": [
 		{
 			"filepath": "src/css/mmx-accordion.css",
-			"resource_code": "mmx-accordion",
+			"resource_code": "mmx-pcinet-accordion",
 			"attributes": [
 				{
 					"name": "type",
@@ -1133,21 +1125,13 @@
 				{
 					"name": "rel",
 					"value": "stylesheet"
-				},
-				{
-					"name": "integrity",
-					"value": "sha256-mNQRlE9iOgbuPqBwYQ29weYjZeI9liTKYp9AVSjnbNU= sha384-LVQq++wkWy18Pkezvo9rfYDbw06OpnrCJbS0Xfjqk8i7/8ro6PapxMSSWt80H4ex sha512-ZG5+OdIn83kOhdh42501cM9HZJ5vV2kQ8vz4aI53HxFx581iTwcwe43pHo3UR0S6U8y/BRtO7EJCU8ddJN76VQ=="
-				},
-				{
-					"name": "crossorigin",
-					"value": "anonymous"
 				}
 			]
 		}
 	],
 	"depends": {
-		"mmx-base": "=10.11.00",
-		"mmx-icons": "=10.11.00",
-		"mmx-text": "=10.11.00"
+		"mmx-pcinet-base": "=00.01.00",
+		"mmx-pcinet-icons": "=00.01.00",
+		"mmx-pcinet-text": "=00.01.00"
 	}
 }

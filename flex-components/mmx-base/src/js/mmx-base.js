@@ -785,7 +785,26 @@ class MMXPCINET_Element extends HTMLElement {
 				return styles;
 			}
 
+			if (key === 'line_height') {
+				value += 'px';
+			}
+
+			if (key === 'letter_spacing') {
+				value += 'px';
+			}
+
 			if (key === 'font_size') {
+				key = '--mmx-pcinet-text--font-size-desktop';
+				value += 'px';
+			}
+
+			if (key === 'font_size_tablet') {
+				key = '--mmx-pcinet-text--font-size-tablet';
+				value += 'px';
+			}
+
+			if (key === 'font_size_mobile') {
+				key = '--mmx-pcinet-text--font-size-mobile';
 				value += 'px';
 			}
 

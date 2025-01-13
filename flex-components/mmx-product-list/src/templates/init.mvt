@@ -1,15 +1,16 @@
 <mvt:comment>mmx-base</mvt:comment>
-<mvt:item name="head" param="css:mmx-base" />
-<mvt:item name="head" param="js:mmx-base" />
+<mvt:item name="head" param="css:mmx-pcinet-base" />
+<mvt:item name="head" param="js:mmx-pcinet-base" />
 
-<template class="mmx-resources">
+<template class="mmx-pcinet-resources">
 	<mvt:comment>mmx libraries</mvt:comment>
-	<mvt:item name="head" param="css:mmx-text" />
-	<mvt:item name="head" param="css:mmx-button" />
-	<mvt:item name="head" param="css:mmx-messages" />
-	<mvt:item name="head" param="css:mmx-forms" />
-	<mvt:item name="head" param="css:mmx-product-list" />
-	<mvt:item name="head" param="css:mmx-card" />
+	<mvt:item name="head" param="css:mmx-pcinet-text" />
+	<mvt:item name="head" param="css:mmx-pcinet-button" />
+	<mvt:item name="head" param="css:mmx-pcinet-messages" />
+	<link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet" data-resource-code="slim-select"></link>
+	<mvt:item name="head" param="css:mmx-pcinet-forms" />
+	<mvt:item name="head" param="css:mmx-pcinet-product-list" />
+	<mvt:item name="head" param="css:mmx-pcinet-card" />
 </template>
 
 <mvt:do file="g.Module_Feature_TUI_MGR" name="l.null" value="TemplateManager_Render_JSON_Variables( l.settings )" />
@@ -25,21 +26,23 @@
 <mvt:else>
 	<script>
 		function MMCurrencyFormatter(value, show_whole_numbers_only) {
-			return show_whole_numbers_only ? parseInt(MMX.coerceNumber(value, 0), 10) : MMX.coerceNumber(value, 0);
+			return show_whole_numbers_only ? parseInt(MMXPCINET.coerceNumber(value, 0), 10) : MMXPCINET.coerceNumber(value, 0);
 		}
 	</script>
 </mvt:if>
 
+<script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+
 <mvt:comment>mmx libraries</mvt:comment>
-<mvt:item name="head" param="js:mmx-text" />
-<mvt:item name="head" param="js:mmx-button" />
-<mvt:item name="head" param="js:mmx-icons" />
-<mvt:item name="head" param="js:mmx-messages" />
-<mvt:item name="head" param="js:mmx-forms" />
-<mvt:item name="head" param="js:mmx-product-list" />
-<mvt:item name="head" param="js:mmx-card" />
-<mvt:item name="head" param="css:mmx-accordion" />
-<mvt:item name="head" param="js:mmx-accordion" />
+<mvt:item name="head" param="js:mmx-pcinet-text" />
+<mvt:item name="head" param="js:mmx-pcinet-button" />
+<mvt:item name="head" param="js:mmx-pcinet-icons" />
+<mvt:item name="head" param="js:mmx-pcinet-messages" />
+<mvt:item name="head" param="js:mmx-pcinet-forms" />
+<mvt:item name="head" param="js:mmx-pcinet-product-list" />
+<mvt:item name="head" param="js:mmx-pcinet-card" />
+<mvt:item name="head" param="css:mmx-pcinet-accordion" />
+<mvt:item name="head" param="js:mmx-pcinet-accordion" />
 
 <mvt:comment>mmx-customizations</mvt:comment>
 <mvt:item name="head" param="css:mmx-customizations" />

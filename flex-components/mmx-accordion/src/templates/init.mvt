@@ -1,19 +1,19 @@
 <mvt:comment>mmx-base</mvt:comment>
-<mvt:item name="head" param="css:mmx-base" />
-<mvt:item name="head" param="js:mmx-base" />
+<mvt:item name="head" param="css:mmx-pcinet-base" />
+<mvt:item name="head" param="js:mmx-pcinet-base" />
 
-<template class="mmx-resources">
+<template class="mmx-pcinet-resources">
 	<mvt:comment>mmx libraries</mvt:comment>
-	<mvt:item name="head" param="css:mmx-text" />
+	<mvt:item name="head" param="css:mmx-pcinet-text" />
 </template>
 
 <mvt:comment>mmx libraries</mvt:comment>
-<mvt:item name="head" param="js:mmx-text" />
-<mvt:item name="head" param="js:mmx-icons" />
+<mvt:item name="head" param="js:mmx-pcinet-text" />
+<mvt:item name="head" param="js:mmx-pcinet-icons" />
 
 <mvt:comment>mmx-accordion</mvt:comment>
-<mvt:item name="head" param="css:mmx-accordion" />
-<mvt:item name="head" param="js:mmx-accordion" />
+<mvt:item name="head" param="css:mmx-pcinet-accordion" />
+<mvt:item name="head" param="js:mmx-pcinet-accordion" />
 
 <mvt:comment>mmx-customizations</mvt:comment>
 <mvt:item name="head" param="css:mmx-customizations" />

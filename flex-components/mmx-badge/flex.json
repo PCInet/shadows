@@ -1,14 +1,14 @@
 {
-	"code": "mmx-pcinet-messages",
-	"name": "MMX PCInet Messages",
+	"code": "mmx-pcinet-badge",
+	"name": "MMX PCInet Badge",
 	"type": "library",
 	"version": "00.01.00",
 	"managed": true,
-	"resourcegroup_code": "mmx-pcinet-messages",
+	"resourcegroup_code": "mmx-pcinet-badge",
 	"scripts": [
 		{
-			"filepath": "src/js/mmx-messages.js",
-			"resource_code": "mmx-pcinet-messages",
+			"filepath": "src/js/mmx-badge.js",
+			"resource_code": "mmx-pcinet-badge",
 			"attributes": [
 				{
 					"name": "type",
@@ -19,8 +19,8 @@
 	],
 	"styles": [
 		{
-			"filepath": "src/css/mmx-messages.css",
-			"resource_code": "mmx-pcinet-messages",
+			"filepath": "src/css/mmx-badge.css",
+			"resource_code": "mmx-pcinet-badge",
 			"attributes": [
 				{
 					"name": "type",
